@@ -4,7 +4,7 @@
   function initTheme(){
     applyTheme(localStorage.getItem(THEME_KEY)||'light');
     const btn=document.getElementById('themeToggle');
-    if(btn) btn.onclick=()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';localStorage.setItem(THEME_KEY,n);applyTheme(n);};
+    if(btn) btn.onclick=()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';localStorage.setItem(THEME_KEY,n);applyTheme(n);if(window.CS329A_mermaidInit){CS329A_mermaidInit();try{mermaid.run({querySelector:'.mermaid'});}catch(e){}}};
   }
   function initSidebar(){
     const btn=document.getElementById('sidebarToggle');

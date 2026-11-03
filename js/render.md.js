@@ -40,11 +40,15 @@
     const toc=document.getElementById('pageToc');
     if(toc){
       toc.innerHTML='<strong>本页目录</strong>';
-      el.querySelectorAll('h2,h3').forEach((h,idx)=>{
+      el.querySelectorAll('h2').forEach((h,idx)=>{
+        const raw=(h.textContent||'').trim();
+        if(/学习路径|视频|本页测验|小结/.test(raw) && !/（[一二三四五六七八九十]）/.test(raw)) return;
         if(!h.id) h.id='sec-'+idx;
+        let label=raw.replace(/\s*·\s*幻灯\s*[\d–—-]+\s*$/,'').trim();
+        label=label.replace(/^（([一二三四五六七八九十]+)）\s*/,'$1 · ');
+        if(label.length>18) label=label.slice(0,18)+'…';
         const a=document.createElement('a');
-        a.href='#'+h.id; a.textContent=(h.tagName==='H3'?'· ':'')+h.textContent;
-        if(h.tagName==='H3') a.style.paddingLeft='10px';
+        a.href='#'+h.id; a.textContent=label; a.title=raw;
         toc.appendChild(a);
       });
     }
