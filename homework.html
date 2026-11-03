@@ -27,9 +27,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
   <a class="brand" href="index.html">CS329A <span>自学站</span></a>
   <nav class="nav">
+    <a href="viz.html">可视化</a>
+    <a href="code-compare.html">源码对比</a>
+    <a href="glossary.html">术语表</a>
+    <a href="learning-path.html">学习路径</a>
+    
     <a href="index.html" class="">首页</a>
     <a href="learning-path.html" class="">学习路径</a>
-    <a href="lectures/P1.html" class="">讲次</a>
+    <a href="lectures/L01.html" class="">讲次</a>
     <a href="homework.html" class="active">作业复现</a>
     <a href="papers.html" class="">论文库</a>
     <a href="playground.html" class="">代码</a>
@@ -42,7 +47,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 </header>
 
 <div class="layout">
-<aside class="sidebar" id="sidebar"><h3>课表讲次</h3><a class="side-link" href="lectures/P1.html"><span class="ico">📚</span><span><div><b>P1</b> · L1</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="lectures/P2.html"><span class="ico">⚡</span><span><div><b>P2</b> · L2</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="lectures/P3.html"><span class="ico">✅</span><span><div><b>P3</b> · L3</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="lectures/P4.html"><span class="ico">🛠️</span><span><div><b>P4</b> · L4</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="lectures/P5.html"><span class="ico">🗺️</span><span><div><b>P5</b> · L5</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="lectures/P6.html"><span class="ico">🏋️</span><span><div><b>P6</b> · L6</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="lectures/L7.html"><span class="ico">🧬</span><span><div><b>L7</b> · L7</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="lectures/P7.html"><span class="ico">🔍</span><span><div><b>P7</b> · L8</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="lectures/L9.html"><span class="ico">✨</span><span><div><b>L9</b> · L9</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry </div></span></a><a class="side-link" href="lectures/P8.html"><span class="ico">📊</span><span><div><b>P8</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link" href="lectures/P9.html"><span class="ico">🚀</span><span><div><b>P9</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside>
+<aside class="sidebar" id="sidebar"><h3>课表讲次</h3><a class="side-link" href="lectures/L01.html"><span class="ico">📚</span><span><div><b>P1</b> · L1</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="lectures/L02.html"><span class="ico">⚡</span><span><div><b>P2</b> · L2</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="lectures/L03.html"><span class="ico">✅</span><span><div><b>P3</b> · L3</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="lectures/L04.html"><span class="ico">🛠️</span><span><div><b>P4</b> · L4</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="lectures/L05.html"><span class="ico">🗺️</span><span><div><b>P5</b> · L5</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="lectures/L06.html"><span class="ico">🏋️</span><span><div><b>P6</b> · L6</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="lectures/L07.html"><span class="ico">🧬</span><span><div><b>L7</b> · L7</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="lectures/L08.html"><span class="ico">🔍</span><span><div><b>P7</b> · L8</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="lectures/L09.html"><span class="ico">✨</span><span><div><b>L9</b> · L9</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry </div></span></a><a class="side-link" href="lectures/L17.html"><span class="ico">📊</span><span><div><b>P8</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link" href="lectures/L20.html"><span class="ico">🚀</span><span><div><b>P9</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside>
 <main class="main">
   <section class="hero">
     <div class="badge official">官方</div> <div class="badge self">自编 repro</div>
@@ -94,7 +99,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <li>pass@k / majority 样本相关：报告时写清 N、温度、种子。</li>
         <li>API 费用：先用 mock / 小模型验证管道再放大。</li>
       </ul>
-      <p><b>相关讲次</b>：<a href="lectures/P1.html">P1</a> · <a href="lectures/P2.html">P2</a> · <a href="lectures/P3.html">P3</a> · <a href="lectures/P4.html">P4</a></p>
+      <p><b>相关讲次</b>：<a href="lectures/L01.html">P1</a> · <a href="lectures/L02.html">P2</a> · <a href="lectures/L03.html">P3</a> · <a href="lectures/L04.html">P4</a></p>
       <p><a class="btn" href="homework/hw1/">打开官方镜像</a> <a class="btn secondary" href="repro/hw1/">自编 repro</a></p>
     </div>
   </details>
@@ -125,7 +130,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <li>沙箱逃逸：不要在未隔离环境执行模型生成的任意代码（生产必须容器/gVisor）。</li>
         <li>测试泄漏进 prompt。</li>
       </ul>
-      <p><b>相关讲次</b>：<a href="lectures/P3.html">P3</a> · <a href="lectures/P4.html">P4</a> · <a href="lectures/L13.html">L13</a></p>
+      <p><b>相关讲次</b>：<a href="lectures/L03.html">P3</a> · <a href="lectures/L04.html">P4</a> · <a href="lectures/L13.html">L13</a></p>
       <p><a class="btn secondary" href="repro/hw2/">自编 repro</a> <a class="btn secondary" href="playground.html?ex=pass_at_k.py">Pyodide pass@k</a></p>
     </div>
   </details>
@@ -155,7 +160,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <li>无停止条件导致费用爆炸：设 max_refine / 预算。</li>
         <li>路由错误级联：记录 trace 便于回放。</li>
       </ul>
-      <p><b>相关讲次</b>：<a href="lectures/P7.html">P7</a> · <a href="lectures/P8.html">P8</a> · <a href="lectures/L14.html">L14</a></p>
+      <p><b>相关讲次</b>：<a href="lectures/L08.html">P7</a> · <a href="lectures/L17.html">P8</a> · <a href="lectures/L14.html">L14</a></p>
       <p><a class="btn" href="homework/hw3/">打开官方镜像</a> <a class="btn secondary" href="repro/hw3/">自编 repro</a></p>
     </div>
   </details>

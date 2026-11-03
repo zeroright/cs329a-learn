@@ -1,0 +1,517 @@
+{
+  "L01": [
+    {
+      "t": 0,
+      "label": "开场与讲师",
+      "start_hm": "00:00",
+      "end_hm": "00:02",
+      "yt": "https://www.youtube.com/watch?v=6YnLB0XbTnI&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=0",
+      "source": "lesson_outline_HHMM",
+      "end": 120
+    },
+    {
+      "t": 120,
+      "label": "缩放定律、few-shot 与涌现 CoT",
+      "start_hm": "00:02",
+      "end_hm": "00:10",
+      "yt": "https://www.youtube.com/watch?v=6YnLB0XbTnI&t=120s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=120",
+      "source": "lesson_outline_HHMM",
+      "end": 600
+    },
+    {
+      "t": 600,
+      "label": "从预训练到「能聊天」：指令微调与 RLHF",
+      "start_hm": "00:10",
+      "end_hm": "00:19",
+      "yt": "https://www.youtube.com/watch?v=6YnLB0XbTnI&t=600s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=600",
+      "source": "lesson_outline_HHMM",
+      "end": 1140
+    },
+    {
+      "t": 1140,
+      "label": "新 frontier：推理时缩放（Monkeys 与 o1）",
+      "start_hm": "00:19",
+      "end_hm": "00:40",
+      "yt": "https://www.youtube.com/watch?v=6YnLB0XbTnI&t=1140s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=1140",
+      "source": "lesson_outline_HHMM",
+      "end": 2400
+    },
+    {
+      "t": 2400,
+      "label": "从 LLM 到 Agent 工作流与应用",
+      "start_hm": "00:40",
+      "end_hm": "01:00",
+      "yt": "https://www.youtube.com/watch?v=6YnLB0XbTnI&t=2400s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=2400",
+      "source": "lesson_outline_HHMM",
+      "end": 3600
+    },
+    {
+      "t": 3600,
+      "label": "课程后勤（评分与项目）",
+      "start_hm": "01:00",
+      "end_hm": "01:09",
+      "yt": "https://www.youtube.com/watch?v=6YnLB0XbTnI&t=3600s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=3600",
+      "source": "lesson_outline_HHMM"
+    }
+  ],
+  "L02": [
+    {
+      "t": 0,
+      "label": "Monkeys 与覆盖率定律",
+      "start_hm": "00:00",
+      "end_hm": "00:07",
+      "yt": "https://www.youtube.com/watch?v=-Ggc37xLj_Y&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=2&t=0",
+      "source": "lesson_outline_HHMM",
+      "end": 420
+    },
+    {
+      "t": 420,
+      "label": "Power Laws：为何是幂律？",
+      "start_hm": "00:07",
+      "end_hm": "00:12",
+      "yt": "https://www.youtube.com/watch?v=-Ggc37xLj_Y&t=420s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=2&t=420",
+      "source": "lesson_outline_HHMM",
+      "end": 720
+    },
+    {
+      "t": 720,
+      "label": "选择器鸿沟与课堂讨论",
+      "start_hm": "00:12",
+      "end_hm": "00:26",
+      "yt": "https://www.youtube.com/watch?v=-Ggc37xLj_Y&t=720s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=2&t=720",
+      "source": "lesson_outline_HHMM",
+      "end": 1560
+    },
+    {
+      "t": 1560,
+      "label": "Snell：最优测试时算力",
+      "start_hm": "00:26",
+      "end_hm": "00:45",
+      "yt": "https://www.youtube.com/watch?v=-Ggc37xLj_Y&t=1560s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=2&t=1560",
+      "source": "lesson_outline_HHMM",
+      "end": 2700
+    },
+    {
+      "t": 2700,
+      "label": "Archon / ITAS",
+      "start_hm": "00:45",
+      "end_hm": "01:03",
+      "yt": "https://www.youtube.com/watch?v=-Ggc37xLj_Y&t=2700s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=2&t=2700",
+      "source": "lesson_outline_HHMM"
+    }
+  ],
+  "L03": [
+    {
+      "t": 0,
+      "label": "Cobbe：早期 Verifier 与 GSM8K",
+      "start_hm": "00:00",
+      "end_hm": "00:18",
+      "yt": "https://www.youtube.com/watch?v=p7TdPUcPoik&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=3&t=0",
+      "source": "lesson_outline_HHMM",
+      "end": 1080
+    },
+    {
+      "t": 1080,
+      "label": "Lightman：ORM vs PRM 与 PRM800K",
+      "start_hm": "00:18",
+      "end_hm": "00:38",
+      "yt": "https://www.youtube.com/watch?v=p7TdPUcPoik&t=1080s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=3&t=1080",
+      "source": "lesson_outline_HHMM",
+      "end": 2280
+    },
+    {
+      "t": 2280,
+      "label": "Math-Shepherd：自动逐步标注",
+      "start_hm": "00:38",
+      "end_hm": "00:51",
+      "yt": "https://www.youtube.com/watch?v=p7TdPUcPoik&t=2280s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=3&t=2280",
+      "source": "lesson_outline_HHMM",
+      "end": 3060
+    },
+    {
+      "t": 3060,
+      "label": "Weaver：弱验证器集成",
+      "start_hm": "00:51",
+      "end_hm": "01:08",
+      "yt": "https://www.youtube.com/watch?v=p7TdPUcPoik&t=3060s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=3&t=3060",
+      "source": "lesson_outline_HHMM",
+      "end": 4080
+    },
+    {
+      "t": 4080,
+      "label": "收尾 Q&A",
+      "start_hm": "01:08",
+      "end_hm": "01:13",
+      "yt": "https://www.youtube.com/watch?v=p7TdPUcPoik&t=4080s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=3&t=4080",
+      "source": "lesson_outline_HHMM"
+    }
+  ],
+  "L04": [
+    {
+      "t": 0,
+      "label": "开场：三种反馈来源",
+      "start_hm": "00:00",
+      "end_hm": "00:05",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=0",
+      "source": "lesson_outline_HHMM",
+      "end": 300
+    },
+    {
+      "t": 300,
+      "label": "ReAct：推理与行动交织",
+      "start_hm": "00:05",
+      "end_hm": "00:17",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=300s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=300",
+      "source": "lesson_outline_HHMM",
+      "end": 1020
+    },
+    {
+      "t": 1020,
+      "label": "ReAct 实验数字（口播）",
+      "start_hm": "00:17",
+      "end_hm": "00:23",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=1020s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=1020",
+      "source": "lesson_outline_HHMM",
+      "end": 1380
+    },
+    {
+      "t": 1380,
+      "label": "课堂讨论题",
+      "start_hm": "00:23",
+      "end_hm": "00:27",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=1380s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=1380",
+      "source": "lesson_outline_HHMM",
+      "end": 1620
+    },
+    {
+      "t": 1620,
+      "label": "RLEF：执行反馈上的 RL",
+      "start_hm": "00:27",
+      "end_hm": "00:43",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=1620s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=1620",
+      "source": "lesson_outline_HHMM",
+      "end": 2580
+    },
+    {
+      "t": 2580,
+      "label": "Constitutional AI",
+      "start_hm": "00:43",
+      "end_hm": "01:00",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=2580s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=2580",
+      "source": "lesson_outline_HHMM",
+      "end": 3600
+    },
+    {
+      "t": 3600,
+      "label": "Recap",
+      "start_hm": "01:00",
+      "end_hm": "01:03",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=3600s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=3600",
+      "source": "lesson_outline_HHMM",
+      "end": 3780
+    },
+    {
+      "t": 3780,
+      "label": "Q&A",
+      "start_hm": "01:03",
+      "end_hm": "01:11",
+      "yt": "https://www.youtube.com/watch?v=Lxh9RF5S-K0&t=3780s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=3780",
+      "source": "lesson_outline_HHMM"
+    }
+  ],
+  "L05": [
+    {
+      "t": 0,
+      "label": "LATS：语言 Agent 树搜索",
+      "start_hm": "00:00",
+      "end_hm": "00:20",
+      "yt": "https://www.youtube.com/watch?v=Ml_fp9XkB8Y&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=5&t=0",
+      "source": "lesson_outline_HHMM",
+      "end": 1200
+    },
+    {
+      "t": 1200,
+      "label": "LATS 讨论",
+      "start_hm": "00:20",
+      "end_hm": "00:23",
+      "yt": "https://www.youtube.com/watch?v=Ml_fp9XkB8Y&t=1200s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=5&t=1200",
+      "source": "lesson_outline_HHMM",
+      "end": 1380
+    },
+    {
+      "t": 1380,
+      "label": "SPRINT：交错规划与并行执行",
+      "start_hm": "00:23",
+      "end_hm": "00:49",
+      "yt": "https://www.youtube.com/watch?v=Ml_fp9XkB8Y&t=1380s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=5&t=1380",
+      "source": "lesson_outline_HHMM",
+      "end": 2940
+    },
+    {
+      "t": 2940,
+      "label": "SWiRL：合成数据 + 逐步 RL",
+      "start_hm": "00:49",
+      "end_hm": "01:14",
+      "yt": "https://www.youtube.com/watch?v=Ml_fp9XkB8Y&t=2940s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=5&t=2940",
+      "source": "lesson_outline_HHMM"
+    }
+  ],
+  "L06": [
+    {
+      "t": 0,
+      "start_hm": "00:00",
+      "label": "开场：train-time scaling 与三篇预告",
+      "yt": "https://www.youtube.com/watch?v=yVnmHSAy3ck&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=6&t=0",
+      "source": "whisper_transcript",
+      "end": 1066,
+      "end_hm": "00:17"
+    },
+    {
+      "t": 1066,
+      "start_hm": "00:17",
+      "label": "STaR：rationale 自举",
+      "yt": "https://www.youtube.com/watch?v=yVnmHSAy3ck&t=1066s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=6&t=1066",
+      "source": "whisper_transcript",
+      "end": 2453,
+      "end_hm": "00:40"
+    },
+    {
+      "t": 2453,
+      "start_hm": "00:40",
+      "label": "DeepSeekMath / GRPO",
+      "yt": "https://www.youtube.com/watch?v=yVnmHSAy3ck&t=2453s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=6&t=2453",
+      "source": "whisper_transcript",
+      "end": 3189,
+      "end_hm": "00:53"
+    },
+    {
+      "t": 3189,
+      "start_hm": "00:53",
+      "label": "DAPO：大规模 RL 稳定技巧",
+      "yt": "https://www.youtube.com/watch?v=yVnmHSAy3ck&t=3189s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=6&t=3189",
+      "source": "whisper_transcript",
+      "end": 4070,
+      "end_hm": "01:07"
+    },
+    {
+      "t": 4070,
+      "start_hm": "01:07",
+      "label": "收束与研究方向",
+      "yt": "https://www.youtube.com/watch?v=yVnmHSAy3ck&t=4070s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=6&t=4070",
+      "source": "whisper_transcript"
+    }
+  ],
+  "L08": [
+    {
+      "t": 0,
+      "start_hm": "00:00",
+      "label": "开场：用搜索改进模型",
+      "yt": "https://www.youtube.com/watch?v=Uni9dqyuuDM&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=7&t=0",
+      "source": "whisper_transcript",
+      "end": 72,
+      "end_hm": "00:01"
+    },
+    {
+      "t": 72,
+      "start_hm": "00:01",
+      "label": "AlphaCode：大规模采样+过滤+聚类",
+      "yt": "https://www.youtube.com/watch?v=Uni9dqyuuDM&t=72s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=7&t=72",
+      "source": "whisper_transcript",
+      "end": 1498,
+      "end_hm": "00:24"
+    },
+    {
+      "t": 1498,
+      "start_hm": "00:24",
+      "label": "AlphaCode 2",
+      "yt": "https://www.youtube.com/watch?v=Uni9dqyuuDM&t=1498s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=7&t=1498",
+      "source": "whisper_transcript",
+      "end": 3158,
+      "end_hm": "00:52"
+    },
+    {
+      "t": 3158,
+      "start_hm": "00:52",
+      "label": "Search-o1 / Agentic RAG",
+      "yt": "https://www.youtube.com/watch?v=Uni9dqyuuDM&t=3158s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=7&t=3158",
+      "source": "whisper_transcript",
+      "end": 4102,
+      "end_hm": "01:08"
+    },
+    {
+      "t": 4102,
+      "start_hm": "01:08",
+      "label": "收束与作业提示",
+      "yt": "https://www.youtube.com/watch?v=Uni9dqyuuDM&t=4102s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=7&t=4102",
+      "source": "whisper_transcript"
+    }
+  ],
+  "L17": [
+    {
+      "t": 0,
+      "start_hm": "00:00",
+      "label": "开场：智能体评估与长时任务",
+      "yt": "https://www.youtube.com/watch?v=8JAqLnTaZu4&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=8&t=0",
+      "source": "whisper_transcript",
+      "end": 244,
+      "end_hm": "00:04"
+    },
+    {
+      "t": 244,
+      "start_hm": "00:04",
+      "label": "METR：时间视野",
+      "yt": "https://www.youtube.com/watch?v=8JAqLnTaZu4&t=244s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=8&t=244",
+      "source": "whisper_transcript",
+      "end": 1672,
+      "end_hm": "00:27"
+    },
+    {
+      "t": 1672,
+      "start_hm": "00:27",
+      "label": "GDPval：经济价值任务",
+      "yt": "https://www.youtube.com/watch?v=8JAqLnTaZu4&t=1672s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=8&t=1672",
+      "source": "whisper_transcript",
+      "end": 2371,
+      "end_hm": "00:39"
+    },
+    {
+      "t": 2371,
+      "start_hm": "00:39",
+      "label": "评测局限与长文档/综合任务",
+      "yt": "https://www.youtube.com/watch?v=8JAqLnTaZu4&t=2371s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=8&t=2371",
+      "source": "whisper_transcript",
+      "end": 4101,
+      "end_hm": "01:08"
+    },
+    {
+      "t": 4101,
+      "start_hm": "01:08",
+      "label": "答疑与收束",
+      "yt": "https://www.youtube.com/watch?v=8JAqLnTaZu4&t=4101s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=8&t=4101",
+      "source": "whisper_transcript"
+    }
+  ],
+  "L20": [
+    {
+      "t": 0,
+      "start_hm": "00:00",
+      "label": "开场与课程回顾",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=0s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=0",
+      "source": "whisper_transcript",
+      "end": 256,
+      "end_hm": "00:04"
+    },
+    {
+      "t": 256,
+      "start_hm": "00:04",
+      "label": "未来研究方向总览",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=256s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=256",
+      "source": "whisper_transcript",
+      "end": 415,
+      "end_hm": "00:06"
+    },
+    {
+      "t": 415,
+      "start_hm": "00:06",
+      "label": "多样推理链 / 多 Agent 微调",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=415s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=415",
+      "source": "whisper_transcript",
+      "end": 909,
+      "end_hm": "00:15"
+    },
+    {
+      "t": 909,
+      "start_hm": "00:15",
+      "label": "验证与元验证",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=909s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=909",
+      "source": "whisper_transcript",
+      "end": 2078,
+      "end_hm": "00:34"
+    },
+    {
+      "t": 2078,
+      "start_hm": "00:34",
+      "label": "验证瓶颈深讲",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=2078s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=2078",
+      "source": "whisper_transcript",
+      "end": 2481,
+      "end_hm": "00:41"
+    },
+    {
+      "t": 2481,
+      "start_hm": "00:41",
+      "label": "效率、合成数据与基础设施",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=2481s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=2481",
+      "source": "whisper_transcript",
+      "end": 3631,
+      "end_hm": "01:00"
+    },
+    {
+      "t": 3631,
+      "start_hm": "01:00",
+      "label": "具身 / 机器人插曲",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=3631s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=3631",
+      "source": "whisper_transcript",
+      "end": 3845,
+      "end_hm": "01:04"
+    },
+    {
+      "t": 3845,
+      "start_hm": "01:04",
+      "label": "致谢与收尾",
+      "yt": "https://www.youtube.com/watch?v=AyO6wyu4DEg&t=3845s",
+      "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=3845",
+      "source": "whisper_transcript"
+    }
+  ]
+}

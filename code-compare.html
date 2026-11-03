@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>源码对比 · CS329A</title><link rel="stylesheet" href="css/site.css"/><script src="js/app.js"></script></head>
+<body>
+<header class="topbar"><a class="brand" href="index.html">CS329A <span>自学站</span></a>
+<nav class="nav"><a href="index.html">首页</a><a href="viz.html">可视化</a><a href="code-compare.html" class="active">源码对比</a><a href="homework.html">作业</a></nav>
+<button class="iconbtn" id="themeToggle">◐</button></header>
+<main class="container" style="max-width:1100px;margin:1.5rem auto;padding:0 1rem">
+<h1>源码对比学习</h1>
+<callout></callout>
+<p><b>许可</b>：HW1 MIT、HW3 Apache-2.0 可对照 vendored 官方实现；<b>HW2 无许可证 → 仅外链 + 自写复现，不拷贝官方代码</b>。</p>
+
+<h2>HW1 · pass@k（MIT）</h2>
+<div class="code-cmp">
+<div><h3>【官方】摘录 / 仓库</h3>
+<pre id="hw1off"># 官方 HW1 源码请见仓库 vendored 目录或 GitHub
+# https://github.com/stanford-cs329a/cs329a-homework1-fall2025-public
+</pre>
+<p><a href="https://github.com/stanford-cs329a/cs329a-homework1-fall2025-public" target="_blank" rel="noopener">官方仓库</a></p></div>
+<div><h3>【自编复现】practice/examples/pass_at_k.py</h3>
+<pre id="hw1repro">&quot;&quot;&quot;自编: unbiased pass@k estimator + coverage curve (Monkeys / HumanEval style).&quot;&quot;&quot;
+from __future__ import annotations
+import math
+from collections import Counter
+
+def unbiased_pass_at_k(n: int, c: int, k: int) -&gt; float:
+    &quot;&quot;&quot;HumanEval unbiased estimator: 1 - C(n-c, k) / C(n, k).&quot;&quot;&quot;
+    if n - c &lt; k:
+        return 1.0
+    return 1.0 - math.comb(n - c, k) / math.comb(n, k)
+
+def coverage_power_law(ks, A=0.55, B=0.35):
+    &quot;&quot;&quot;Toy C(K) ≈ 1 - A * K^{-B} as in Large Language Monkeys.&quot;&quot;&quot;
+    return [1.0 - A * (k ** (-B)) for k in ks]
+
+def demo():
+    # Fake per-problem: n samples, c correct
+    problems = [(16, 3), (16, 0), (16, 8), (16, 1), (8, 2)]
+    for k in (1, 2, 4, 8):
+        scores = [unbiased_pass_at_k(n, c, min(k, n)) for n, c in problems]
+        print(f&quot;pass@{k} mean={sum(scores)/len(scores):.3f}  per={[&#x27;%.2f&#x27;%s for s in scores]}&quot;)
+    ks = [1, 2, 4, 8, 16, 32, 64]
+    cov = coverage_power_law(ks)
+    print(&quot;coverage toy:&quot;, list(zip(ks, [round(x, 3) for x in cov])))
+    # majority vs oracle best-of-n
+    samples = [&quot;42&quot;, &quot;7&quot;, &quot;42&quot;, &quot;42&quot;, &quot;99&quot;, &quot;7&quot;, &quot;42&quot;, &quot;3&quot;]
+    truth = &quot;42&quot;
+    maj = Counter(samples).most_common(1)[0][0]
+    best = truth if truth in samples else samples[0]
+    print(f&quot;majority={maj} best-of-n(oracle)={best} maj_ok={maj==truth}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    demo()</pre>
+<p>运行：<code>python practice/examples/pass_at_k.py</code></p></div>
+</div>
+
+<h2>HW2 · 仅链接（无许可证，不 vendoring）</h2>
+<p>官方：<a href="https://github.com/stanford-cs329a/cs329a-homework2-fall2025-public" target="_blank" rel="noopener">cs329a-homework2-fall2025-public</a>。本地只提供自写的 HumanEval 风格小练习，见 homework 页说明。</p>
+
+<h2>HW3 · API Agent（Apache-2.0）</h2>
+<div class="code-cmp">
+<div><h3>【官方】思路</h3>
+<pre># DeepResearchAgent / API routing — 见官方仓库与 ATTRIBUTION\n# https://github.com/stanford-cs329a/cs329a-homework3-fall2025-public</pre></div>
+<div><h3>【自编】ReAct 环</h3>
+<pre>&quot;&quot;&quot;自编: minimal ReAct loop with mock LLM + tools (no paid API).&quot;&quot;&quot;
+from __future__ import annotations
+
+TOOLS = {
+    &quot;search&quot;: lambda q: f&quot;[search:{q}] stub hit: Stanford CS329A teaches self-improving agents.&quot;,
+    &quot;calc&quot;: lambda expr: str(eval(expr, {&quot;__builtins__&quot;: {}}, {})),  # toy only
+}
+
+def mock_llm(step: int, question: str, obs: str | None) -&gt; tuple[str, str | None, str | None]:
+    &quot;&quot;&quot;Return (thought, action_or_none, final_or_none).&quot;&quot;&quot;
+    if step == 0:
+        return (&quot;Need course topic facts.&quot;, &quot;search[CS329A overview]&quot;, None)
+    if step == 1:
+        return (&quot;Have overview; compute 2+2 as sanity.&quot;, &quot;calc[2+2]&quot;, None)
+    return (&quot;Enough evidence.&quot;, None, f&quot;Answer: agents + verifiers. Obs calc={obs}&quot;)
+
+def run_react(question: str, max_steps: int = 5) -&gt; str:
+    transcript = []
+    obs = None
+    for t in range(max_steps):
+        thought, action, final = mock_llm(t, question, obs)
+        transcript.append(f&quot;Thought: {thought}&quot;)
+        if final:
+            transcript.append(f&quot;Final: {final}&quot;)
+            return &quot;\n&quot;.join(transcript)
+        assert action and &quot;[&quot; in action
+        name, arg = action[:-1].split(&quot;[&quot;, 1)
+        obs = TOOLS[name](arg)
+        transcript.append(f&quot;Action: {action}\nObservation: {obs}&quot;)
+    return &quot;\n&quot;.join(transcript) + &quot;\nFinal: (max steps)&quot;
+
+if __name__ == &quot;__main__&quot;:
+    print(run_react(&quot;What is CS329A about?&quot;))</pre>
+<p>运行：<code>python practice/examples/react_loop.py</code></p></div>
+</div>
+
+<h2>其它自编示例</h2>
+<ul>
+<li>majority_best_of_n.py · mcts_lats_toy.py · grpo_advantage.py · memgpt_memory.py · swe_patch_loop.py</li>
+</ul>
+</main></body></html>

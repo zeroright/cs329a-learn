@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>L20 · 未来研究方向与课程收尾 · CS329A</title>
+<link rel="stylesheet" href="../vendor/katex/katex.min.css"/>
+<link rel="stylesheet" href="../css/site.css"/>
+<script src="../vendor/marked.min.js"></script>
+<script defer src="../vendor/katex/katex.min.js"></script>
+<script defer src="../vendor/katex/auto-render.min.js"></script>
+<script defer src="../vendor/mermaid.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/render.md.js"></script>
+<script src="../js/quiz.js"></script>
+<script src="../js/flashcards.js"></script>
+<script src="../js/graph.js"></script>
+<script src="../data/meta.js"></script>
+<script src="../data/quizzes.js"></script>
+<script src="../data/flashcards.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window.mermaid) mermaid.initialize({startOnLoad:false, theme: document.documentElement.getAttribute('data-theme')==='dark'?'dark':'default'});
+});
+</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
+  <a class="brand" href="../index.html">CS329A <span>自学站</span></a>
+    <nav class="nav">
+    <a href="../viz.html">可视化</a>
+    <a href="../code-compare.html">源码对比</a>
+    <a href="../glossary.html">术语表</a>
+    <a href="../learning-path.html">学习路径</a>
+    
+    <a href="../index.html" class="">首页</a>
+    <a href="../learning-path.html" class="">学习路径</a>
+    <a href="../lectures/L20.html" class="active">讲次</a>
+    <a href="../homework.html" class="">作业复现</a>
+    <a href="../papers.html" class="">论文库</a>
+    <a href="../playground.html" class="">代码</a>
+    <a href="../assignments.html" class="">作业/项目</a>
+    <a href="../progress.html" class="">进度</a>
+    <a href="../search.html" class="">搜索</a>
+  </nav>
+  <form class="searchbox" id="searchForm"><input id="globalSearch" placeholder="全文搜索…" type="search"/><button class="iconbtn" type="submit">搜</button></form>
+  <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
+</header>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar"><h3>课表讲次（L01–L20）</h3><a class="side-link" href="L01.html"><span class="ico">📚</span><span><div><b>L01</b> · L01</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="L02.html"><span class="ico">⚡</span><span><div><b>L02</b> · L02</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="L03.html"><span class="ico">✅</span><span><div><b>L03</b> · L03</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="L04.html"><span class="ico">🛠️</span><span><div><b>L04</b> · L04</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="L05.html"><span class="ico">🗺️</span><span><div><b>L05</b> · L05</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="L06.html"><span class="ico">🏋️</span><span><div><b>L06</b> · L06</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="L07.html"><span class="ico">🧬</span><span><div><b>L07</b> · L07</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="L08.html"><span class="ico">🔍</span><span><div><b>L08</b> · L08</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="L09.html"><span class="ico">✨</span><span><div><b>L09</b> · L09</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="L10.html"><span class="ico">🎤</span><span><div><b>L10</b> · L10</div><div class="side-meta">期中项目展示（一）</div></span></a><a class="side-link" href="L11.html"><span class="ico">🎤</span><span><div><b>L11</b> · L11</div><div class="side-meta">期中项目展示（二）</div></span></a><a class="side-link" href="L12.html"><span class="ico">🎤</span><span><div><b>L12</b> · L12</div><div class="side-meta">期中项目展示（三）</div></span></a><a class="side-link" href="L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry 与超人类</div></span></a><a class="side-link" href="L17.html"><span class="ico">📊</span><span><div><b>L17</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link active" href="L20.html"><span class="ico">🚀</span><span><div><b>L20</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside>
+<main class="main">
+  <div class="hero">
+    <div class="badge bili">B站录音</div>
+    <div class="badge self">自测/闪卡自编</div>
+    <h1>🚀 L20 · 未来研究方向与课程收尾</h1>
+    <p class="badge">B站录音 · <a href="https://www.youtube.com/watch?v=AyO6wyu4DEg" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.bilibili.com/video/BV1tEu467ErN?p=9" target="_blank" rel="noopener">B站</a></p>
+    <p class="muted">日期（课表）：Sep 22 · 主题：缩放 · 后训练 · 推理时缩放 · Agent</p>
+    <div class="toolbar">
+      <button class="btn ok" id="markDone">标记本讲已完成</button>
+      <a class="btn secondary" href="../progress.html">查看进度</a>
+      <a class="btn secondary" href="../playground.html?ex=pass_at_k.py">pass_at_k.py</a>
+    </div>
+    <div class="progress-bar" style="margin-top:12px"><i id="doneBar" style="width:0%"></i></div>
+  </div>
+  <div class="toc" id="pageToc"></div>
+
+  <details class="section" open>
+    <summary>教案正文（课堂脉络 / 论文精读等） <span class="badge bili">B站录音</span></summary>
+    <div class="body content" id="lectureBody"></div>
+  </details>
+
+  <details class="section" open>
+    <summary>自测问答（自编 · 基于本页内容）</summary>
+    <div class="body" id="quizRoot"></div>
+  </details>
+
+  <details class="section" open>
+    <summary>闪卡（自编 · 概念/公式）</summary>
+    <div class="body" id="flashRoot"></div>
+  </details>
+</main>
+</div>
+<script src="../data/lectures.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const id="L20";
+  const host=document.getElementById('lectureBody');
+  renderMarkdown(LECTURE_MD[id], host);
+  // Split top-level H2 into collapsible sections
+  (function split(){
+    const kids=[...host.children];
+    if(!kids.length) return;
+    const frag=document.createDocumentFragment();
+    let cur=null, body=null;
+    function start(title, open){
+      cur=document.createElement('details'); cur.className='section'; if(open) cur.open=true;
+      const sum=document.createElement('summary'); sum.textContent=title; cur.appendChild(sum);
+      body=document.createElement('div'); body.className='body content'; cur.appendChild(body);
+      frag.appendChild(cur);
+    }
+    start('导言与目标', true);
+    kids.forEach(el=>{
+      if(el.tagName==='H2'){
+        const title=el.textContent.trim();
+        const open=/课堂脉络|论文精读|作业与实战|本课定位|学习目标/.test(title);
+        start(title, open || /作业/.test(title));
+      } else {
+        body.appendChild(el);
+      }
+    });
+    host.innerHTML=''; host.appendChild(frag);
+    // re-run mermaid/katex inside new containers
+    if(window.mermaid){try{mermaid.run({querySelector:'.mermaid'});}catch(e){}}
+    if(window.renderMathInElement){
+      host.querySelectorAll('.content').forEach(el=>renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false}));
+    }
+  })();
+  mountQuiz(document.getElementById('quizRoot'), id, (QUIZZES||{})[id]);
+  mountFlashcards(document.getElementById('flashRoot'), id, (FLASHCARDS||{})[id]||[]);
+  document.getElementById('markDone').onclick=()=>{
+    CS329A.markLectureDone(id);
+    document.getElementById('doneBar').style.width='100%';
+    alert('已标记完成（localStorage）');
+  };
+  const p=CS329A.loadProgress();
+  if(p.lectures && p.lectures[id] && p.lectures[id].done) document.getElementById('doneBar').style.width='100%';
+});
+</script>
+<div class="footer">内容来源：Canvas 教案 / Notion MD / practice 示例。官方作业标注【官方】；其余练习标注【自编】。Stanford CS329A Autumn 2025。</div>
+</body></html>

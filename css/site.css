@@ -91,3 +91,20 @@ a:hover{text-decoration:underline}
   .mobile-toggle{display:inline-flex}
   .searchbox input{width:42vw}
 }
+
+
+.viz-panel{display:grid;grid-template-columns:280px 1fr;gap:1rem;margin:1rem 0}
+.viz-controls label{display:block;margin:.5rem 0;font-size:.9rem}
+.viz-controls input[type=range]{width:100%}
+.viz-canvas{background:var(--card,#111);border-radius:12px;padding:1rem;min-height:320px}
+.viz-canvas canvas,.viz-canvas svg{max-width:100%}
+.code-cmp{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.code-cmp pre{max-height:420px;overflow:auto;font-size:.78rem}
+.diff-add{background:rgba(46,160,67,.25)}
+.diff-del{background:rgba(248,81,73,.25)}
+.progress-chip{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.75rem;margin:.15rem}
+.progress-chip.done{background:#1a7f37;color:#fff}
+.progress-chip.todo{background:#444;color:#ddd}
+.frame-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem}
+.frame-grid img{width:100%;border-radius:8px}
+@media(max-width:800px){.viz-panel,.code-cmp{grid-template-columns:1fr}}

@@ -27,9 +27,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
   <a class="brand" href="index.html">CS329A <span>自学站</span></a>
   <nav class="nav">
+    <a href="viz.html">可视化</a>
+    <a href="code-compare.html">源码对比</a>
+    <a href="glossary.html">术语表</a>
+    <a href="learning-path.html">学习路径</a>
+    
     <a href="index.html" class="">首页</a>
     <a href="learning-path.html" class="active">学习路径</a>
-    <a href="lectures/P1.html" class="">讲次</a>
+    <a href="lectures/L01.html" class="">讲次</a>
     <a href="homework.html" class="">作业复现</a>
     <a href="papers.html" class="">论文库</a>
     <a href="playground.html" class="">代码</a>
@@ -42,7 +47,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 </header>
 
 <div class="layout">
-<aside class="sidebar" id="sidebar"><h3>课表讲次</h3><a class="side-link" href="lectures/P1.html"><span class="ico">📚</span><span><div><b>P1</b> · L1</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="lectures/P2.html"><span class="ico">⚡</span><span><div><b>P2</b> · L2</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="lectures/P3.html"><span class="ico">✅</span><span><div><b>P3</b> · L3</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="lectures/P4.html"><span class="ico">🛠️</span><span><div><b>P4</b> · L4</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="lectures/P5.html"><span class="ico">🗺️</span><span><div><b>P5</b> · L5</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="lectures/P6.html"><span class="ico">🏋️</span><span><div><b>P6</b> · L6</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="lectures/L7.html"><span class="ico">🧬</span><span><div><b>L7</b> · L7</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="lectures/P7.html"><span class="ico">🔍</span><span><div><b>P7</b> · L8</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="lectures/L9.html"><span class="ico">✨</span><span><div><b>L9</b> · L9</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry </div></span></a><a class="side-link" href="lectures/P8.html"><span class="ico">📊</span><span><div><b>P8</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link" href="lectures/P9.html"><span class="ico">🚀</span><span><div><b>P9</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside>
+<aside class="sidebar" id="sidebar"><h3>课表讲次</h3><a class="side-link" href="lectures/L01.html"><span class="ico">📚</span><span><div><b>P1</b> · L1</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="lectures/L02.html"><span class="ico">⚡</span><span><div><b>P2</b> · L2</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="lectures/L03.html"><span class="ico">✅</span><span><div><b>P3</b> · L3</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="lectures/L04.html"><span class="ico">🛠️</span><span><div><b>P4</b> · L4</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="lectures/L05.html"><span class="ico">🗺️</span><span><div><b>P5</b> · L5</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="lectures/L06.html"><span class="ico">🏋️</span><span><div><b>P6</b> · L6</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="lectures/L07.html"><span class="ico">🧬</span><span><div><b>L7</b> · L7</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="lectures/L08.html"><span class="ico">🔍</span><span><div><b>P7</b> · L8</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="lectures/L09.html"><span class="ico">✨</span><span><div><b>L9</b> · L9</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry </div></span></a><a class="side-link" href="lectures/L17.html"><span class="ico">📊</span><span><div><b>P8</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link" href="lectures/L20.html"><span class="ico">🚀</span><span><div><b>P9</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside>
 <main class="main">
   <section class="hero">
     <div class="badge self">学习路径</div>
@@ -77,27 +82,27 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script>
 const STAGES = [
   {id:'s1', name:'基础 Foundations', time:'3–5 天', prereq:'Python、概率基础、LLM 聊天体验',
-   lectures:['P1'], papers:['Large Language Monkeys（课堂主例）'], hw:['阅读官方课表与评分'],
+   lectures:['L01'], papers:['Large Language Monkeys（课堂主例）'], hw:['阅读官方课表与评分'],
    examples:['playground: pass_at_k.py'], milestones:['能口述 scaling / post-training / TTC / agent 四象限','完成 P1 自测 ≥70%'],
    checks:['读完 P1','画一张自我改进坐标系','注册进度页标记完成']},
   {id:'s2', name:'测试时算力 Test-time Compute', time:'5–7 天', prereq:'完成 S1',
-   lectures:['P2','P3'], papers:['Monkeys / coverage','Best-of-N / verifier'], hw:['HW1 官方 + repro/hw1'],
+   lectures:['L02','L03'], papers:['Monkeys / coverage','Best-of-N / verifier'], hw:['HW1 官方 + repro/hw1'],
    examples:['majority vote','best-of-N'], milestones:['实现 majority@N 与 BoN 对比曲线','理解 coverage vs precision'],
    checks:['跑通 repro/hw1','P2/P3 闪卡掌握','写出无偏 pass@k 公式']},
   {id:'s3', name:'稳健验证 Verification', time:'4–6 天', prereq:'S2',
-   lectures:['P3','P4'], papers:['Process/Outcome RM','LLM-as-judge 偏差'], hw:['HW2 思路 + repro/hw2'],
+   lectures:['L03','L04'], papers:['Process/Outcome RM','LLM-as-judge 偏差'], hw:['HW2 思路 + repro/hw2'],
    examples:['sandbox exec','unit-test verifier'], milestones:['沙箱跑通迷你 HumanEval','能指出 judge 失败模式'],
    checks:['repro/hw2 pass@k','对比规则验证 vs LLM judge','记录 3 个常见陷阱']},
   {id:'s4', name:'Agents / 工具 / 规划', time:'7–10 天', prereq:'S3',
-   lectures:['P4','P5','P7','L13','L14'], papers:['ReAct','LATS','Deep Research','SWE-agent'], hw:['HW3 + repro/hw3'],
+   lectures:['L04','L05','L08','L13','L14'], papers:['ReAct','LATS','Deep Research','SWE-agent'], hw:['HW3 + repro/hw3'],
    examples:['ReAct loop','mini deep-research'], milestones:['搭出 route→retrieve→fuse 工作流','描述 SWE 定位-编辑-测试循环'],
    checks:['repro/hw3 跑通','P5 LATS 图能复述','L13 流程图笔记']},
   {id:'s5', name:'RL 训练时计算', time:'6–8 天', prereq:'S2–S4',
-   lectures:['P6','L7','L9','L18'], papers:['GRPO / PPO','Open-ended evolution'], hw:['阅读官方 HW 训练部分（若有）'],
+   lectures:['L06','L07','L09','L18'], papers:['GRPO / PPO','Open-ended evolution'], hw:['阅读官方 HW 训练部分（若有）'],
    examples:['GRPO 组内优势示意'], milestones:['写出 GRPO 相对优势直觉','区分 train-time vs test-time 算力'],
    checks:['P6 自测','GRPO mermaid 笔记','列出 RL 奖励黑客风险']},
   {id:'s6', name:'前沿 Frontier', time:'5–7 天', prereq:'S4–S5',
-   lectures:['L15','L16','P8','L19','P9'], papers:['长周期评测','AlphaProof/Geometry','VLA'], hw:['Capstone C1–C4 任选'],
+   lectures:['L15','L16','L17','L19','L20'], papers:['长周期评测','AlphaProof/Geometry','VLA'], hw:['Capstone C1–C4 任选'],
    examples:['长任务评测设计'], milestones:['选定一个 Capstone 并完成 M1–M3','能向非技术同事讲清 B2B 价值'],
    checks:['P8 评估清单','Capstone 里程碑打卡','P9 未来方向笔记']},
 ];
@@ -118,18 +123,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderMarkdown(pathMd, document.getElementById('pathFlow'));
 
   const links = [
-    {href:'lectures/P1.html', label:'S1 · P1 概览'},
-    {href:'lectures/P2.html', label:'S2 · P2 TTC'},
-    {href:'lectures/P3.html', label:'S3 · P3 验证'},
+    {href:'lectures/L01.html', label:'S1 · P1 概览'},
+    {href:'lectures/L02.html', label:'S2 · P2 TTC'},
+    {href:'lectures/L03.html', label:'S3 · P3 验证'},
     {href:'homework.html#hw1', label:'HW1 复现'},
-    {href:'lectures/P4.html', label:'S4 · ReAct'},
-    {href:'lectures/P5.html', label:'S4 · LATS'},
-    {href:'lectures/P7.html', label:'S4 · Deep Research'},
+    {href:'lectures/L04.html', label:'S4 · ReAct'},
+    {href:'lectures/L05.html', label:'S4 · LATS'},
+    {href:'lectures/L08.html', label:'S4 · Deep Research'},
     {href:'lectures/L13.html', label:'S4 · SWE'},
     {href:'homework.html#hw3', label:'HW3 复现'},
-    {href:'lectures/P6.html', label:'S5 · GRPO'},
-    {href:'lectures/P8.html', label:'S6 · 长评测'},
-    {href:'lectures/P9.html', label:'S6 · 未来'},
+    {href:'lectures/L06.html', label:'S5 · GRPO'},
+    {href:'lectures/L17.html', label:'S6 · 长评测'},
+    {href:'lectures/L20.html', label:'S6 · 未来'},
   ];
   document.getElementById('clickFlow').innerHTML = links.map(l=>
     `<a class="card" href="${l.href}" style="color:inherit;text-decoration:none"><b>${l.label}</b><div class="muted">点击进入</div></a>`
@@ -193,4 +198,17 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <div class="footer">内容来源：Canvas 教案 / Notion MD / practice 示例。官方作业标注【官方】；其余练习标注【自编】。Stanford CS329A Autumn 2025。</div>
-</body></html>
+<script>
+(function(){
+  const KEY='cs329a-progress-v2';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+  function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
+  window.CS329A_PROGRESS={load,save,toggle:function(id){const s=load();s[id]=!s[id];save(s);return s[id]}};
+  document.querySelectorAll('[data-progress-id]').forEach(el=>{
+    const id=el.getAttribute('data-progress-id');
+    const s=load();
+    if(s[id]) el.classList.add('done');
+    el.addEventListener('click',()=>{const on=window.CS329A_PROGRESS.toggle(id); el.classList.toggle('done',on);});
+  });
+})();
+</script></body></html>

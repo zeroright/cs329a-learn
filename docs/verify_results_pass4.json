@@ -1,0 +1,122 @@
+[
+  {
+    "name": "01_index",
+    "title": "首页 · CS329A 自学站",
+    "frames_ok": 0,
+    "frames_total": 0,
+    "yt": 0,
+    "bili": 0,
+    "has_jump": false,
+    "shot": "/workspace/cs329a/site_build/screenshots/01_index.png"
+  },
+  {
+    "name": "02_learning_path",
+    "title": "学习路径 · CS329A 自学站",
+    "frames_ok": 0,
+    "frames_total": 0,
+    "yt": 0,
+    "bili": 0,
+    "has_jump": false,
+    "shot": "/workspace/cs329a/site_build/screenshots/02_learning_path.png"
+  },
+  {
+    "name": "03_L01",
+    "title": "L01 · 课程概览：什么是自我改进型 AI Agent · CS329A",
+    "frames_ok": 4,
+    "frames_total": 4,
+    "yt": 14,
+    "bili": 16,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/03_L01.png"
+  },
+  {
+    "name": "03b_L06",
+    "title": "L06 · 训练时计算与强化学习缩放 · CS329A",
+    "frames_ok": 3,
+    "frames_total": 3,
+    "yt": 7,
+    "bili": 9,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/03b_L06.png"
+  },
+  {
+    "name": "04_L08",
+    "title": "L08 · 搜索改进、AlphaCode 与深度研究 · CS329A",
+    "frames_ok": 3,
+    "frames_total": 3,
+    "yt": 7,
+    "bili": 9,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/04_L08.png"
+  },
+  {
+    "name": "04b_L04",
+    "title": "L04 · 工具与代码反馈学习 · CS329A",
+    "frames_ok": 3,
+    "frames_total": 3,
+    "yt": 18,
+    "bili": 20,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/04b_L04.png"
+  },
+  {
+    "name": "04c_L05",
+    "title": "L05 · 多步规划与推理 · CS329A",
+    "frames_ok": 3,
+    "frames_total": 3,
+    "yt": 10,
+    "bili": 12,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/04c_L05.png"
+  },
+  {
+    "name": "05_L17",
+    "title": "L17 · 智能体评估与长周期任务 · CS329A",
+    "frames_ok": 3,
+    "frames_total": 3,
+    "yt": 7,
+    "bili": 9,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/05_L17.png"
+  },
+  {
+    "name": "06_L20",
+    "title": "L20 · 未来研究方向与课程收尾 · CS329A",
+    "frames_ok": 3,
+    "frames_total": 3,
+    "yt": 10,
+    "bili": 12,
+    "has_jump": true,
+    "shot": "/workspace/cs329a/site_build/screenshots/06_L20.png"
+  },
+  {
+    "name": "07_viz",
+    "title": "交互可视化 · CS329A 自学站",
+    "frames_ok": 0,
+    "frames_total": 0,
+    "yt": 0,
+    "bili": 0,
+    "has_jump": false,
+    "shot": "/workspace/cs329a/site_build/screenshots/07_viz.png"
+  },
+  {
+    "name": "08_glossary",
+    "title": "术语表 · CS329A",
+    "frames_ok": 0,
+    "frames_total": 0,
+    "yt": 0,
+    "bili": 0,
+    "has_jump": false,
+    "shot": "/workspace/cs329a/site_build/screenshots/08_glossary.png"
+  },
+  {
+    "name": "09_papers",
+    "title": "论文库 · CS329A 自学站",
+    "frames_ok": 0,
+    "frames_total": 0,
+    "yt": 0,
+    "bili": 0,
+    "has_jump": false,
+    "shot": "/workspace/cs329a/site_build/screenshots/09_papers.png"
+  }
+]
