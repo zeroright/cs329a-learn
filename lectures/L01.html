@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 </div>
     <div class="progress-bar" style="margin-top:12px"><i id="doneBar" style="width:0%"></i></div>
   </div>
-  <div class="toc" id="pageToc"></div>
+  <nav class="toc sticky-toc" id="pageToc" aria-label="本节目录"></nav>
 
   <details class="section" open>
     <summary>教案正文（课堂脉络 / 论文精读等） <span class="badge bili">B站录音</span></summary>
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     kids.forEach(el=>{
       if(el.tagName==='H2'){
         const title=el.textContent.trim();
-        const open=/课堂脉络|论文精读|作业与实战|本课定位|学习目标/.test(title);
+        const open=/课堂脉络|论文精读|作业与实战|本课定位|学习目标|学习路径|（/.test(title);
         start(title, open || /作业/.test(title));
       } else {
         body.appendChild(el);
@@ -112,6 +112,18 @@ document.addEventListener('DOMContentLoaded',()=>{
       host.querySelectorAll('.content').forEach(el=>renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false}));
     }
   })();
+
+  // re-render mermaid/katex when a section is expanded
+  host.querySelectorAll('details.section').forEach(d=>{
+    d.addEventListener('toggle',()=>{
+      if(!d.open) return;
+      if(window.mermaid){try{mermaid.run({nodes:d.querySelectorAll('.mermaid')});}catch(e){}}
+      if(window.renderMathInElement){
+        d.querySelectorAll('.content').forEach(el=>renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false}));
+      }
+    });
+  });
+
   mountQuiz(document.getElementById('quizRoot'), id, (QUIZZES||{})[id]);
   mountFlashcards(document.getElementById('flashRoot'), id, (FLASHCARDS||{})[id]||[]);
   document.getElementById('markDone').onclick=()=>{
