@@ -108,3 +108,13 @@ a:hover{text-decoration:underline}
 .frame-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem}
 .frame-grid img{width:100%;border-radius:8px}
 @media(max-width:800px){.viz-panel,.code-cmp{grid-template-columns:1fr}}
+
+/* v4 slide cards — public site does NOT host lecture slide images */
+.slide-card{border:1px solid var(--border,#333);border-radius:12px;padding:1rem 1.1rem;margin:1rem 0;background:var(--bg2,#161616)}
+.slide-card strong{font-size:1.05rem}
+.slide-card a.slide-watch, .slide-card a{font-weight:600}
+.slide-watch{display:inline-block;margin:.35rem .25rem .2rem 0;padding:.35rem .75rem;border-radius:8px;background:#8C1515;color:#fff!important;text-decoration:none}
+.slide-meta{font-size:.85rem;opacity:.85}
+.slide-badge{display:inline-block;padding:.1rem .55rem;border-radius:999px;background:#8C1515;color:#fff;font-size:.75rem;margin-right:.35rem}
+.content img[src*="assets/frames"],.content img[src*="assets/slides"],.content img[src*="slides_video"]{display:none !important}
+
