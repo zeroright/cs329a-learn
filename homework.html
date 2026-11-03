@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>作业复现 · CS329A 自学站</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css"/>
+<link rel="stylesheet" href="css/site.css"/>
+<script src="vendor/marked.min.js"></script>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="vendor/mermaid.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/render.md.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/flashcards.js"></script>
+<script src="js/graph.js"></script>
+<script src="data/meta.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window.mermaid) mermaid.initialize({startOnLoad:false, theme: document.documentElement.getAttribute('data-theme')==='dark'?'dark':'default'});
+});
+</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
+  <a class="brand" href="index.html">CS329A <span>自学站</span></a>
+  <nav class="nav">
+    <a href="index.html" class="">首页</a>
+    <a href="learning-path.html" class="">学习路径</a>
+    <a href="lectures/P1.html" class="">讲次</a>
+    <a href="homework.html" class="active">作业复现</a>
+    <a href="papers.html" class="">论文库</a>
+    <a href="playground.html" class="">代码</a>
+    <a href="assignments.html" class="">作业/项目</a>
+    <a href="progress.html" class="">进度</a>
+    <a href="search.html" class="">搜索</a>
+  </nav>
+  <form class="searchbox" id="searchForm"><input id="globalSearch" placeholder="全文搜索…" type="search"/><button class="iconbtn" type="submit">搜</button></form>
+  <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
+</header>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar"><h3>课表讲次</h3><a class="side-link" href="lectures/P1.html"><span class="ico">📚</span><span><div><b>P1</b> · L1</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="lectures/P2.html"><span class="ico">⚡</span><span><div><b>P2</b> · L2</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="lectures/P3.html"><span class="ico">✅</span><span><div><b>P3</b> · L3</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="lectures/P4.html"><span class="ico">🛠️</span><span><div><b>P4</b> · L4</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="lectures/P5.html"><span class="ico">🗺️</span><span><div><b>P5</b> · L5</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="lectures/P6.html"><span class="ico">🏋️</span><span><div><b>P6</b> · L6</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="lectures/L7.html"><span class="ico">🧬</span><span><div><b>L7</b> · L7</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="lectures/P7.html"><span class="ico">🔍</span><span><div><b>P7</b> · L8</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="lectures/L9.html"><span class="ico">✨</span><span><div><b>L9</b> · L9</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry </div></span></a><a class="side-link" href="lectures/P8.html"><span class="ico">📊</span><span><div><b>P8</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link" href="lectures/P9.html"><span class="ico">🚀</span><span><div><b>P9</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside>
+<main class="main">
+  <section class="hero">
+    <div class="badge official">官方</div> <div class="badge self">自编 repro</div>
+    <h1>作业复现指南 · 源码对照</h1>
+    <p>官方公开仓库许可证核查后：HW1（MIT）与 HW3（Apache-2.0）已镜像；HW2 无 LICENSE，仅外链。每份作业含环境、子任务、期望输出、陷阱与讲次链接；【自编】可运行代码在 <code>repro/</code>。</p>
+    <div class="toolbar">
+      <a class="btn" href="#hw1">HW1</a>
+      <a class="btn secondary" href="#hw2">HW2</a>
+      <a class="btn secondary" href="#hw3">HW3</a>
+      <a class="btn secondary" href="homework/README.md">许可证说明</a>
+      <a class="btn secondary" href="learning-path.html">学习路径</a>
+    </div>
+  </section>
+
+  <div class="card">
+    <h3>许可证结论</h3>
+    <table class="table">
+      <tr><th>作业</th><th>上游</th><th>许可证</th><th>本站</th></tr>
+      <tr><td>HW1</td><td><a href="https://github.com/stanford-cs329a/cs329a-homework1-fall2025-public" target="_blank">homework1-fall2025-public</a></td><td>MIT</td><td>已 vendor → <a href="homework/hw1/">homework/hw1/</a></td></tr>
+      <tr><td>HW2</td><td><a href="https://github.com/stanford-cs329a/cs329a-homework2-fall2025-public" target="_blank">homework2-fall2025-public</a></td><td><b>未声明 LICENSE</b></td><td><b>不复制</b>；见 <a href="homework/hw2/">说明</a> + <a href="repro/hw2/">repro/hw2</a></td></tr>
+      <tr><td>HW3</td><td><a href="https://github.com/stanford-cs329a/cs329a-homework3-fall2025-public" target="_blank">homework3-fall2025-public</a></td><td>Apache-2.0</td><td>已 vendor → <a href="homework/hw3/">homework/hw3/</a></td></tr>
+    </table>
+  </div>
+
+  <details class="section" open id="hw1">
+    <summary>【官方 + 自编】HW1 · 测试时算力（AIME / Majority / BoN）</summary>
+    <div class="body">
+      <h3>环境</h3>
+      <ul>
+        <li>官方：见 <code>homework/hw1/requirements.txt</code>；通常需要 Python 3.10+、API Key（OpenAI 等）。</li>
+        <li>免费/本地替代：小模型 + <a href="https://github.com/vllm-project/vllm">vLLM</a> / HuggingFace <code>transformers</code>；或本站【自编】mock：<code>repro/hw1/run_majority_bon.py</code>（无 API）。</li>
+      </ul>
+      <pre><code>cd repro/hw1 && python3 run_majority_bon.py
+# 期望：zero-shot &lt; majority &lt; best-of-N（规则验证器）准确率递增</code></pre>
+      <h3>子任务对照</h3>
+      <table class="table">
+        <tr><th>子任务</th><th>说明</th><th>自编入口</th></tr>
+        <tr><td>Zero-shot</td><td>单次采样基线</td><td><code>mock_sample(..., n=1)</code></td></tr>
+        <tr><td>Majority vote</td><td>N 次采样取众数</td><td><code>majority_vote</code></td></tr>
+        <tr><td>Best-of-N</td><td>验证器/RM 选最优</td><td><code>best_of_n</code> + rule verifier</td></tr>
+        <tr><td>RLEF 示意</td><td>错答反馈再采样</td><td>脚本末尾 rlef-mock</td></tr>
+      </table>
+      <div id="hw1flow"></div>
+      <h3>期望输出（自编）</h3>
+      <p><code>zero-shot acc≈0.4 · majority@8≈0.6 · best-of-8≈1.0</code>（玩具集，仅示意趋势）。</p>
+      <h3>常见陷阱</h3>
+      <ul>
+        <li>把 generative RM 当成 ground-truth：应用held-out 或程序验证交叉检查。</li>
+        <li>pass@k / majority 样本相关：报告时写清 N、温度、种子。</li>
+        <li>API 费用：先用 mock / 小模型验证管道再放大。</li>
+      </ul>
+      <p><b>相关讲次</b>：<a href="lectures/P1.html">P1</a> · <a href="lectures/P2.html">P2</a> · <a href="lectures/P3.html">P3</a> · <a href="lectures/P4.html">P4</a></p>
+      <p><a class="btn" href="homework/hw1/">打开官方镜像</a> <a class="btn secondary" href="repro/hw1/">自编 repro</a></p>
+    </div>
+  </details>
+
+  <details class="section" open id="hw2">
+    <summary>【外链官方 + 自编】HW2 · 验证 / HumanEval / pass@k</summary>
+    <div class="body">
+      <div class="card" style="border-color:var(--warn,#c90)"><b>未再分发官方源码</b>：仓库无 LICENSE。请自行
+      <code>git clone https://github.com/stanford-cs329a/cs329a-homework2-fall2025-public.git</code></div>
+      <h3>环境</h3>
+      <ul>
+        <li>官方：按其 README（可能需 Docker 沙箱、API）。</li>
+        <li>本地替代：本站 <code>repro/hw2/run_pass_at_k.py</code> 用 <code>subprocess</code> 临时目录执行（简易沙箱，非生产级隔离）。</li>
+      </ul>
+      <pre><code>cd repro/hw2 && python3 run_pass_at_k.py
+# 期望：打印 n/c、pass@1/2/4（无偏估计）</code></pre>
+      <h3>子任务</h3>
+      <table class="table">
+        <tr><th>子任务</th><th>要点</th></tr>
+        <tr><td>沙箱执行</td><td>超时、禁止依赖宿主机脏状态；官方常用容器</td></tr>
+        <tr><td>pass@k</td><td>无偏公式 1 − C(n−c,k)/C(n,k)</td></tr>
+        <tr><td>LLM-as-judge</td><td>注意位置偏差与自我偏好；与单测交叉</td></tr>
+      </table>
+      <div id="hw2flow"></div>
+      <h3>常见陷阱</h3>
+      <ul>
+        <li>用有偏 pass@k（仅看至少一次成功）夸大结果。</li>
+        <li>沙箱逃逸：不要在未隔离环境执行模型生成的任意代码（生产必须容器/gVisor）。</li>
+        <li>测试泄漏进 prompt。</li>
+      </ul>
+      <p><b>相关讲次</b>：<a href="lectures/P3.html">P3</a> · <a href="lectures/P4.html">P4</a> · <a href="lectures/L13.html">L13</a></p>
+      <p><a class="btn secondary" href="repro/hw2/">自编 repro</a> <a class="btn secondary" href="playground.html?ex=pass_at_k.py">Pyodide pass@k</a></p>
+    </div>
+  </details>
+
+  <details class="section" open id="hw3">
+    <summary>【官方 + 自编】HW3 · Deep Research 工作流</summary>
+    <div class="body">
+      <h3>环境</h3>
+      <ul>
+        <li>官方：见 <code>homework/hw3/</code>（Apache-2.0）；常需搜索/LLM API。</li>
+        <li>本地：【自编】<code>repro/hw3/run_deep_research_mini.py</code> — mock KB，无密钥。</li>
+      </ul>
+      <pre><code>cd repro/hw3 && python3 run_deep_research_mini.py
+# 期望：路由 weather/finance/math/search，分解多跳，融合并 refine</code></pre>
+      <h3>子任务</h3>
+      <table class="table">
+        <tr><th>步骤</th><th>说明</th><th>自编</th></tr>
+        <tr><td>Route</td><td>选择工具/领域</td><td><code>route</code></td></tr>
+        <tr><td>Decompose</td><td>多跳拆分子问</td><td><code>decompose</code></td></tr>
+        <tr><td>Retrieve</td><td>检索 / stub</td><td><code>retrieve</code> + KB</td></tr>
+        <tr><td>Fuse / Refine</td><td>融合与迭代停止</td><td><code>fuse</code> / <code>refine</code></td></tr>
+      </table>
+      <div id="hw3flow"></div>
+      <h3>常见陷阱</h3>
+      <ul>
+        <li>引用幻觉：强制 snippet→claim 对齐抽检。</li>
+        <li>无停止条件导致费用爆炸：设 max_refine / 预算。</li>
+        <li>路由错误级联：记录 trace 便于回放。</li>
+      </ul>
+      <p><b>相关讲次</b>：<a href="lectures/P7.html">P7</a> · <a href="lectures/P8.html">P8</a> · <a href="lectures/L14.html">L14</a></p>
+      <p><a class="btn" href="homework/hw3/">打开官方镜像</a> <a class="btn secondary" href="repro/hw3/">自编 repro</a></p>
+    </div>
+  </details>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const md = (s)=>'```mermaid\n'+s+'\n```';
+  renderMarkdown(md(`flowchart LR
+  Q-->Samp[N samples]
+  Samp-->Maj[majority]
+  Samp-->V[verifier]
+  V-->BoN[best-of-N]`), document.getElementById('hw1flow'));
+  renderMarkdown(md(`flowchart TD
+  Cand[candidates]-->Sand[sandbox exec]
+  Sand-->Pass[pass/fail]
+  Pass-->Est[unbiased pass@k]`), document.getElementById('hw2flow'));
+  renderMarkdown(md(`flowchart TD
+  Q-->Route-->Decomp-->Ret-->Fuse-->Stop{ok?}
+  Stop -->|no| Decomp
+  Stop -->|yes| Report`), document.getElementById('hw3flow'));
+});
+</script>
+<div class="footer">内容来源：Canvas 教案 / Notion MD / practice 示例。官方作业标注【官方】；其余练习标注【自编】。Stanford CS329A Autumn 2025。</div>
+</body></html>

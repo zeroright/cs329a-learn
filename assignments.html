@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>作业与综合项目 · CS329A 自学站</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css"/>
+<link rel="stylesheet" href="css/site.css"/>
+<script src="vendor/marked.min.js"></script>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="vendor/mermaid.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/render.md.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/flashcards.js"></script>
+<script src="js/graph.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/quizzes.js"></script>
+<script src="data/flashcards.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window.mermaid) mermaid.initialize({startOnLoad:false, theme: document.documentElement.getAttribute('data-theme')==='dark'?'dark':'default'});
+});
+</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
+  <a class="brand" href="index.html">CS329A <span>自学站</span></a>
+    <nav class="nav">
+    <a href="index.html" class="">首页</a>
+    <a href="learning-path.html" class="">学习路径</a>
+    <a href="lectures/P1.html" class="">讲次</a>
+    <a href="homework.html" class="">作业复现</a>
+    <a href="papers.html" class="">论文库</a>
+    <a href="playground.html" class="">代码</a>
+    <a href="assignments.html" class="active">作业/项目</a>
+    <a href="progress.html" class="">进度</a>
+    <a href="search.html" class="">搜索</a>
+  </nav>
+  <form class="searchbox" id="searchForm"><input id="globalSearch" placeholder="全文搜索…" type="search"/><button class="iconbtn" type="submit">搜</button></form>
+  <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
+</header>
+
+<div class="layout"><aside class="sidebar" id="sidebar"><h3>课表讲次</h3><a class="side-link" href="lectures/P1.html"><span class="ico">📚</span><span><div><b>P1</b> · L1</div><div class="side-meta">课程概览：什么是自我改进型 AI Agent</div></span></a><a class="side-link" href="lectures/P2.html"><span class="ico">⚡</span><span><div><b>P2</b> · L2</div><div class="side-meta">测试时算力缩放</div></span></a><a class="side-link" href="lectures/P3.html"><span class="ico">✅</span><span><div><b>P3</b> · L3</div><div class="side-meta">稳健验证</div></span></a><a class="side-link" href="lectures/P4.html"><span class="ico">🛠️</span><span><div><b>P4</b> · L4</div><div class="side-meta">工具与代码反馈学习</div></span></a><a class="side-link" href="lectures/P5.html"><span class="ico">🗺️</span><span><div><b>P5</b> · L5</div><div class="side-meta">多步规划与推理</div></span></a><a class="side-link" href="lectures/P6.html"><span class="ico">🏋️</span><span><div><b>P6</b> · L6</div><div class="side-meta">训练时计算与强化学习缩放</div></span></a><a class="side-link" href="lectures/L7.html"><span class="ico">🧬</span><span><div><b>L7</b> · L7</div><div class="side-meta">开放式进化与自我改进智能体设计</div></span></a><a class="side-link" href="lectures/P7.html"><span class="ico">🔍</span><span><div><b>P7</b> · L8</div><div class="side-meta">搜索改进、AlphaCode 与深度研究</div></span></a><a class="side-link" href="lectures/L9.html"><span class="ico">✨</span><span><div><b>L9</b> · L9</div><div class="side-meta">嘉宾·Gemini 后训练</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · L13</div><div class="side-meta">软件工程智能体框架</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · L14</div><div class="side-meta">用记忆增强智能体</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · L15</div><div class="side-meta">嘉宾·LLM 推理</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · L16</div><div class="side-meta">嘉宾·AlphaProof、AlphaGeometry </div></span></a><a class="side-link" href="lectures/P8.html"><span class="ico">📊</span><span><div><b>P8</b> · L17</div><div class="side-meta">智能体评估与长周期任务</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · L18</div><div class="side-meta">嘉宾·序列模型中的强化学习</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · L19</div><div class="side-meta">嘉宾·具身多模态与视觉-语言-动作</div></span></a><a class="side-link" href="lectures/P9.html"><span class="ico">🚀</span><span><div><b>P9</b> · L20</div><div class="side-meta">未来研究方向与课程收尾</div></span></a></aside><main class="main">
+<h1>作业 · 期末项目 · Capstone</h1>
+<details class="section" open><summary>【官方】作业与期末项目</summary><div class="body">
+<table class="table" id="hwTable"></table>
+<p class="muted">来源：https://cs329a.stanford.edu/ 与 stanford-cs329a 公开仓库。勿把自编练习当成官方评分项。</p>
+</div></details>
+<details class="section" open><summary>【自编】Capstone C1–C4</summary><div class="body" id="capRoot"></div></details>
+<details class="section" open><summary>清单 Checklist（localStorage）</summary><div class="body" id="checkRoot"></div></details>
+<details class="section"><summary>Capstone 原文 Markdown</summary><div class="body content" id="capMd"></div></details>
+</main></div>
+<script src="data/capstones_md.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('hwTable').innerHTML='<tr><th>项目</th><th>权重</th><th>要点</th><th>链接</th><th>完成</th></tr>'+
+    SITE_META.official.map(h=>`<tr><td><span class="badge official">官方</span> ${h.title}</td><td>${h.weight}</td><td>${h.topics}</td><td><a href="${h.url}" target="_blank">打开</a></td>
+    <td><input type="checkbox" data-k="off:${h.id}"></td></tr>`).join('');
+  document.getElementById('capRoot').innerHTML=SITE_META.capstones.map(c=>`
+    <div class="card" style="margin-bottom:12px">
+      <h3><span class="badge self">自编</span> ${c.id} · ${c.title}</h3>
+      <p><b>目标</b>：${c.goal}</p>
+      <p><b>讲次地图</b>：${c.lectures.map(x=>`<a href="lectures/${x}.html">${x}</a>`).join(' · ')}</p>
+      <p><b>基准</b>：${(c.benchmarks||[]).join(', ')}</p>
+      <p><b>里程碑</b></p><ol>${c.milestones.map((m,i)=>`<li><label><input type="checkbox" data-k="cap:${c.id}:m${i}"> ${m}</label></li>`).join('')}</ol>
+      <p><b>算力</b>：${c.compute}</p>
+      <p><b>评分细则</b>：${c.rubric}</p>
+      <p><b>可选 B2B</b>：${c.b2b}</p>
+    </div>`).join('');
+  const saved=CS329A.loadChecklist();
+  document.querySelectorAll('input[type=checkbox][data-k]').forEach(cb=>{
+    cb.checked=!!saved[cb.dataset.k];
+    cb.onchange=()=>{const c=CS329A.loadChecklist();c[cb.dataset.k]=cb.checked;CS329A.saveChecklist(c);};
+  });
+  renderMarkdown(CAPSTONES_MD, document.getElementById('capMd'));
+});
+</script>
+<div class="footer">内容来源：Canvas 教案 / Notion MD / practice 示例。官方作业标注【官方】；其余练习标注【自编】。Stanford CS329A Autumn 2025。</div>
+</body></html>

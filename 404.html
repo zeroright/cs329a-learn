@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>404 · CS329A 自学站</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css"/>
+<link rel="stylesheet" href="css/site.css"/>
+<script src="vendor/marked.min.js"></script>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="vendor/mermaid.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/render.md.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/flashcards.js"></script>
+<script src="js/graph.js"></script>
+<script src="data/meta.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window.mermaid) mermaid.initialize({startOnLoad:false, theme: document.documentElement.getAttribute('data-theme')==='dark'?'dark':'default'});
+});
+</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
+  <a class="brand" href="index.html">CS329A <span>自学站</span></a>
+  <nav class="nav">
+    <a href="index.html" class="">首页</a>
+    <a href="learning-path.html" class="">学习路径</a>
+    <a href="lectures/P1.html" class="">讲次</a>
+    <a href="homework.html" class="">作业复现</a>
+    <a href="papers.html" class="">论文库</a>
+    <a href="playground.html" class="">代码</a>
+    <a href="assignments.html" class="">作业/项目</a>
+    <a href="progress.html" class="">进度</a>
+    <a href="search.html" class="">搜索</a>
+  </nav>
+  <form class="searchbox" id="searchForm"><input id="globalSearch" placeholder="全文搜索…" type="search"/><button class="iconbtn" type="submit">搜</button></form>
+  <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
+</header>
+
+<div class="layout"><main class="main" style="grid-column:1/-1">
+  <section class="hero"><h1>404 · 页面不存在</h1>
+  <p>链接可能已移动。请返回首页或使用搜索。</p>
+  <div class="toolbar">
+    <a class="btn" href="index.html">首页</a>
+    <a class="btn secondary" href="learning-path.html">学习路径</a>
+    <a class="btn secondary" href="homework.html">作业复现</a>
+    <a class="btn secondary" href="search.html">搜索</a>
+  </div></section>
+</main></div>
+<div class="footer">CS329A 自学站 · GitHub Pages</div>
+</body></html>
