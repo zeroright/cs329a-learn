@@ -13,6 +13,8 @@ Stanford CS329A（Self-Improving AI Agents，Autumn 2025）的**浏览器可打�
 
 （本仓库以**根目录静态文件**部署；已含 `.nojekyll` 与 `404.html`。）
 
+Deploy trigger: 2026-11-03T03:05:57Z
+
 ## 本地预览
 
 任意静态服务器即可。若要模拟 Pages 的子路径 `/cs329a-learn/`：
