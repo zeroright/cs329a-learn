@@ -15,6 +15,7 @@
 <script src="../js/render.md.js"></script>
 <script src="../js/quiz.js"></script>
 <script src="../js/flashcards.js"></script>
+<script src="../js/viz-widgets.js"></script>
 <script src="../js/graph.js"></script>
 <script src="../data/meta.js"></script>
 <script src="../data/quizzes.js"></script>
@@ -33,7 +34,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     <a href="../index.html" class="">首页</a>
     <a href="../learning-path.html" class="">学习路径</a>
     <a href="../lectures/L01.html" class="active">讲次</a>
-    <a href="../viz.html" class="">可视化</a>
     <a href="../code-compare.html" class="">源码与实验</a>
     <a href="../homework.html" class="">作业/项目</a>
     <a href="../papers.html" class="">论文库</a>
@@ -119,6 +119,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       host.querySelectorAll('.content').forEach(el=>renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false}));
     }
   })();
+  if(window.CS329A_VIZ){try{CS329A_VIZ.inject(id, host);}catch(e){console.warn('viz inject',e);}}
+
   mountQuiz(document.getElementById('quizRoot'), id, (QUIZZES||{})[id]);
   mountFlashcards(document.getElementById('flashRoot'), id, (FLASHCARDS||{})[id]||[]);
   document.getElementById('markDone').onclick=()=>{

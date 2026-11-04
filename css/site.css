@@ -196,3 +196,67 @@ a:hover{text-decoration:underline}
 .toc.sticky-toc a:hover{border-color:var(--accent,#2563eb);color:var(--accent,#2563eb)}
 .content h1,.content h2,.content h3,.content .authored-figure,.content details.section,.content .section{scroll-margin-top:calc(var(--top) + 56px)}
 .quiz-anchor{scroll-margin-top:calc(var(--top) + 56px)}
+
+/* —— inline lecture visualizations (v9) —— */
+.inline-viz{
+  max-width:760px;width:100%;margin:16px auto 20px;padding:14px 16px 16px;
+  border:1px solid var(--border);border-radius:14px;background:var(--bg2);
+  box-shadow:var(--shadow);scroll-margin-top:calc(var(--top) + 56px);
+}
+.inline-viz .iv-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:8px}
+.inline-viz .iv-title{font-size:15px;font-weight:650;color:var(--text);margin:0}
+.inline-viz .iv-tag{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--chip-t)}
+.inline-viz .iv-how{font-size:12.5px;line-height:1.45;color:var(--muted);margin:0 0 10px}
+.inline-viz .iv-body{display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:12px;align-items:start}
+.inline-viz .iv-controls{display:flex;flex-direction:column;gap:8px}
+.inline-viz .iv-controls label{display:grid;grid-template-columns:1fr auto;gap:4px 8px;font-size:12.5px;color:var(--text);align-items:center}
+.inline-viz .iv-controls label span.iv-val{font-variant-numeric:tabular-nums;color:var(--brand);font-weight:600;min-width:2.6em;text-align:right}
+.inline-viz .iv-controls input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--brand)}
+.inline-viz .iv-controls .iv-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.inline-viz .iv-controls button,.inline-viz .iv-btns button{
+  appearance:none;border:1px solid var(--border);background:var(--bg);color:var(--text);
+  border-radius:999px;padding:5px 12px;font-size:12.5px;cursor:pointer;
+}
+.inline-viz .iv-controls button:hover{border-color:var(--brand);color:var(--brand)}
+.inline-viz .iv-stage{
+  background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:10px;
+  min-height:220px;display:flex;flex-direction:column;gap:6px;overflow:hidden;
+}
+.inline-viz .iv-stage canvas,.inline-viz .iv-stage svg{width:100%;max-width:100%;height:auto;display:block}
+.inline-viz .iv-note{font-size:12px;color:var(--muted);line-height:1.4;margin:4px 0 0}
+.inline-viz .iv-log{list-style:none;margin:0;padding:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.55;max-height:260px;overflow:auto}
+.inline-viz .iv-log li{padding:6px 8px;border-radius:8px;margin-bottom:4px;background:var(--bg2);border:1px solid var(--border)}
+.inline-viz .iv-log li.role-Thought{border-left:3px solid var(--brand)}
+.inline-viz .iv-log li.role-Action{border-left:3px solid var(--brand2)}
+.inline-viz .iv-log li.role-Observation{border-left:3px solid var(--ok)}
+.inline-viz .iv-log li.role-Answer{border-left:3px solid var(--warn)}
+.inline-viz .iv-bars{display:flex;align-items:flex-end;gap:6px;height:160px;padding:8px 4px 0}
+.inline-viz .iv-bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;min-width:0}
+.inline-viz .iv-bar i{display:block;width:100%;max-width:42px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--brand),var(--brand2));min-height:2px}
+.inline-viz .iv-bar b{font-size:10px;color:var(--muted);font-weight:500;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.inline-viz .iv-metric{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.inline-viz .iv-metric span{font-size:12px;padding:3px 8px;border-radius:8px;background:var(--chip);color:var(--chip-t)}
+@media (max-width:800px){
+  .inline-viz .iv-body{grid-template-columns:1fr}
+  .inline-viz .iv-controls{flex-direction:row;flex-wrap:wrap}
+  .inline-viz .iv-controls label{flex:1 1 140px;min-width:140px}
+  .inline-viz .iv-stage{padding:8px;overflow-x:auto}
+  .inline-viz .iv-title{font-size:14px}
+  .inline-viz .iv-how{font-size:12px}
+  .inline-viz .iv-bars{height:140px;gap:4px}
+  .inline-viz .iv-metric span{font-size:11px;padding:2px 6px}
+}
+@media (max-width:420px){
+  .inline-viz{padding:10px}
+  .inline-viz .iv-body{gap:8px}
+  .inline-viz .iv-controls label{flex:1 1 100%;font-size:12px}
+  .inline-viz .iv-controls .iv-btns button{font-size:11px;padding:4px 8px}
+  .inline-viz .iv-stage canvas,.inline-viz .iv-stage svg{min-width:280px}
+}
+
+}
+/* keep legacy viz-panel usable on redirect page */
+.viz-index{max-width:900px;margin:1.5rem auto;padding:0 1rem}
+.viz-index .viz-card{border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:10px 0;background:var(--bg2)}
+.viz-index .viz-card a{color:var(--brand);text-decoration:none;font-weight:600}
+.viz-index .viz-card a:hover{text-decoration:underline}
