@@ -467,8 +467,8 @@ window.SITE_META = {
       "title": "开放式进化与自我改进智能体设计",
       "date": "Oct 13",
       "icon": "🧬",
-      "source": "official",
-      "source_label": "官方阅读",
+      "source": "paper",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c523181c984b3cf9487a2eb32",
       "page": "lectures/L07.html",
       "old_ids": [
@@ -550,7 +550,7 @@ window.SITE_META = {
       "date": "Oct 20",
       "icon": "✨",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c52318187ad26e73c3f2df9e5",
       "page": "lectures/L09.html",
       "old_ids": [
@@ -564,7 +564,7 @@ window.SITE_META = {
       "title": "期中项目展示（一）",
       "date": "Oct 24",
       "icon": "🎤",
-      "source": "midterm",
+      "source": "paper",
       "source_label": "期中展示",
       "notion": null,
       "page": "lectures/L10.html",
@@ -577,7 +577,7 @@ window.SITE_META = {
       "title": "期中项目展示（二）",
       "date": "Oct 27",
       "icon": "🎤",
-      "source": "midterm",
+      "source": "paper",
       "source_label": "期中展示",
       "notion": null,
       "page": "lectures/L11.html",
@@ -590,7 +590,7 @@ window.SITE_META = {
       "title": "期中项目展示（三）",
       "date": "Oct 31",
       "icon": "🎤",
-      "source": "midterm",
+      "source": "paper",
       "source_label": "期中展示",
       "notion": null,
       "page": "lectures/L12.html",
@@ -604,7 +604,7 @@ window.SITE_META = {
       "date": "Nov 3",
       "icon": "💻",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c523181dcbb24d1fee9acdfd7",
       "page": "lectures/L13.html",
       "old_ids": [
@@ -619,7 +619,7 @@ window.SITE_META = {
       "date": "Nov 7",
       "icon": "🧠",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c523181dda6c4d5981969e255",
       "page": "lectures/L14.html",
       "old_ids": [
@@ -634,7 +634,7 @@ window.SITE_META = {
       "date": "Nov 10",
       "icon": "🧩",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c523181988f59f46ba4b48c94",
       "page": "lectures/L15.html",
       "old_ids": [
@@ -649,7 +649,7 @@ window.SITE_META = {
       "date": "Nov 14",
       "icon": "📐",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c5231815585eaf812a1faf096",
       "page": "lectures/L16.html",
       "old_ids": [
@@ -731,7 +731,7 @@ window.SITE_META = {
       "date": "Nov 21",
       "icon": "🎮",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c523181d58b28f9bdfdd766b8",
       "page": "lectures/L18.html",
       "old_ids": [
@@ -746,7 +746,7 @@ window.SITE_META = {
       "date": "Dec 1",
       "icon": "🤖",
       "source": "official",
-      "source_label": "官方阅读",
+      "source_label": "无公开录像",
       "notion": "https://app.notion.com/p/40a9384c523181a686b8ea998000168f",
       "page": "lectures/L19.html",
       "old_ids": [
@@ -952,6 +952,4 @@ window.SITE_META = {
   "notion_overview": "https://app.notion.com/p/40a9384c52318196b7eeffcbe5cd9d6c",
   "github_pages": "https://zeroright.github.io/cs329a-learn/",
   "version": "v2-gapclose-2026-11-03"
-};
-window.LECTURE_ORDER = SITE_META.order;
-window.LECTURES = SITE_META.lectures;
+}
