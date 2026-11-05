@@ -1,120 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>源码对比 · CS329A</title><link rel="stylesheet" href="css/site.css"/><script src="js/app.js"></script><link rel="stylesheet" href="css/learning.css"/>
+<title>源码对比 · CS329A</title><link rel="stylesheet" href="css/site.css"/><script src="js/site-shell.js"></script>
+<script src="js/app.js"></script><link rel="stylesheet" href="css/learning.css"/>
+<script src="data/meta.js"></script>
 <script src="data/learning.js"></script>
 <script defer src="js/learning.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">跳到主要内容</a>
-<header class="topbar"><a class="brand" href="index.html">CS329A <span>自学站</span></a>
-              <nav class="nav">
-    <a href="index.html" class="">首页</a>
-    <a href="learning-path.html" class="">学习路径</a>
-    <a href="lectures/L01.html" class="">讲次</a>
-    <a href="code-compare.html" class="active">源码与实验</a>
-    <a href="homework.html" class="">作业/项目</a>
-    <a href="papers.html" class="">论文库</a>
-    <a href="glossary.html" class="">术语表</a>
-    <a href="progress.html" class="">进度</a>
-    <a href="search.html" class="">搜索</a>
-  </nav>
-<button class="iconbtn" id="themeToggle">◐</button></header>
-<main class="container" style="max-width:1100px;margin:1.5rem auto;padding:0 1rem">
-<h1>源码对比学习</h1>
-<callout></callout>
-<p><b>许可</b>：HW1 MIT、HW3 Apache-2.0 可对照 vendored 官方实现；<b>HW2 无许可证 → 仅外链 + 自写复现，不拷贝官方代码</b>。</p>
+<header class="topbar"></header>
+<main class="main" id="mainContent"><section class="hero"><span class="eyebrow">实践中心 / 源码对照</span><h1>把任务要求与示例实现放在一起</h1><p>选择一个自编示例，查看它对应的官方任务。示例代码与代码运行页使用同一份数据。</p></section><div class="example-picker"><label for="sourceExample">选择示例</label><select id="sourceExample"></select></div><div class="code-cmp source-workspace"><section class="source-reference"><h2>官方任务参照</h2><div id="sourceReference"></div></section><section><div class="section-heading"><h2>自编实现</h2><a id="runSource" class="btn" href="playground.html">运行此示例 →</a></div><pre class="codebox" id="sourceCode"></pre></section></div></main>
+<script src="data/codes.js"></script><script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const select=document.getElementById('sourceExample');(SITE_META.examples||Object.keys(EXAMPLE_CODES).map(file=>({file,title:file}))).forEach(ex=>{const option=document.createElement('option');option.value=ex.file;option.textContent=ex.title;select.appendChild(option);});
+ const requested=new URLSearchParams(location.search).get('ex');if([...select.options].some(o=>o.value===requested))select.value=requested;
+ function update(){const file=select.value;document.getElementById('sourceCode').textContent=EXAMPLE_CODES[file]||'';document.getElementById('runSource').href='playground.html?ex='+encodeURIComponent(file);const taskMap={'pass_at_k.py':'hw2','majority_best_of_n.py':'hw1','react_loop.py':'hw3'};const hw=taskMap[file];const source=SITE_META.official.find(h=>h.id===hw);document.getElementById('sourceReference').innerHTML=source?`<h3>${source.title}</h3><p>${source.topics}</p><p>右侧为本站自编机制示例，不等于官方答案或完整作业实现。</p><a href="${source.url}" target="_blank" rel="noopener">查看官方仓库 →</a><p><a href="homework.html#${hw}">环境、步骤与复现要求 →</a></p>`:'<h3>课程延伸练习</h3><p>此示例没有独立对应的官方作业题。用于理解算法或工作流，不代表官方答案。</p><a href="assignments.html">查看自编综合项目与验收要求 →</a>';}
 
-<h2>HW1 · pass@k（MIT）</h2>
-<div class="code-cmp">
-<div><h3>【官方】摘录 / 仓库</h3>
-<pre id="hw1off"># 官方 HW1 源码请见仓库 vendored 目录或 GitHub
-# https://github.com/stanford-cs329a/cs329a-homework1-fall2025-public
-</pre>
-<p><a href="https://github.com/stanford-cs329a/cs329a-homework1-fall2025-public" target="_blank" rel="noopener">官方仓库</a></p></div>
-<div><h3>【自编复现】practice/examples/pass_at_k.py</h3>
-<pre id="hw1repro">&quot;&quot;&quot;自编: unbiased pass@k estimator + coverage curve (Monkeys / HumanEval style).&quot;&quot;&quot;
-from __future__ import annotations
-import math
-from collections import Counter
-
-def unbiased_pass_at_k(n: int, c: int, k: int) -&gt; float:
-    &quot;&quot;&quot;HumanEval unbiased estimator: 1 - C(n-c, k) / C(n, k).&quot;&quot;&quot;
-    if n - c &lt; k:
-        return 1.0
-    return 1.0 - math.comb(n - c, k) / math.comb(n, k)
-
-def coverage_power_law(ks, A=0.55, B=0.35):
-    &quot;&quot;&quot;Toy C(K) ≈ 1 - A * K^{-B} as in Large Language Monkeys.&quot;&quot;&quot;
-    return [1.0 - A * (k ** (-B)) for k in ks]
-
-def demo():
-    # Fake per-problem: n samples, c correct
-    problems = [(16, 3), (16, 0), (16, 8), (16, 1), (8, 2)]
-    for k in (1, 2, 4, 8):
-        scores = [unbiased_pass_at_k(n, c, min(k, n)) for n, c in problems]
-        print(f&quot;pass@{k} mean={sum(scores)/len(scores):.3f}  per={[&#x27;%.2f&#x27;%s for s in scores]}&quot;)
-    ks = [1, 2, 4, 8, 16, 32, 64]
-    cov = coverage_power_law(ks)
-    print(&quot;coverage toy:&quot;, list(zip(ks, [round(x, 3) for x in cov])))
-    # majority vs oracle best-of-n
-    samples = [&quot;42&quot;, &quot;7&quot;, &quot;42&quot;, &quot;42&quot;, &quot;99&quot;, &quot;7&quot;, &quot;42&quot;, &quot;3&quot;]
-    truth = &quot;42&quot;
-    maj = Counter(samples).most_common(1)[0][0]
-    best = truth if truth in samples else samples[0]
-    print(f&quot;majority={maj} best-of-n(oracle)={best} maj_ok={maj==truth}&quot;)
-
-if __name__ == &quot;__main__&quot;:
-    demo()</pre>
-<p>运行：<code>python practice/examples/pass_at_k.py</code></p></div>
-</div>
-
-<h2>HW2 · 仅链接（无许可证，不 vendoring）</h2>
-<p>官方：<a href="https://github.com/stanford-cs329a/cs329a-homework2-fall2025-public" target="_blank" rel="noopener">cs329a-homework2-fall2025-public</a>。本地只提供自写的 HumanEval 风格小练习，见 homework 页说明。</p>
-
-<h2>HW3 · API Agent（Apache-2.0）</h2>
-<div class="code-cmp">
-<div><h3>【官方】思路</h3>
-<pre># DeepResearchAgent / API routing — 见官方仓库与 ATTRIBUTION\n# https://github.com/stanford-cs329a/cs329a-homework3-fall2025-public</pre></div>
-<div><h3>【自编】ReAct 环</h3>
-<pre>&quot;&quot;&quot;自编: minimal ReAct loop with mock LLM + tools (no paid API).&quot;&quot;&quot;
-from __future__ import annotations
-
-TOOLS = {
-    &quot;search&quot;: lambda q: f&quot;[search:{q}] stub hit: Stanford CS329A teaches self-improving agents.&quot;,
-    &quot;calc&quot;: lambda expr: str(eval(expr, {&quot;__builtins__&quot;: {}}, {})),  # toy only
-}
-
-def mock_llm(step: int, question: str, obs: str | None) -&gt; tuple[str, str | None, str | None]:
-    &quot;&quot;&quot;Return (thought, action_or_none, final_or_none).&quot;&quot;&quot;
-    if step == 0:
-        return (&quot;Need course topic facts.&quot;, &quot;search[CS329A overview]&quot;, None)
-    if step == 1:
-        return (&quot;Have overview; compute 2+2 as sanity.&quot;, &quot;calc[2+2]&quot;, None)
-    return (&quot;Enough evidence.&quot;, None, f&quot;Answer: agents + verifiers. Obs calc={obs}&quot;)
-
-def run_react(question: str, max_steps: int = 5) -&gt; str:
-    transcript = []
-    obs = None
-    for t in range(max_steps):
-        thought, action, final = mock_llm(t, question, obs)
-        transcript.append(f&quot;Thought: {thought}&quot;)
-        if final:
-            transcript.append(f&quot;Final: {final}&quot;)
-            return &quot;\n&quot;.join(transcript)
-        assert action and &quot;[&quot; in action
-        name, arg = action[:-1].split(&quot;[&quot;, 1)
-        obs = TOOLS[name](arg)
-        transcript.append(f&quot;Action: {action}\nObservation: {obs}&quot;)
-    return &quot;\n&quot;.join(transcript) + &quot;\nFinal: (max steps)&quot;
-
-if __name__ == &quot;__main__&quot;:
-    print(run_react(&quot;What is CS329A about?&quot;))</pre>
-<p>运行：<code>python practice/examples/react_loop.py</code></p></div>
-</div>
-
-<h2>其它自编示例</h2>
-<ul>
-<li>majority_best_of_n.py · mcts_lats_toy.py · grpo_advantage.py · memgpt_memory.py · swe_patch_loop.py</li>
-</ul>
-</main><p class="site-credit">Slide images © Stanford CS329A lecture capture · for study only · <a href="README.md">来源说明</a></p>
-</body></html>
+ select.onchange=()=>{const u=new URL(location.href);u.searchParams.set('ex',select.value);history.replaceState(null,'',u);update();};update();
+});
+</script></body></html>

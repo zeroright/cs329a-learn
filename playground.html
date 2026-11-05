@@ -10,6 +10,7 @@
 <script defer src="vendor/katex/katex.min.js"></script>
 <script defer src="vendor/katex/auto-render.min.js"></script>
 <script defer src="vendor/mermaid.min.js"></script>
+<script src="js/site-shell.js"></script>
 <script src="js/app.js"></script>
 <script src="js/render.md.js"></script>
 <script src="js/quiz.js"></script>
@@ -29,25 +30,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 </head>
 <body>
 <a class="skip-link" href="#mainContent">跳到主要内容</a>
-<header class="topbar">
-  <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
-  <a class="brand" href="index.html">CS329A <span>自学站</span></a>
-                  <nav class="nav">
-    <a href="index.html" class="">首页</a>
-    <a href="learning-path.html" class="">学习路径</a>
-    <a href="lectures/L01.html" class="">讲次</a>
-    <a href="code-compare.html" class="active">源码与实验</a>
-    <a href="homework.html" class="">作业/项目</a>
-    <a href="papers.html" class="">论文库</a>
-    <a href="glossary.html" class="">术语表</a>
-    <a href="progress.html" class="">进度</a>
-    <a href="search.html" class="">搜索</a>
-  </nav>
-  <form class="searchbox" id="searchForm"><input id="globalSearch" placeholder="全文搜索…" type="search"/><button class="iconbtn" type="submit">搜</button></form>
-  <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
-</header>
+<header class="topbar"></header>
 
-<div class="layout"><aside class="sidebar" id="sidebar"><h3>课表讲次（L01–L20）</h3><a class="side-link" href="lectures/L01.html"><span class="ico">📚</span><span><div><b>L01</b> · 课程概览：什么是自我改进型 AI Agent</div><div class="side-meta">Sep 22 · 缩放 · 后训练 · 推理时缩放</div></span></a><a class="side-link" href="lectures/L02.html"><span class="ico">⚡</span><span><div><b>L02</b> · 测试时算力缩放</div><div class="side-meta">Sep 26 · TTC · 采样 · Archon</div></span></a><a class="side-link" href="lectures/L03.html"><span class="ico">✅</span><span><div><b>L03</b> · 稳健验证</div><div class="side-meta">Sep 29 · ORM · PRM · Verifier</div></span></a><a class="side-link" href="lectures/L04.html"><span class="ico">🛠️</span><span><div><b>L04</b> · 工具与代码反馈学习</div><div class="side-meta">Oct 3 · ReAct · RLEF · 工具</div></span></a><a class="side-link" href="lectures/L05.html"><span class="ico">🗺️</span><span><div><b>L05</b> · 多步规划与推理</div><div class="side-meta">Oct 6 · LATS · MCTS · 并行</div></span></a><a class="side-link" href="lectures/L06.html"><span class="ico">🏋️</span><span><div><b>L06</b> · 训练时计算与强化学习缩放</div><div class="side-meta">Oct 10 · STaR · GRPO · DAPO</div></span></a><a class="side-link" href="lectures/L07.html"><span class="ico">🧬</span><span><div><b>L07</b> · 开放式进化与自我改进智能体设计</div><div class="side-meta">Oct 13 · ADAS · AI Scientist · AlphaEvolve</div></span></a><a class="side-link" href="lectures/L08.html"><span class="ico">🔍</span><span><div><b>L08</b> · 搜索改进、AlphaCode 与深度研究</div><div class="side-meta">Oct 17 · AlphaCode · Search-o1 · DeepResearch</div></span></a><a class="side-link" href="lectures/L09.html"><span class="ico">✨</span><span><div><b>L09</b> · 嘉宾·Gemini 后训练</div><div class="side-meta">Oct 20 · Gemini · 后训练 · SFT</div></span></a><a class="side-link" href="lectures/L10.html"><span class="ico">🎤</span><span><div><b>L10</b> · 期中项目展示（一）</div><div class="side-meta">Oct 24 · 期中展示</div></span></a><a class="side-link" href="lectures/L11.html"><span class="ico">🎤</span><span><div><b>L11</b> · 期中项目展示（二）</div><div class="side-meta">Oct 27 · 期中展示</div></span></a><a class="side-link" href="lectures/L12.html"><span class="ico">🎤</span><span><div><b>L12</b> · 期中项目展示（三）</div><div class="side-meta">Oct 31 · 期中展示</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · 软件工程智能体框架</div><div class="side-meta">Nov 3 · SWE · CodeMonkeys · KernelBench</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · 用记忆增强智能体</div><div class="side-meta">Nov 7 · MemGPT · Cartridges · CacheBlend</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · 嘉宾·LLM 推理</div><div class="side-meta">Nov 10 · CoT · LtM · Self-Consistency</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · 嘉宾·AlphaProof、AlphaGeometr…</div><div class="side-meta">Nov 14 · AlphaGeometry · AlphaProof · IMO</div></span></a><a class="side-link" href="lectures/L17.html"><span class="ico">📊</span><span><div><b>L17</b> · 智能体评估与长周期任务</div><div class="side-meta">Nov 17 · METR · GDPval · 长时评测</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · 嘉宾·序列模型中的强化学习</div><div class="side-meta">Nov 21 · Decision Transformer · Algorithm Distillation</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · 嘉宾·具身多模态与视觉-语言-动作</div><div class="side-meta">Dec 1 · PaLM-E · RT-2 · VLA</div></span></a><a class="side-link" href="lectures/L20.html"><span class="ico">🚀</span><span><div><b>L20</b> · 未来研究方向与课程收尾</div><div class="side-meta">Dec 5 · 开放问题 · 未来方向</div></span></a></aside><main class="main" id="mainContent">
+<div class="layout"><main class="main" id="mainContent">
 <h1>代码游乐场 <span class="badge self">自编示例</span></h1>
 <p class="muted">浏览器内 Pyodide 运行（无需付费 API）。建议用 <code>python -m http.server</code> 打开本站以便加载 CDN；file:// 下部分浏览器会拦截。</p>
 <div class="toolbar">
@@ -56,7 +41,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   <button class="btn secondary" id="resetBtn">重置</button>
   <span class="muted" id="pyStatus">未加载</span>
 </div>
+<label class="editor-label" for="code">Python 示例代码（可编辑）</label>
 <textarea id="code" style="width:100%;min-height:320px;font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--code-bg);color:var(--code-fg);border-radius:12px;border:1px solid var(--border);padding:12px"></textarea>
+<h2>运行输出</h2>
 <pre id="out" class="codebox" style="min-height:140px"></pre>
 </main></div>
 <script src="data/codes.js"></script>
@@ -75,6 +62,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('runBtn').onclick=()=>Playground.runPython(codeEl.value, document.getElementById('out'), document.getElementById('pyStatus'));
 });
 </script>
-<div class="footer">内容来源：Canvas 教案 / Notion MD / practice 示例。官方作业标注【官方】；其余练习标注【自编】。Stanford CS329A Autumn 2025。</div>
-<p class="site-credit">Slide images © Stanford CS329A lecture capture · for study only · <a href="README.md">来源说明</a></p>
+
+
 </body></html>

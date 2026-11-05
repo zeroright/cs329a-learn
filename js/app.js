@@ -18,12 +18,13 @@
   function initSidebar(){
     const btn=document.getElementById('sidebarToggle');
     const sb=document.getElementById('sidebar');
-    if(btn&&sb) btn.onclick=(e)=>{e.stopPropagation();sb.classList.toggle('open');};
+    if(btn&&sb) btn.onclick=(e)=>{e.stopPropagation();const open=sb.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));};
     document.addEventListener('click',(e)=>{
       if(!sb||!sb.classList.contains('open')) return;
       if(sb.contains(e.target)||e.target===btn) return;
-      sb.classList.remove('open');
+      sb.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');
     });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sb?.classList.contains('open')){sb.classList.remove('open');btn?.setAttribute('aria-expanded','false');btn?.focus();}});
     const active=sb&&sb.querySelector('.side-link.active');
     if(active&&sb){
       const top=active.offsetTop-sb.clientHeight/2;
@@ -85,32 +86,8 @@
       nav.innerHTML='<a href="../index.html">首页</a><span class="sep">/</span><a href="../learning-path.html">学习路径</a><span class="sep">/</span><span>'+id+'</span>';
       main.insertBefore(nav, main.firstChild);
     }
-    const hero=main.querySelector('.hero');
-    if(hero && !hero.querySelector('.lecture-links')){
-      const box=document.createElement('p');
-      box.className='lecture-links';
-      const bits=[];
-      if(info.notion) bits.push('<a href="'+info.notion+'" target="_blank" rel="noopener">Notion 教案</a>');
-      if(info.youtube) bits.push('<a href="'+info.youtube+'" target="_blank" rel="noopener">YouTube'+(info.video_part?(' Part '+info.video_part):'')+'</a>');
-      if(info.bilibili) bits.push('<a href="'+info.bilibili+'" target="_blank" rel="noopener">Bilibili</a>');
-      bits.push('<a href="../papers.html?lecture='+id+'">本讲论文</a>');
-      bits.push('<a href="../homework.html">作业仓库</a>');
-      bits.push('<a href="../assignments.html">Capstone</a>');
-      box.innerHTML=bits.join(' · ');
-      hero.appendChild(box);
-    }
-    if(!document.getElementById('lecturePager')){
-      const p=document.createElement('nav');
-      p.className='pager'; p.id='lecturePager'; p.setAttribute('aria-label','上一讲下一讲');
-      p.innerHTML=pagerHtml(id);
-      if(hero) hero.insertAdjacentElement('afterend', p);
-      else main.appendChild(p);
-    }
     if(!document.getElementById('lecturePagerEnd')){
-      const p2=document.createElement('nav');
-      p2.className='pager'; p2.id='lecturePagerEnd'; p2.setAttribute('aria-label','上一讲下一讲');
-      p2.innerHTML=pagerHtml(id);
-      main.appendChild(p2);
+      const pager=document.createElement('nav');pager.className='pager';pager.id='lecturePagerEnd';pager.setAttribute('aria-label','上一讲下一讲');pager.innerHTML=pagerHtml(id);main.appendChild(pager);
     }
     main.classList.add('with-rail');
     rebuildLectureToc();
@@ -128,7 +105,7 @@
   function enhanceStatic(){
     if(document.getElementById('lectureBody')) return;
     const main=document.querySelector('main');
-    if(!main||main.querySelector('.crumbs')) return;
+    if(!main||main.querySelector('.crumbs')||main.querySelector('.practice-nav')) return;
     const path=location.pathname||'';
     if(/\/(index\.html)?$/.test(path)) return;
     const root=path.includes('/lectures/')?'../':'';
@@ -151,5 +128,5 @@
     loadChecklist(){try{return JSON.parse(localStorage.getItem(this.checklistKey)||'{}');}catch(e){return {};}},
     saveChecklist(c){localStorage.setItem(this.checklistKey,JSON.stringify(c));},
   };
-  document.addEventListener('DOMContentLoaded',()=>{initTheme();initSidebar();initSearchJump();watchLecture();enhanceStatic();});
+  document.addEventListener('DOMContentLoaded',()=>{if(window.CS329A_initShell)CS329A_initShell();initTheme();initSidebar();initSearchJump();watchLecture();enhanceStatic();});
 })();
