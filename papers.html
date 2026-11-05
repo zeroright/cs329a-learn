@@ -64,12 +64,18 @@ document.addEventListener('DOMContentLoaded',()=>{
       const hay=(p.title+' '+(p.topics||[]).join(' ')+' '+p.lecture).toLowerCase();
       return hay.includes(q);
     });
-    document.querySelector('#paperTable tbody').innerHTML=rows.map(p=>`<tr>
+    document.querySelector('#paperTable tbody').innerHTML=rows.map(p=>{
+      const href=`lectures/${p.lecture}.html${p.anchor?('#'+p.anchor):''}`;
+      const bits=[];
+      if(p.url) bits.push(`<a href="${p.url}" target="_blank" rel="noopener">${p.arxiv||'链接'}</a>`);
+      if(p.notion) bits.push(`<a href="${p.notion}" target="_blank" rel="noopener">Notion</a>`);
+      return `<tr>
       <td>${p.title}${p.note?(' · '+p.note):''}</td>
       <td>${p.lecture}</td>
       <td>${(p.topics||[]).join(', ')}</td>
-      <td>${p.url?`<a href="${p.url}" target="_blank" rel="noopener">${p.arxiv||'链接'}</a>`:'—'}</td>
-      <td><a href="lectures/${p.lecture}.html">打开精读</a></td></tr>`).join('') || '<tr><td colspan="5">无匹配</td></tr>';
+      <td>${bits.join(' · ')||'—'}</td>
+      <td><a href="${href}">打开精读</a></td></tr>`;
+    }).join('') || '<tr><td colspan="5">无匹配</td></tr>';
   }
   const preset=new URLSearchParams(location.search).get('lecture');
   if(preset) sel.value=preset;

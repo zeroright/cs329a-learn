@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const title=el.textContent.trim();
         const open=/课堂脉络|论文精读|作业与实战|本课定位|学习目标|学习路径|（/.test(title);
         start(title, open || /作业/.test(title));
+        if(el.id) cur.id=el.id;
       } else {
         body.appendChild(el);
       }

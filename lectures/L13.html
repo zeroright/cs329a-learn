@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(el.tagName==='H2'){
         const title=el.textContent.trim();
         start(title, true);
+        if(el.id) cur.id=el.id;
         pending.splice(0).forEach(n=>body.appendChild(n));
       } else if(!body){
         pending.push(el);

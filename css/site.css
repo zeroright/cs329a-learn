@@ -271,7 +271,8 @@ a:hover{text-decoration:underline}
 .content h2{margin:1.35em 0 .45em;font-size:1.35rem;line-height:1.35;letter-spacing:-.01em}
 .content h3{margin:1.15em 0 .35em;font-size:1.08rem;line-height:1.4}
 .content p,.content li{line-height:1.7}
-.content table{display:block;overflow-x:auto;max-width:100%}
+.content table{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+.content .katex-display{overflow-x:auto;overflow-y:hidden;padding-bottom:.25rem}
 .content pre,.codebox{max-width:100%}
 .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted);margin:0 0 12px}

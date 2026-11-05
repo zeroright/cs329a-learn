@@ -15,10 +15,23 @@
     md=md.replace(/<code>\/workspace\/cs329a\/practice\/examples\/([^<]+)<\/code>/g,'<a href="../playground.html?ex=$1"><code>$1</code></a>');
     return md;
   }
+  function shieldMath(md){
+    const slots=[];
+    const out=md.replace(/```[\s\S]*?```|\$\$[\s\S]+?\$\$|(?<!\$)\$(?!\$)(?:\\.|[^$\n])+?\$(?!\$)/g,(m)=>{
+      if(m.startsWith('```')) return m;
+      slots.push(m);
+      return 'MATHSLOT'+ (slots.length-1) +'END';
+    });
+    return {md:out, slots};
+  }
+  function restoreMath(html, slots){
+    return html.replace(/MATHSLOT(\d+)END/g,(_,i)=>escapeHtml(slots[+i]||''));
+  }
   function renderMarkdown(md, el){
     if(!window.marked){el.textContent=md;return;}
     marked.setOptions({gfm:true,breaks:false});
-    const html=marked.parse(transformNotionish(md));
+    const shielded=shieldMath(transformNotionish(md));
+    const html=restoreMath(marked.parse(shielded.md), shielded.slots);
     el.innerHTML=html;
     // mermaid
     el.querySelectorAll('code.language-mermaid, pre > code.language-mermaid').forEach((code,i)=>{
