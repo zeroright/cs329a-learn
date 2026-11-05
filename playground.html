@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 document.addEventListener('DOMContentLoaded',()=>{
   const sel=document.getElementById('exSel');
   const codeEl=document.getElementById('code');
-  SITE_META.examples.forEach(ex=>{const o=document.createElement('option');o.value=ex.file;o.textContent=ex.title+' ('+ex.file+')';sel.appendChild(o);});
+  const examples=(SITE_META.examples&&SITE_META.examples.length)?SITE_META.examples:Object.keys(window.EXAMPLE_CODES||{}).map(file=>({file,title:file.replace(/\.py$/,'').replace(/_/g,' ')}));
+  examples.forEach(ex=>{const o=document.createElement('option');o.value=ex.file;o.textContent=ex.title+' ('+ex.file+')';sel.appendChild(o);});
   const params=new URLSearchParams(location.search); const initial=params.get('ex')||'pass_at_k.py';
   if([...sel.options].some(o=>o.value===initial)) sel.value=initial;
   function load(){codeEl.value=EXAMPLE_CODES[sel.value]||'';}

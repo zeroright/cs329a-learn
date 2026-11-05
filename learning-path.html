@@ -78,12 +78,12 @@ document.addEventListener('DOMContentLoaded',()=>{
 const STAGES = [
   {id:'s1', name:'基础 Foundations', time:'3–5 天', prereq:'Python、概率基础、LLM 聊天体验',
    lectures:['L01'], papers:['Large Language Monkeys（课堂主例）'], hw:['阅读官方课表与评分'],
-   examples:['playground: pass_at_k.py'], milestones:['能口述 scaling / post-training / TTC / agent 四象限','完成 P1 自测 ≥70%'],
-   checks:['读完 P1','画一张自我改进坐标系','注册进度页标记完成']},
+   examples:['playground: pass_at_k.py'], milestones:['能口述 scaling / post-training / TTC / agent 四象限','完成 L01 自测 ≥70%'],
+   checks:['读完 L01','画一张自我改进坐标系','注册进度页标记完成']},
   {id:'s2', name:'测试时算力 Test-time Compute', time:'5–7 天', prereq:'完成 S1',
    lectures:['L02','L03'], papers:['Monkeys / coverage','Best-of-N / verifier'], hw:['HW1 官方 + repro/hw1'],
    examples:['majority vote','best-of-N'], milestones:['实现 majority@N 与 BoN 对比曲线','理解 coverage vs precision'],
-   checks:['跑通 repro/hw1','P2/P3 闪卡掌握','写出无偏 pass@k 公式']},
+   checks:['跑通 repro/hw1','L02/L03 闪卡掌握','写出无偏 pass@k 公式']},
   {id:'s3', name:'稳健验证 Verification', time:'4–6 天', prereq:'S2',
    lectures:['L03','L04'], papers:['Process/Outcome RM','LLM-as-judge 偏差'], hw:['HW2 思路 + repro/hw2'],
    examples:['sandbox exec','unit-test verifier'], milestones:['沙箱跑通迷你 HumanEval','能指出 judge 失败模式'],
@@ -91,26 +91,26 @@ const STAGES = [
   {id:'s4', name:'Agents / 工具 / 规划', time:'7–10 天', prereq:'S3',
    lectures:['L04','L05','L08','L13','L14'], papers:['ReAct','LATS','Deep Research','SWE-agent'], hw:['HW3 + repro/hw3'],
    examples:['ReAct loop','mini deep-research'], milestones:['搭出 route→retrieve→fuse 工作流','描述 SWE 定位-编辑-测试循环'],
-   checks:['repro/hw3 跑通','P5 LATS 图能复述','L13 流程图笔记']},
+   checks:['repro/hw3 跑通','L05 LATS 图能复述','L13 流程图笔记']},
   {id:'s5', name:'RL 训练时计算', time:'6–8 天', prereq:'S2–S4',
    lectures:['L06','L07','L09','L18'], papers:['GRPO / PPO','Open-ended evolution'], hw:['阅读官方 HW 训练部分（若有）'],
    examples:['GRPO 组内优势示意'], milestones:['写出 GRPO 相对优势直觉','区分 train-time vs test-time 算力'],
-   checks:['P6 自测','GRPO mermaid 笔记','列出 RL 奖励黑客风险']},
+   checks:['L06 自测','GRPO mermaid 笔记','列出 RL 奖励黑客风险']},
   {id:'s6', name:'前沿 Frontier', time:'5–7 天', prereq:'S4–S5',
    lectures:['L15','L16','L17','L19','L20'], papers:['长周期评测','AlphaProof/Geometry','VLA'], hw:['Capstone C1–C4 任选'],
    examples:['长任务评测设计'], milestones:['选定一个 Capstone 并完成 M1–M3','能向非技术同事讲清 B2B 价值'],
-   checks:['P8 评估清单','Capstone 里程碑打卡','P9 未来方向笔记']},
+   checks:['L17 评估清单','Capstone 里程碑打卡','L20 未来方向笔记']},
 ];
 
 document.addEventListener('DOMContentLoaded',()=>{
   const pathMd = [
   '```mermaid',
   'flowchart TD',
-  '  S1["S1 基础 / P1"] --> S2["S2 测试时算力 / P2 P3 HW1"]',
-  '  S2 --> S3["S3 验证 / P3 P4 HW2"]',
-  '  S3 --> S4["S4 Agents / P4 P5 P7 L13 HW3"]',
-  '  S4 --> S5["S5 RL 训练 / P6 L7 L9 L18"]',
-  '  S5 --> S6["S6 前沿 / L15 L16 P8 P9"]',
+  '  S1["S1 基础 / L01"] --> S2["S2 测试时算力 / L02 L03 HW1"]',
+  '  S2 --> S3["S3 验证 / L03 L04 HW2"]',
+  '  S3 --> S4["S4 Agents / L04 L05 L08 L13 HW3"]',
+  '  S4 --> S5["S5 RL 训练 / L06 L07 L09 L18"]',
+  '  S5 --> S6["S6 前沿 / L15 L16 L17 L20"]',
   '  S2 -.-> S5',
   '  S4 -.-> S6',
   '```'
@@ -118,9 +118,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderMarkdown(pathMd, document.getElementById('pathFlow'));
 
   const links = [
-    {href:'lectures/L01.html', label:'S1 · P1 概览'},
-    {href:'lectures/L02.html', label:'S2 · P2 TTC'},
-    {href:'lectures/L03.html', label:'S3 · P3 验证'},
+    {href:'lectures/L01.html', label:'S1 · L01 概览'},
+    {href:'lectures/L02.html', label:'S2 · L02 测试时算力'},
+    {href:'lectures/L03.html', label:'S3 · L03 验证'},
     {href:'homework.html#hw1', label:'HW1 复现'},
     {href:'lectures/L04.html', label:'S4 · ReAct'},
     {href:'lectures/L05.html', label:'S4 · LATS'},
@@ -154,30 +154,30 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('trackQuick').innerHTML = `
     <p><b>目标</b>：两周建立坐标系与三条核心管道（BoN / ReAct / 迷你 Deep Research）。</p>
     <ol>
-      <li>D1–D2：P1 + P2 精读，跑 <code>repro/hw1</code></li>
-      <li>D3–D5：P3 + P4，跑 <code>repro/hw2</code>，画验证器分类表</li>
-      <li>D6–D8：P5 + P7 + L13 流程图，跑 <code>repro/hw3</code></li>
-      <li>D9–D10：P6 GRPO 直觉 + P8 评估清单；写一页回顾</li>
+      <li>D1–D2：L01 + L02 精读，跑 <code>repro/hw1</code></li>
+      <li>D3–D5：L03 + L04，跑 <code>repro/hw2</code>，画验证器分类表</li>
+      <li>D6–D8：L05 + L08 + L13 流程图，跑 <code>repro/hw3</code></li>
+      <li>D9–D10：L06 GRPO 直觉 + L17 评估清单；写一页回顾</li>
       <li>D11–D14：选一个 Capstone 做 M1–M2 即可</li>
     </ol>`;
   document.getElementById('trackFull').innerHTML = `
     <p><b>目标</b>：对齐课表强度，官方 HW + 自编 Capstone。</p>
     <ul>
-      <li>W1：S1–S2（P1–P3，启动 HW1）</li>
-      <li>W2：完成 HW1 + 验证器专题（P3/P4）</li>
-      <li>W3：工具反馈与规划（P4/P5），启动 HW2</li>
+      <li>W1：S1–S2（L01–L03，启动 HW1）</li>
+      <li>W2：完成 HW1 + 验证器专题（L03/L04）</li>
+      <li>W3：工具反馈与规划（L04/L05），启动 HW2</li>
       <li>W4：完成 HW2 + LATS/MCTS 笔记</li>
-      <li>W5：Deep Research / SWE / 记忆（P7/L13/L14），启动 HW3</li>
-      <li>W6：RL（P6/L7/L9/L18）+ 完成 HW3</li>
-      <li>W7：前沿与评测（L15/L16/P8/L19）</li>
-      <li>W8：Capstone 冲刺 + P9 收尾展示</li>
+      <li>W5：Deep Research / SWE / 记忆（L08/L13/L14），启动 HW3</li>
+      <li>W6：RL（L06/L07/L09/L18）+ 完成 HW3</li>
+      <li>W7：前沿与评测（L15/L16/L17/L19）</li>
+      <li>W8：Capstone 冲刺 + L20 收尾展示</li>
     </ul>`;
   document.getElementById('trackPm').innerHTML = `
     <p><b>目标</b>：面向 B2B AI 设计产品的 PM / 解决方案经理——少训大模，重工作流、评测与成本。</p>
     <ol>
-      <li>精读 P1、P3、P8：价值主张、验证、长周期评测</li>
-      <li>P4/P7/L13：工具、检索、SWE 类交付形态</li>
-      <li>跳过重 RL 实现；用 P6 只掌握「何时该训」决策树</li>
+      <li>精读 L01、L03、L17：价值主张、验证、长周期评测</li>
+      <li>L04/L08/L13：工具、检索、SWE 类交付形态</li>
+      <li>跳过重 RL 实现；用 L06 只掌握「何时该训」决策树</li>
       <li>作业：用 <code>repro/hw3</code> 换成「企业知识库 stub」，写 ROI / 幻觉风险备忘</li>
       <li>交付物：1 页产品 PRD + 评测表 + 成本上限</li>
     </ol>`;

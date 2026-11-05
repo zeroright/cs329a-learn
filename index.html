@@ -49,15 +49,23 @@ document.addEventListener('DOMContentLoaded',()=>{
   <section class="hero">
     <div class="badge bili">B站录音</div> <div class="badge read">官方阅读</div> <div class="badge official">官方作业</div> <div class="badge self">自编练习</div>
     <h1>Stanford CS329A · 自我改进型 AI Agent 自学站</h1>
-    <p>完整教案交互学习：17 讲全文、论文精读、作业与实战、自测、闪卡、Pyodide 代码游乐场与进度追踪。官方材料与自编练习严格区分。</p>
+    <p>完整教案交互学习：20 讲全文、论文精读、作业与实战、自测、闪卡、Pyodide 代码游乐场与进度追踪。官方材料与自编练习严格区分。公开录像 9 集，对应 L01–L06、L08、L17、L20。</p>
     <div class="toolbar" style="margin-top:14px">
       <a class="btn" href="learning-path.html">详细学习路径</a>
-      <a class="btn secondary" href="lectures/L01.html">从 P1 开始</a>
+      <a class="btn secondary" href="lectures/L01.html">从 L01 开始</a>
       <a class="btn secondary" href="homework.html">作业复现</a>
       <a class="btn secondary" href="assignments.html">作业与 Capstone</a>
       <a class="btn secondary" href="playground.html?ex=pass_at_k.py">运行 pass@k 示例</a>
     </div>
   </section>
+
+  <h2 id="staff">讲师、嘉宾与评分</h2>
+  <div class="grid" id="staffGrid"></div>
+  <div class="card" id="gradingCard" style="margin-top:14px"></div>
+
+  <h2 id="videos">录像与课表 <span class="muted">（9 集 ↔ 20 讲）</span></h2>
+  <p class="muted">YouTube 与 B 站按集对应。教案来源里的 YouTube 播放列表 ID 疑似被截断，此处不放未核验的列表链接。B 站合集：<a href="https://www.bilibili.com/video/BV1tEu467ErN" target="_blank" rel="noopener">BV1tEu467ErN</a>。官方课表：<a href="https://cs329a.stanford.edu/" target="_blank" rel="noopener">cs329a.stanford.edu</a>。</p>
+  <div class="table-scroll"><table class="table" id="videoTable"></table></div>
 
   <h2>学习路线图</h2>
   <div class="card"><div id="roadmapMd" class="content"></div></div>
@@ -72,13 +80,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     <summary>索引全文（Notion/Canvas）</summary>
     <div class="body content" id="indexFull"></div>
   </details>
-<p style="opacity:.7;font-size:.85rem">站点版本 v4-2026-11-03 · 讲次统一为 L01–L20 · 未自动推送 GitHub</p></main>
+<p style="opacity:.7;font-size:.85rem">站点版本 v5-2026-11-05 · 讲次 L01–L20 · 讲次正文按篇加载</p></main>
 </div>
 <script src="data/index_md.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const nodes = SITE_META.order.map(id=>({id, ...SITE_META.lectures[id]}));
-  const dashPairs=new Set(['P3|P6','P2|L13']);
+  const dashPairs=new Set(['L03|L06','L02|L13']);
   const edges=SITE_META.edges.map(([a,b])=>[a,b, dashPairs.has(a+'|'+b)?'dash':'solid']);
   drawKnowledgeGraph(document.getElementById('kg'), nodes, edges, 'lectures/');
   document.getElementById('overviewCards').innerHTML = SITE_META.order.map(id=>{
@@ -86,11 +94,61 @@ document.addEventListener('DOMContentLoaded',()=>{
     return `<a class="card" href="lectures/${id}.html" style="color:inherit;text-decoration:none">
       <div>${m.icon} <span class="badge ${m.source==='bilibili'?'bili':'read'}">${m.source_label}</span></div>
       <h3>${id} · ${m.lecture}</h3>
-      <div class="muted">${m.title}</div>
+      <div class="muted">${m.date||''} · ${m.title}</div>
       <div class="muted" style="margin-top:6px">${(m.topics||[]).join(' · ')}</div>
     </a>`;
   }).join('');
-  renderMarkdown("```mermaid\nflowchart TD\n  p1[P1 \u6982\u89c8] --> p2[P2 \u6d4b\u8bd5\u65f6\u7b97\u529b]\n  p2 --> p3[P3 \u9a8c\u8bc1]\n  p3 --> p4[P4 \u5de5\u5177\u53cd\u9988]\n  p4 --> p5[P5 \u591a\u6b65\u89c4\u5212]\n  p5 --> p6[P6 \u8bad\u65f6 RL]\n  p6 --> l7[L7 \u5f00\u653e\u8fdb\u5316]\n  l7 --> p7[P7 \u641c\u7d22\u6df1\u7814]\n  p7 --> l9[L9 \u540e\u8bad\u7ec3]\n  l9 --> l13[L13 SWE]\n  l13 --> l14[L14 \u8bb0\u5fc6]\n  l14 --> l15[L15 \u63a8\u7406]\n  l15 --> l16[L16 \u8d85\u4eba\u7c7b\u63a8\u7406]\n  l16 --> p8[P8 \u957f\u65f6\u8bc4\u6d4b]\n  p8 --> l18[L18 \u5e8f\u5217 RL]\n  l18 --> l19[L19 \u5177\u8eab]\n  l19 --> p9[P9 \u672a\u6765]\n```", document.getElementById('roadmapMd'));
+  renderMarkdown([
+    '```mermaid',
+    'flowchart TD',
+    '  L01["L01 概览"] --> L02["L02 测试时算力"]',
+    '  L02 -->|选择器| L03["L03 验证"]',
+    '  L03 -->|环境反馈| L04["L04 工具反馈"]',
+    '  L04 -->|多步| L05["L05 多步规划"]',
+    '  L05 -->|训回模型| L06["L06 训练时 RL"]',
+    '  L06 -->|进化结构| L07["L07 开放式进化"]',
+    '  L07 -->|搜索放大| L08["L08 搜索深研"]',
+    '  L08 -->|工业后训练| L09["L09 后训练嘉宾"]',
+    '  L09 --> L10_12["L10–L12 期中展示"]',
+    '  L10_12 --> L13["L13 SWE"]',
+    '  L13 --> L14["L14 记忆"]',
+    '  L14 --> L15["L15 推理嘉宾"]',
+    '  L15 --> L16["L16 超人类推理"]',
+    '  L16 --> L17["L17 长时评测"]',
+    '  L17 --> L18["L18 自主性嘉宾"]',
+    '  L18 --> L19["L19 机器人嘉宾"]',
+    '  L19 --> L20["L20 未来"]',
+    '  L03 -.->|奖励| L06',
+    '  L02 -.->|Pass@k 到 SWE| L13',
+    '```'
+  ].join('\n'), document.getElementById('roadmapMd'));
+  (function fillHome(){
+    const staff=SITE_META.staff;
+    const grid=document.getElementById('staffGrid');
+    const grade=document.getElementById('gradingCard');
+    if(staff && grid){
+      grid.innerHTML =
+        '<div class="card"><h3>讲师</h3><p>'+staff.instructors.join('、')+'</p><p class="muted">'+staff.term+' · '+staff.when+'<br>'+staff.where+'</p><p><a href="'+SITE_META.official_site+'" target="_blank" rel="noopener">官方课表</a></p></div>'
+        + '<div class="card"><h3>课程助理</h3><p>'+staff.cas.join('、')+'</p><p class="muted">'+staff.late+'</p></div>'
+        + '<div class="card"><h3>嘉宾</h3><ul class="staff-list">'+staff.guests.map(g=>'<li><a href="lectures/'+g.lecture+'.html">'+g.lecture+'</a> '+g.name+'（'+g.org+'）<div class="muted">'+g.topic+'</div></li>').join('')+'</ul></div>';
+    }
+    if(staff && grade){
+      grade.innerHTML = '<h3>评分（官方课表）</h3><div class="table-scroll"><table class="table"><tr><th>项目</th><th>权重</th><th>时间 / 说明</th></tr>'
+        + staff.grading.map(g=>'<tr><td>'+g.item+'</td><td>'+g.weight+'</td><td>'+g.when+'</td></tr>').join('')
+        + '</table></div><p class="muted">来源：<a href="https://cs329a.stanford.edu/" target="_blank" rel="noopener">cs329a.stanford.edu</a>。作业仓库见 <a href="homework.html">作业复现</a> 与 <a href="assignments.html">作业与 Capstone</a>。</p>';
+    }
+    const table=document.getElementById('videoTable');
+    if(table){
+      const body=SITE_META.order.map(id=>{
+        const m=SITE_META.lectures[id];
+        const yt=m.youtube?'<a href="'+m.youtube+'" target="_blank" rel="noopener">Part '+m.video_part+'</a>':'无公开录像';
+        const bili=m.bilibili?'<a href="'+m.bilibili+'" target="_blank" rel="noopener">p='+m.video_part+'</a>':'—';
+        const notion=m.notion?'<a href="'+m.notion+'" target="_blank" rel="noopener">打开</a>':'—';
+        return '<tr><td><a href="lectures/'+id+'.html">'+id+'</a></td><td>'+(m.date||'')+'</td><td>'+m.title+'</td><td>'+yt+'</td><td>'+bili+'</td><td>'+notion+'</td></tr>';
+      }).join('');
+      table.innerHTML='<thead><tr><th>讲次</th><th>日期</th><th>主题</th><th>YouTube</th><th>Bilibili</th><th>Notion</th></tr></thead><tbody>'+body+'</tbody>';
+    }
+  })();
   renderMarkdown(INDEX_MD, document.getElementById('indexFull'));
 });
 </script>

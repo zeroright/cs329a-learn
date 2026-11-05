@@ -12,6 +12,7 @@
     md=md.replace(/<table-of-contents\s*\/>/gi,'');
     // path mentions to relative playground
     md=md.replace(/`\/workspace\/cs329a\/practice\/examples\/([^`]+)`/g,'[`$1`](../playground.html?ex=$1)');
+    md=md.replace(/<code>\/workspace\/cs329a\/practice\/examples\/([^<]+)<\/code>/g,'<a href="../playground.html?ex=$1"><code>$1</code></a>');
     return md;
   }
   function renderMarkdown(md, el){

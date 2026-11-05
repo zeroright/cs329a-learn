@@ -1,6 +1,8 @@
 (function(){
   function drawKnowledgeGraph(svg, nodes, edges, base='lectures/'){
     if(!svg) return;
+    window.CS329A_redrawGraph=function(){drawKnowledgeGraph(svg, nodes, edges, base);};
+    const dark=document.documentElement.getAttribute('data-theme')==='dark';
     const W=svg.clientWidth||900, H=svg.clientHeight||460;
     svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
     svg.innerHTML='';
@@ -18,7 +20,7 @@
       const line=document.createElementNS('http://www.w3.org/2000/svg','line');
       line.setAttribute('x1',a.x); line.setAttribute('y1',a.y);
       line.setAttribute('x2',b.x); line.setAttribute('y2',b.y);
-      line.setAttribute('stroke', e[2]==='dash' ? '#94a3b8' : '#60a5fa');
+      line.setAttribute('stroke', e[2]==='dash' ? (dark?'#64748b':'#94a3b8') : (dark?'#60a5fa':'#2563eb'));
       line.setAttribute('stroke-width','2');
       if(e[2]==='dash') line.setAttribute('stroke-dasharray','6 6');
       svg.appendChild(line);
@@ -28,16 +30,19 @@
       g.style.cursor='pointer';
       const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
       c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',22);
-      c.setAttribute('fill', node.source==='bilibili'?'#dbeafe':'#ede9fe');
-      c.setAttribute('stroke', node.source==='bilibili'?'#2563eb':'#7c3aed');
+      c.setAttribute('class', node.source==='bilibili'?'node-bili':'node-read');
+      c.setAttribute('fill', node.source==='bilibili'?(dark?'#1e3a5f':'#dbeafe'):(dark?'#2e1065':'#ede9fe'));
+      c.setAttribute('stroke', node.source==='bilibili'?(dark?'#60a5fa':'#2563eb'):(dark?'#c084fc':'#7c3aed'));
       c.setAttribute('stroke-width','2');
       const t=document.createElementNS('http://www.w3.org/2000/svg','text');
       t.setAttribute('x',x); t.setAttribute('y',y+5); t.setAttribute('text-anchor','middle');
-      t.setAttribute('font-size','11'); t.setAttribute('font-weight','700'); t.textContent=node.id;
+      t.setAttribute('font-size','11'); t.setAttribute('font-weight','700');
+      t.setAttribute('fill', dark?'#e8ecf7':'#1a1d26');
+      t.textContent=node.id;
       const label=document.createElementNS('http://www.w3.org/2000/svg','text');
       label.setAttribute('x',x); label.setAttribute('y',y+38); label.setAttribute('text-anchor','middle');
-      label.setAttribute('font-size','10'); label.setAttribute('fill','#64748b');
-      label.textContent=(node.lecture||'') ;
+      label.setAttribute('font-size','10'); label.setAttribute('fill', dark?'#9aa6c1':'#64748b');
+      label.textContent=(node.date||node.lecture||'') ;
       g.appendChild(c); g.appendChild(t); g.appendChild(label);
       g.onclick=()=>{location.href=base+node.id+'.html';};
       svg.appendChild(g);

@@ -99,7 +99,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=1&t=3600",
           "source": "lesson_outline_HHMM"
         }
-      ]
+      ],
+      "video_part": 1
     },
     "L02": {
       "id": "L02",
@@ -167,7 +168,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=2&t=2700",
           "source": "lesson_outline_HHMM"
         }
-      ]
+      ],
+      "video_part": 2
     },
     "L03": {
       "id": "L03",
@@ -235,7 +237,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=3&t=4080",
           "source": "lesson_outline_HHMM"
         }
-      ]
+      ],
+      "video_part": 3
     },
     "L04": {
       "id": "L04",
@@ -333,7 +336,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=4&t=3780",
           "source": "lesson_outline_HHMM"
         }
-      ]
+      ],
+      "video_part": 4
     },
     "L05": {
       "id": "L05",
@@ -391,7 +395,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=5&t=2940",
           "source": "lesson_outline_HHMM"
         }
-      ]
+      ],
+      "video_part": 5
     },
     "L06": {
       "id": "L06",
@@ -458,7 +463,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=6&t=4070",
           "source": "whisper_transcript"
         }
-      ]
+      ],
+      "video_part": 6
     },
     "L07": {
       "id": "L07",
@@ -540,7 +546,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=7&t=4102",
           "source": "whisper_transcript"
         }
-      ]
+      ],
+      "video_part": 7
     },
     "L09": {
       "id": "L09",
@@ -721,7 +728,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=8&t=4101",
           "source": "whisper_transcript"
         }
-      ]
+      ],
+      "video_part": 8
     },
     "L18": {
       "id": "L18",
@@ -848,7 +856,8 @@ window.SITE_META = {
           "bili": "https://www.bilibili.com/video/BV1tEu467ErN?p=9&t=3845",
           "source": "whisper_transcript"
         }
-      ]
+      ],
+      "video_part": 9
     }
   },
   "aliases": {
@@ -951,5 +960,475 @@ window.SITE_META = {
   "bilibili_playlist": "https://www.bilibili.com/video/BV1tEu467ErN",
   "notion_overview": "https://app.notion.com/p/40a9384c52318196b7eeffcbe5cd9d6c",
   "github_pages": "https://zeroright.github.io/cs329a-learn/",
-  "version": "v2-gapclose-2026-11-03"
+  "version": "v5-2026-11-05",
+  "staff": {
+    "term": "Autumn 2025",
+    "when": "Mon/Fri 4:30–5:50 PM PT",
+    "where": "Skilling Auditorium",
+    "instructors": [
+      "Aakanksha Chowdhery",
+      "Azalia Mirhoseini"
+    ],
+    "cas": [
+      "Chelsea Zou",
+      "Shree Reddy",
+      "Kaien Yang",
+      "Adrian Gamarra Lafuente"
+    ],
+    "late": "4 free late days，每份作业最多 2 天",
+    "grading": [
+      {
+        "item": "HW1",
+        "weight": "15%",
+        "when": "due Oct 13"
+      },
+      {
+        "item": "HW2",
+        "weight": "15%",
+        "when": "due Oct 23"
+      },
+      {
+        "item": "HW3",
+        "weight": "20%",
+        "when": "due Nov 7"
+      },
+      {
+        "item": "Proposal",
+        "weight": "2.5%",
+        "when": "Oct 10"
+      },
+      {
+        "item": "Midterm 展示 + 报告",
+        "weight": "10%",
+        "when": "期中"
+      },
+      {
+        "item": "Final",
+        "weight": "35%",
+        "when": "Dec 10"
+      },
+      {
+        "item": "Poster",
+        "weight": "2.5%",
+        "when": "Dec 12"
+      }
+    ],
+    "guests": [
+      {
+        "lecture": "L09",
+        "name": "Melvin Johnson",
+        "org": "Google DeepMind",
+        "topic": "Evolution of Post-training from Chatbots to Agents"
+      },
+      {
+        "lecture": "L14",
+        "name": "Junchen Jiang",
+        "org": "LMCache / UChicago",
+        "topic": "Augmenting Agents with Memory"
+      },
+      {
+        "lecture": "L15",
+        "name": "Denny Zhou",
+        "org": "Google DeepMind",
+        "topic": "LLM Reasoning"
+      },
+      {
+        "lecture": "L16",
+        "name": "Thang Luong",
+        "org": "Google DeepMind",
+        "topic": "AlphaProof, AlphaGeometry & Gemini IMO Gold"
+      },
+      {
+        "lecture": "L18",
+        "name": "Misha Laskin",
+        "org": "Reflection AI",
+        "topic": "Building Agentic Systems for Autonomy: Lessons & Open questions"
+      },
+      {
+        "lecture": "L19",
+        "name": "Danny Driess",
+        "org": "Physical Intelligence",
+        "topic": "Multimodal AI Agents in Robotics"
+      }
+    ]
+  },
+  "official": [
+    {
+      "id": "hw1",
+      "title": "HW1 Test-time compute (AIME25)",
+      "weight": "15%",
+      "topics": "Zero-shot · Majority · Best-of-N + generative RM · RLEF · Analysis · due Oct 13",
+      "url": "https://github.com/stanford-cs329a/cs329a-homework1-fall2025-public"
+    },
+    {
+      "id": "hw2",
+      "title": "HW2 Code gen & verification (HumanEval)",
+      "weight": "15%",
+      "topics": "Zero-shot · pass@k · LLM-as-judge · Synthetic unit tests · due Oct 23",
+      "url": "https://github.com/stanford-cs329a/cs329a-homework2-fall2025-public"
+    },
+    {
+      "id": "hw3",
+      "title": "HW3 API-augmented agentic workflow",
+      "weight": "20%",
+      "topics": "API routing · decompose/fuse · iterative refine · DeepResearchAgent · due Nov 7",
+      "url": "https://github.com/stanford-cs329a/cs329a-homework3-fall2025-public"
+    },
+    {
+      "id": "proposal",
+      "title": "Proposal",
+      "weight": "2.5%",
+      "topics": "Oct 10 · 2–4 人",
+      "url": "https://cs329a.stanford.edu/"
+    },
+    {
+      "id": "midterm",
+      "title": "Midterm 展示 + 报告",
+      "weight": "10%",
+      "topics": "5–10 分钟",
+      "url": "https://cs329a.stanford.edu/"
+    },
+    {
+      "id": "final",
+      "title": "Final project",
+      "weight": "35%",
+      "topics": "Dec 10 · 假设 + 实验；禁纯 survey / 纯 demo app",
+      "url": "https://cs329a.stanford.edu/"
+    },
+    {
+      "id": "poster",
+      "title": "Poster",
+      "weight": "2.5%",
+      "topics": "Dec 12",
+      "url": "https://cs329a.stanford.edu/"
+    }
+  ],
+  "capstones": [
+    {
+      "id": "C1",
+      "title": "测试时算力缩放实验",
+      "goal": "在 MATH 或 AIME 公开子集上，固定总采样预算，对比 zero-shot / majority@k / Best-of-N(+verifier) / 自洽，画出准确率–成本曲线。",
+      "lectures": [
+        "L02",
+        "L03",
+        "L15",
+        "L17"
+      ],
+      "benchmarks": [
+        "MATH",
+        "AIME"
+      ],
+      "milestones": [
+        "M1 采样接口与答案规范化",
+        "M2 majority 与 pass@k 无偏估计",
+        "M3 mock/真 RM BoN",
+        "M4 消融 temperature 与预算分配",
+        "M5 报告"
+      ],
+      "compute": "API：约 5k–50k 次短补全；或本地 7B 单卡 1–2 天。无付费可用 mock LLM。",
+      "rubric": "复现性 25 · 方法正确性 25 · 曲线与消融 25 · 误差分析 15 · 写作 10",
+      "b2b": "把「答案」换成「参数化设计方案」，verifier=规范/干涉检查。"
+    },
+    {
+      "id": "C2",
+      "title": "验证器引导的推理 Agent",
+      "goal": "在 GSM8K 或 HumanEval 上实现「生成→验证→再搜索」Agent；对比 greedy CoT 与宽度受限 beam/LATS。",
+      "lectures": [
+        "L03",
+        "L04",
+        "L05",
+        "L13"
+      ],
+      "benchmarks": [
+        "GSM8K",
+        "HumanEval"
+      ],
+      "milestones": [
+        "M1 ReAct/工具环",
+        "M2 可执行或规则 verifier",
+        "M3 宽度=2–4 搜索",
+        "M4 对比表",
+        "M5 失败案例库"
+      ],
+      "compute": "GSM8K 100 题 × 平均 8 次调用；或本地小模型 + 规则验算。",
+      "rubric": "Agent 正确性 30 · 验证器设计 25 · 对照实验 25 · 案例 10 · 文档 10",
+      "b2b": "状态=设计步骤图；V=CAD 约束；动作=特征树编辑。"
+    },
+    {
+      "id": "C3",
+      "title": "小模型 GRPO / 组相对策略优化（GSM8K）",
+      "goal": "在开源小模型（如 0.5B–3B）上实现组采样→组内相对优势→策略更新，报告 GSM8K 前后 pass@1 与长度。",
+      "lectures": [
+        "L06",
+        "L09",
+        "L03"
+      ],
+      "benchmarks": [
+        "GSM8K"
+      ],
+      "milestones": [
+        "M1 可验证奖励",
+        "M2 组采样与 advantage",
+        "M3 一步/短训更新",
+        "M4 评测 50–200 题",
+        "M5 超参表"
+      ],
+      "compute": "单卡消费级 GPU 数小时–2 天；无 GPU 可用伪更新跑通评测管线。",
+      "rubric": "公式/实现正确 30 · 训练稳定性 20 · 指标或诚实负结果 25 · 消融 15 · 复现 README 10",
+      "b2b": "奖励=设计检查器通过率 + 步骤惩罚。"
+    },
+    {
+      "id": "C4",
+      "title": "Deep Research Agent + 评测床",
+      "goal": "查询分解→多源检索（可用 stub）→融合→迭代精炼；在 10–20 个多跳题上报告准确率、引用覆盖、步数与成本。",
+      "lectures": [
+        "L08",
+        "L17",
+        "L14"
+      ],
+      "benchmarks": [
+        "多跳问答"
+      ],
+      "milestones": [
+        "M1 router/decompose",
+        "M2 检索 stub",
+        "M3 fuse/refine 与停止条件",
+        "M4 评测 runner",
+        "M5 引用幻觉抽检"
+      ],
+      "compute": "每题 5–20 次工具调用；mock 检索可本地跑通。",
+      "rubric": "工作流完整 25 · 评测严谨 30 · 引用忠实度 20 · 成本报告 15 · 文档 10",
+      "b2b": "检索企业零件库/BOM；输出设计变更说明。"
+    }
+  ],
+  "papers": [
+    {
+      "title": "How Do Large Language Monkeys Get Their Power (Laws)",
+      "lecture": "L02",
+      "topics": [
+        "官方指定",
+        "无精读"
+      ],
+      "url": "https://cs329a.stanford.edu/",
+      "arxiv": "课表",
+      "note": "官方指定阅读；教案无独立精读"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally (Snell 2024)",
+      "lecture": "L02",
+      "topics": [
+        "官方指定",
+        "无精读"
+      ],
+      "url": "https://cs329a.stanford.edu/",
+      "arxiv": "课表",
+      "note": "官方指定阅读；教案无独立精读"
+    },
+    {
+      "title": "ADaPT (Prasad 2024)",
+      "lecture": "L05",
+      "topics": [
+        "官方指定",
+        "无精读"
+      ],
+      "url": "https://cs329a.stanford.edu/",
+      "arxiv": "课表",
+      "note": "官方指定阅读；教案无独立精读"
+    },
+    {
+      "title": "Wider or Deeper? Adaptive Branching Tree Search",
+      "lecture": "L05",
+      "topics": [
+        "官方指定",
+        "无精读"
+      ],
+      "url": "https://cs329a.stanford.edu/",
+      "arxiv": "课表",
+      "note": "官方指定阅读；教案无独立精读"
+    },
+    {
+      "title": "ADAS (arXiv:2408.08435)",
+      "lecture": "L07",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2408.08435",
+      "arxiv": "2408.08435",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "AI Scientist (arXiv:2408.06292)",
+      "lecture": "L07",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2408.06292",
+      "arxiv": "2408.06292",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "AlphaEvolve 白皮书 (arXiv:2506.13131)",
+      "lecture": "L07",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2506.13131",
+      "arxiv": "2506.13131",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Constitutional AI",
+      "lecture": "L09",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2212.08073",
+      "arxiv": "2212.08073",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "DeepSeek-R1",
+      "lecture": "L09",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2501.12948",
+      "arxiv": "2501.12948",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Gemini 1.0 技术报告",
+      "lecture": "L09",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2312.11805",
+      "arxiv": "2312.11805",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Gemini 2.5 技术报告",
+      "lecture": "L09",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2507.06261",
+      "arxiv": "2507.06261",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "InstructGPT",
+      "lecture": "L09",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2203.02155",
+      "arxiv": "2203.02155",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "WebRL",
+      "lecture": "L09",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2411.02337",
+      "arxiv": "2411.02337",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "CodeMonkeys",
+      "lecture": "L13",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2501.14723",
+      "arxiv": "2501.14723",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "KernelBench",
+      "lecture": "L13",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2502.10517",
+      "arxiv": "2502.10517",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "LLM Optimizers via ASI",
+      "lecture": "L13",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2410.15625",
+      "arxiv": "2410.15625",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "CacheBlend",
+      "lecture": "L14",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2405.16444",
+      "arxiv": "2405.16444",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Cartridges",
+      "lecture": "L14",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2506.06266",
+      "arxiv": "2506.06266",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "MemGPT",
+      "lecture": "L14",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2310.08560",
+      "arxiv": "2310.08560",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "CoT",
+      "lecture": "L15",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2201.11903",
+      "arxiv": "2201.11903",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Least-to-Most",
+      "lecture": "L15",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2205.10625",
+      "arxiv": "2205.10625",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Self-Consistency",
+      "lecture": "L15",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2203.11171",
+      "arxiv": "2203.11171",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "AG2",
+      "lecture": "L16",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2502.03544",
+      "arxiv": "2502.03544",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Algorithm Distillation",
+      "lecture": "L18",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2210.14215",
+      "arxiv": "2210.14215",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "Decision Transformer",
+      "lecture": "L18",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2106.01345",
+      "arxiv": "2106.01345",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "PaLM-E",
+      "lecture": "L19",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2303.03378",
+      "arxiv": "2303.03378",
+      "note": "讲次或教案中的链接"
+    },
+    {
+      "title": "RT-2",
+      "lecture": "L19",
+      "topics": [],
+      "url": "https://arxiv.org/abs/2307.15818",
+      "arxiv": "2307.15818",
+      "note": "讲次或教案中的链接"
+    }
+  ]
 }

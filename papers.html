@@ -68,9 +68,11 @@ document.addEventListener('DOMContentLoaded',()=>{
       <td>${p.title}${p.note?(' · '+p.note):''}</td>
       <td>${p.lecture}</td>
       <td>${(p.topics||[]).join(', ')}</td>
-      <td><a href="${p.url}" target="_blank" rel="noopener">${p.arxiv||'原文'}</a></td>
+      <td>${p.url?`<a href="${p.url}" target="_blank" rel="noopener">${p.arxiv||'链接'}</a>`:'—'}</td>
       <td><a href="lectures/${p.lecture}.html">打开精读</a></td></tr>`).join('') || '<tr><td colspan="5">无匹配</td></tr>';
   }
+  const preset=new URLSearchParams(location.search).get('lecture');
+  if(preset) sel.value=preset;
   sel.onchange=render; document.getElementById('fTopic').oninput=render; render();
 });
 </script>
