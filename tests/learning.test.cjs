@@ -5,7 +5,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const repo=path.resolve(__dirname,'..');
 const context=vm.createContext({});context.window=context;
-for(const file of ['data/meta.js','data/learning.js'])vm.runInContext(fs.readFileSync(path.join(repo,file),'utf8'),context);
+for(const file of ['data/meta.js','data/learning.js','js/site-shell.js'])vm.runInContext(fs.readFileSync(path.join(repo,file),'utf8'),context);
 const {LEARNING,SITE_META}=context;
 test('full route contains all knowledge lectures once and respects prerequisite order',()=>{
   const ids=Array.from(LEARNING.tracks.full.ids);
@@ -46,4 +46,24 @@ test('all changed HTML inline and external scripts parse without syntax errors',
       else if(!attrs.includes('application/ld+json'))new vm.Script(body,{filename:file});
     }
   }
+});
+test('shared navigation has unique reachable destinations at each level',()=>{
+  const shell=context.CS329A_SHELL;
+  assert.equal(shell.primary.length,5);assert.equal(shell.practice.length,5);
+  for(const group of [shell.primary,shell.practice,shell.resources]){
+    assert.equal(new Set(group.map(([href])=>href)).size,group.length);
+    for(const [href] of group)assert.ok(fs.existsSync(path.join(repo,href.split('#')[0])),href);
+  }
+});
+test('canonical pages use the shared shell rather than duplicating the lecture directory',()=>{
+  for(const dir of ['', 'lectures'])for(const name of fs.readdirSync(path.join(repo,dir)).filter(n=>n.endsWith('.html'))){
+    const html=fs.readFileSync(path.join(repo,dir,name),'utf8');if(!html.includes('js/app.js'))continue;
+    assert.equal((html.match(/<header class="topbar">/g)||[]).length,1,name);
+    assert.ok(html.includes('js/site-shell.js'),name);
+    assert.ok(!html.includes('<aside class="sidebar"'),name);
+  }
+  const home=fs.readFileSync(path.join(repo,'index.html'),'utf8');
+  assert.ok(!home.includes('id="overviewCards"'));assert.ok(!home.includes('id="indexFull"'));assert.ok(!home.includes('id="roadmapMd"'));
+  const projects=fs.readFileSync(path.join(repo,'assignments.html'),'utf8');
+  assert.ok(!projects.includes('id="hwTable"'));assert.ok(!projects.includes('id="capMd"'));
 });

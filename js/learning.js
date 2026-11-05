@@ -22,8 +22,7 @@
   function renderHome(){
     const host=document.getElementById('learningHome');if(!host)return;
     const t=LEARNING.tracks[track];
-    host.innerHTML=`${trackButtons()}<p class="route-intro">${t.intro}</p>${continuation()}<div class="section-heading"><div><span class="eyebrow">LEARN → EXPERIMENT → VERIFY</span><h2>每一步，都有一个可交付的结果</h2></div><a href="learning-path.html?track=${track}">展开完整路线 →</a></div><ol class="home-steps">${t.phases.map((p,i)=>`<li><span class="step-no">${String(i+1).padStart(2,'0')}</span><div><h3>${p.title}</h3><p>${p.output}</p><a href="learning-path.html?track=${track}#phase-${i}">${p.ids.join(' / ')} →</a></div></li>`).join('')}</ol><div class="source-strip"><b>先确认资料，再开始学习</b><p>9 讲视频教案 · 8 讲论文补读 · 3 次期中展示。路线、目标和实验均为本站自编学习设计。</p><a href="#course-reference">查看课表、录像与来源 ↓</a></div>`;
-    bindTracks(host);
+    host.innerHTML=`<div class="current-route"><span>当前路线：<b>${t.title}</b> · ${t.ids.length} 个知识讲次</span><a href="learning-path.html?track=${track}">调整路线 →</a></div>${continuation()}<p class="home-outcome muted">路线目标：${t.outcome}。详细阶段与交付物统一在学习路径中查看。</p>`;
   }
   function bindTracks(host){host.querySelectorAll('[data-track]').forEach(b=>b.onclick=()=>chooseTrack(b.dataset.track));}
   function renderProgress(){
@@ -46,19 +45,36 @@
     const id=location.pathname.match(/\/(L\d{2})\.html$/)?.[1],host=document.getElementById('lectureBody');
     if(!id||!host||!LEARNING.lessons[id])return;
     const l=LEARNING.lessons[id],m=SITE_META.lectures[id],main=document.querySelector('main.main');
-    const box=document.createElement('section');box.className='study-guide';box.id='study-guide';
-    box.innerHTML=`<span class="eyebrow">本讲学习指南 · 本站自编</span><h2>${l[0]}</h2><p>${l[1]}</p><div class="guide-meta"><span>${LEARNING.source(id)}</span><span>先修：${l[2].length?l[2].map(x=>`<a href="${href(x)}">${x}</a>`).join(' · '):'Python 与概率基础'}</span></div><nav class="study-actions" aria-label="本讲学习步骤"><button type="button" data-jump="read">01 读章节</button>${l[4]?`<a href="../learning-lab.html?lab=${l[4]}&track=${track}">02 做机制实验 ↗</a>`:l[3]?`<a href="../playground.html?ex=${l[3]}">02 运行示例 ↗</a>`:`<a href="../papers.html?lecture=${id}">02 读主论文 ↗</a>`}<button type="button" data-jump="quiz">03 做自测</button><button type="button" data-jump="practice">04 找实践任务</button></nav><p class="guide-note">${m.youtube?'视频教案来自课堂转写；模型名、数值和论断请结合原视频核对。':'本页为论文 / 公开材料补读；自编讲解与练习不代表嘉宾课堂原话。'}</p>`;
-    const hero=main.querySelector('.hero');hero.insertAdjacentElement('afterend',box);
+    const hero=main.querySelector('.hero'),mark=document.getElementById('markDone'),bar=document.getElementById('doneBar')?.parentElement;
+    const resourceLinks=[];
+    if(m.youtube)resourceLinks.push(`<a href="${m.youtube}" target="_blank" rel="noopener">YouTube</a>`);
+    if(m.bilibili)resourceLinks.push(`<a href="${m.bilibili}" target="_blank" rel="noopener">B站</a>`);
+    if(m.notion)resourceLinks.push(`<a href="${m.notion}" target="_blank" rel="noopener">Notion 教案</a>`);
+    resourceLinks.push(`<a href="../papers.html?lecture=${id}">本讲论文</a>`);
+    const box=document.createElement('div');box.className='study-guide';box.id='study-guide';
+    box.innerHTML=`<p class="learning-goal"><b>学完能做什么</b> · ${l[1]}</p><div class="guide-meta"><span>先修：${l[2].length?l[2].map(x=>`<a href="${href(x)}">${x}</a>`).join(' · '):'Python 与概率基础'}</span></div><nav class="study-actions" aria-label="本讲学习步骤"><button type="button" data-jump="read">章节精读</button>${l[4]?`<a href="../learning-lab.html?lab=${l[4]}&track=${track}">机制实验 ↗</a>`:l[3]?`<a href="../playground.html?ex=${l[3]}">运行示例 ↗</a>`:''}<button type="button" data-jump="quiz">自测与闪卡</button><button type="button" data-jump="practice">实践任务</button></nav>`;
+    hero.innerHTML=`<span class="eyebrow">${id} / ${LEARNING.source(id)}</span><h1>${esc(m.title)}</h1><p class="lecture-context">原课程日期：${esc(m.date||'')}（2025）</p>`;
+    hero.appendChild(box);
+    const sources=document.createElement('details');sources.className='lesson-resources';sources.innerHTML=`<summary>${m.youtube?'视频与参考资料':'论文与参考资料'}</summary><div class="resource-links">${resourceLinks.join('')}</div><p class="guide-note">${m.youtube?'课堂转写请结合原视频核对模型名、数值与论断。':'论文 / 公开材料补读；不代表嘉宾课堂原话。'}</p>`;hero.appendChild(sources);
+    const completion=document.createElement('section');completion.className='reading-completion';completion.id='readingCompletion';completion.innerHTML='<p>读完后，用自测与实践检验理解。阅读完成与项目成果分别记录。</p>';if(mark)completion.appendChild(mark);if(bar)completion.appendChild(bar);
+    const endPager=document.getElementById('lecturePagerEnd');if(endPager)endPager.before(completion);else main.appendChild(completion);
     box.querySelectorAll('[data-jump]').forEach(b=>b.onclick=()=>{
       const target=b.dataset.jump==='quiz'?document.getElementById('quizRoot'):b.dataset.jump==='practice'?[...host.querySelectorAll('details.section')].find(d=>/作业|实战|练习|项目/.test(d.querySelector('summary')?.textContent)):host;
       if(target)jumpTo(target);else{location.href='../assignments.html';}
     });
-    const toc=document.getElementById('pageToc');
-    if(toc)toc.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const target=document.getElementById(decodeURIComponent(a.hash.slice(1)));if(target){e.preventDefault();jumpTo(target);history.replaceState(null,'',a.hash);}});
+    // The lesson title and whole-video links already live in the header resources.
+    host.querySelectorAll('h1').forEach(h=>h.remove());
+    const intro=host.querySelector('details.section');
+    if(intro){const text=intro.querySelector('.body');const summary=intro.querySelector('summary');if(summary)summary.textContent='来源说明与导言';if(text){intro.open=false;sources.appendChild(intro);}}
+    const videoIntro=[...host.querySelectorAll('details.section')].find(d=>/学习路径与(视频|公开链接)/.test(d.querySelector('summary')?.textContent));
+    if(videoIntro){videoIntro.querySelectorAll('a').forEach(a=>{if(a.href===m.youtube||a.href===m.bilibili||/youtube\.com|bilibili\.com/.test(a.href))a.replaceWith(document.createTextNode(a.textContent));});videoIntro.open=false;sources.appendChild(videoIntro);}
     const sections=[...host.querySelectorAll('details.section')];
     const firstChapter=sections.find(d=>/（一）|课堂脉络|论文精读/.test(d.querySelector('summary')?.textContent));
+    if(firstChapter&&intro)intro.querySelectorAll('.inline-viz').forEach(v=>firstChapter.querySelector('.body')?.prepend(v));
     sections.forEach((d,i)=>{d.open=i===0||d===firstChapter;});
     host.querySelectorAll('.slide-card').forEach(card=>{
+      const credit=card.querySelector('.slide-credit');
+      if(credit&&card.querySelector('.jump')){const attribution=credit.querySelector('a')?.textContent;if(attribution)credit.textContent=attribution;}
       const transcript=[...card.children].filter(n=>n.tagName==='P'&&/^讲解\s*[:：]/.test(n.textContent.trim()));
       if(!transcript.length)return;
       const details=document.createElement('details');details.className='transcript';
@@ -72,8 +88,7 @@
     // Keep recommendation navigation consistent with the selected learning route.
     const t=LEARNING.tracks[track],i=t.ids.indexOf(id);
     if(i>=0){document.querySelectorAll('.pager').forEach(p=>p.innerHTML=`${i?`<a class="pager-link" href="${href(t.ids[i-1])}">← ${t.ids[i-1]} · ${LEARNING.lessons[t.ids[i-1]][0]}</a>`:`<a class="pager-link" href="../learning-path.html?track=${track}">← 选择学习路线</a>`}${i<t.ids.length-1?`<a class="pager-link" href="${href(t.ids[i+1])}">接着学 ${t.ids[i+1]} · ${LEARNING.lessons[t.ids[i+1]][0]} →</a>`:'<a class="pager-link" href="../assignments.html">去完成综合项目 →</a>'}`);}
-    const mark=document.getElementById('markDone');if(mark){mark.textContent=done(id)?'已标记阅读完成':'标记本讲阅读完成';mark.onclick=()=>{CS329A.markLectureDone(id);const bar=document.getElementById('doneBar');if(bar)bar.style.width='100%';mark.textContent='已标记阅读完成';};}
-    const note=document.createElement('p');note.className='muted';note.textContent='阅读、自测和项目是三种独立记录；读完后请用自测与交付物检验理解。';main.appendChild(note);
+    if(mark){mark.textContent=done(id)?'已标记阅读完成':'标记本讲阅读完成';mark.onclick=()=>{CS329A.markLectureDone(id);const bar=document.getElementById('doneBar');if(bar)bar.style.width='100%';mark.textContent='已标记阅读完成';};}
     if(location.hash){let target;try{target=document.getElementById(decodeURIComponent(location.hash.slice(1)));}catch(_){}if(target)jumpTo(target);}
   }
   function renderLab(){
@@ -121,8 +136,8 @@
     const requested=new URLSearchParams(location.search).get('track')||read('cs329a_learning_track','full');track=Object.hasOwn(LEARNING.tracks,requested)?requested:'full';
     write("cs329a_learning_track",track);
     renderHome();renderPath();renderProgress();renderLab();enhanceLesson();
+    if(location.hash){try{const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target)jumpTo(target);}catch(_){}}
     document.querySelectorAll('.side-link').forEach(a=>{const id=a.getAttribute('href').match(/(L\d{2})\.html/)?.[1];if(id&&done(id))a.classList.add('is-read');});
-    document.querySelectorAll('.nav').forEach(nav=>{const a=document.createElement('a');a.href=root()+'learning-lab.html';a.textContent='机制实验';if(document.getElementById('learningLab'))a.className='active';nav.appendChild(a);});
     document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;const u=new URL(a.href,location.href);if(u.origin!==location.origin||u.pathname!==location.pathname||!u.hash)return;let target;try{target=document.getElementById(decodeURIComponent(u.hash.slice(1)));}catch(_){}if(target){e.preventDefault();jumpTo(target);history.replaceState(null,'',u);}});
     document.addEventListener('cs329a:progress',()=>{renderHome();renderPath();renderProgress();});
     window.addEventListener('storage',e=>{if(e.key===CS329A.progressKey){renderHome();renderPath();renderProgress();}});

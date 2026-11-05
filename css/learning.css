@@ -116,3 +116,81 @@ input[type=checkbox],input[type=radio]{accent-color:var(--brand);min-width:16px;
 @media(max-width:920px){.layout{grid-template-columns:minmax(0,1fr)}.main{padding:22px 18px 64px}.hero{padding:24px}.topbar{gap:8px;padding:0 12px}.brand{font-size:13px}.brand,.iconbtn{flex-shrink:0}.nav{min-width:0}.sidebar .side-link{font-size:13px}.home-steps{gap:0 20px}}
 @media(max-width:600px){.topbar{flex-wrap:wrap;padding:8px 12px;gap:8px}.topbar .nav{order:4;flex-basis:100%;padding:0 0 2px}.topbar #themeToggle{margin-left:auto}.topbar .searchbox{display:none}:root{--top:102px}.main{padding:20px 14px 60px}.hero{padding:22px 18px}.hero h1{font-size:25px}.hero .toolbar .btn{flex:1}.route-switch{gap:6px}.route-switch button{min-width:0;padding:12px 9px;font-size:13px}.route-switch button small{font-size:10px}.continue-study{padding:20px;align-items:start;flex-direction:column;gap:14px}.continue-study .btn{width:100%}.home-steps{grid-template-columns:minmax(0,1fr)}.section-heading{align-items:start;flex-direction:column;gap:10px}.route-phase{grid-template-columns:30px minmax(0,1fr);gap:8px}.phase-number{width:28px;height:28px;font-size:11px}.phase-content{padding-left:12px}.phase-content h2{font-size:20px}.lesson-list>li{flex-direction:column;gap:0}.read-state{padding-top:4px}.study-guide{padding:18px}.study-actions>a,.study-actions>button{flex:1 1 42%;text-align:center}.lab-panel{grid-template-columns:minmax(0,1fr);padding:18px}.lab-controls{gap:14px}.source-caption{overflow-wrap:anywhere}.inline-viz .iv-stage svg,.inline-viz .iv-stage canvas{min-width:0}.footer{padding:0 14px}.section .body{padding:8px 14px 18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Shared shell: a global task bar, local practice tabs, and a lecture-only rail. */
+:root{--top:62px}
+.topbar{gap:18px;min-height:62px;padding:0 24px;background:var(--bg2)}
+.nav{gap:6px;justify-content:center}
+.nav a{border-radius:6px;font-size:13px}
+.resource-menu{position:relative;font-size:13px;flex-shrink:0}
+.resource-menu>summary{cursor:pointer;padding:8px 10px;border-radius:6px;color:var(--muted)}
+.resource-menu[data-active=true]>summary{color:var(--brand);background:var(--chip)}
+.resource-menu>nav{position:absolute;right:0;top:100%;min-width:150px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:6px;z-index:70}
+.resource-menu nav a{display:block;padding:9px 12px;color:var(--text);border-radius:5px}
+.resource-menu nav a:hover{background:var(--chip);text-decoration:none}
+.layout.single-column{display:block;min-height:calc(100vh - var(--top))}
+.single-column>.main,main.main:not(.with-rail){max-width:1160px}
+.single-column .hero{padding:24px 28px}
+.hero h1{font-size:clamp(23px,2.4vw,31px);margin:10px 0}
+.home-hero{padding:24px 28px}
+.home-hero h1{font-size:29px}
+.learning-home{margin-top:20px}
+.current-route{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13px;margin:0 0 12px}
+.home-outcome{font-size:13px;margin:12px 0 28px}
+.course-catalog{scroll-margin-top:90px}
+.course-catalog .section-heading{margin:32px 0 14px}
+.course-catalog .section-heading p{font-size:12px;margin:0}
+.course-catalog .table th{font-size:12px;color:var(--muted)}
+.course-catalog .table td{font-size:13px;vertical-align:middle;padding:16px 10px}
+.catalog-topics{display:block;color:var(--muted);font-size:11px;margin-top:5px}
+.catalog-links{display:flex;flex-wrap:wrap;gap:12px;white-space:nowrap}
+.course-catalog .table td:first-child{width:55%}
+.practice-nav{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--border);margin:0 0 24px;padding:0 0 10px}
+.practice-nav a{padding:8px 14px;color:var(--muted);font-size:13px;border-radius:6px;white-space:nowrap}
+.practice-nav a.active{color:var(--chip-t);background:var(--chip);font-weight:700}
+.practice-nav a:hover{text-decoration:none;background:var(--chip)}
+.main>.practice-nav+.crumbs{display:none}
+.official-overview{margin:28px 0}
+.official-overview h2{font-size:20px}
+.official-overview .table td{font-size:13px;vertical-align:top}
+.official-overview .table td:first-child{width:30%}
+.official-overview>p{font-size:12px}
+.capstone-project{scroll-margin-top:90px}
+.milestone-list{padding-left:22px}
+.milestone-list li{padding:7px 0}
+.milestone-list label{cursor:pointer;font-size:14px;line-height:1.8}
+.source-workspace{grid-template-columns:minmax(230px,1fr) minmax(0,2fr);gap:28px}
+.source-workspace pre{font-size:12px;max-height:650px}
+.source-workspace h2{font-size:18px}
+.source-workspace h3{font-size:16px}
+.source-workspace .section-heading{margin:0 0 12px;align-items:center}
+.source-reference{font-size:13px}
+.example-picker{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:24px 0}
+.example-picker select{max-width:100%;padding:9px 12px;border:1px solid var(--border);background:var(--bg2);color:var(--text);border-radius:6px}
+.editor-label{display:block;margin:16px 0 8px;font-size:13px}
+.main.with-rail{grid-template-columns:minmax(0,1fr) 230px;gap:0 24px}
+.main.with-rail>.crumbs,.main.with-rail>.hero{grid-column:1/-1}
+.main.with-rail>#pageToc{grid-column:2;grid-row:3 / span 8;margin-top:24px;max-width:230px}
+.main.with-rail>.lecture-content,.main.with-rail>#selfCheck,.main.with-rail>.reading-completion,.main.with-rail>.pager{grid-column:1}
+.lecture-content{min-width:0;margin:0}
+.lecture-content>#lectureBody{padding:0}
+.lecture-content .section{margin:16px 0}
+.hero .study-guide{padding:0;margin:16px 0 12px;background:transparent}
+.hero .study-guide .learning-goal{font-size:14px;max-width:none}
+.lecture-context{font-size:12px}
+.lesson-resources{border-top:1px solid var(--border);margin-top:18px;padding-top:8px}
+.lesson-resources>summary{cursor:pointer;font-size:12px;color:var(--muted);padding:6px 0}
+.resource-links{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;margin:10px 0}
+.lesson-resources .guide-note{color:var(--muted);font-size:12px}
+.lesson-resources .section{margin:12px 0}
+.lesson-resources .section>summary{font-size:12px;font-weight:500}
+.reading-completion{padding:18px 0;border-top:1px solid var(--border);margin-top:22px}
+.reading-completion p{font-size:13px;color:var(--muted)}
+.reading-completion .progress-bar{max-width:360px;margin-top:16px}
+.sidebar{padding:16px 12px}
+.side-link{font-size:12px;line-height:1.6;padding:9px 8px;gap:10px;border-radius:6px}
+.lecture-code{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;flex-shrink:0;min-width:25px}
+.site-footer{max-width:1160px;margin:32px auto 0;padding:20px 28px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-top:1px solid var(--border);font-size:11px}
+@media(min-width:921px) and (max-width:1200px){.main.with-rail{grid-template-columns:minmax(0,1fr)}.main.with-rail>#pageToc{grid-column:1;grid-row:auto;position:static;max-width:none;max-height:140px}.topbar{gap:10px;padding:0 16px}}
+@media(max-width:920px){.main.with-rail{display:block}.main.with-rail>#pageToc{position:sticky;max-width:none;margin:20px 0 12px;top:var(--top)}.topbar{gap:8px;padding:0 12px}.nav a{padding:7px 8px;font-size:12px}.source-workspace{grid-template-columns:minmax(0,1fr)}.sidebar{top:var(--top)}}
+@media(max-width:600px){:root{--top:104px}.topbar{padding:8px 12px;gap:6px;min-height:var(--top)}.topbar .nav{order:4;flex:1 1 100%;justify-content:space-between;overflow:visible;gap:0}.topbar .nav a{font-size:11px;padding:7px 6px}.topbar .brand{margin-right:auto}.topbar #themeToggle{margin-left:0}.resource-menu{font-size:12px}.resource-menu>summary{padding:7px}.single-column .hero,.home-hero{padding:20px 18px}.home-hero h1{font-size:24px}.hero .study-guide{padding:0}.current-route{font-size:12px}.practice-nav{gap:2px;margin-bottom:18px}.practice-nav a{padding:7px 8px;font-size:12px}.catalog-topics{display:none}.course-catalog .table{min-width:540px}.course-catalog .table td{padding:12px 8px}.official-overview .table{min-width:650px}.source-workspace .section-heading{flex-direction:row}.side-link{font-size:12px}.site-footer{padding:20px 16px}}
