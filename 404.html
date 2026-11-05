@@ -21,8 +21,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(window.mermaid) mermaid.initialize({startOnLoad:false, theme: document.documentElement.getAttribute('data-theme')==='dark'?'dark':'default'});
 });
 </script>
+<link rel="stylesheet" href="css/learning.css"/>
+<script src="data/learning.js"></script>
+<script defer src="js/learning.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#mainContent">跳到主要内容</a>
 <header class="topbar">
   <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
   <a class="brand" href="index.html">CS329A <span>自学站</span></a>
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
 </header>
 
-<div class="layout"><main class="main" style="grid-column:1/-1">
+<div class="layout"><main class="main" id="mainContent" style="grid-column:1/-1">
   <section class="hero"><h1>404 · 页面不存在</h1>
   <p>链接可能已移动。请返回首页或使用搜索。</p>
   <div class="toolbar">

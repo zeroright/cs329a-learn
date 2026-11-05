@@ -7,8 +7,12 @@
 <link rel="stylesheet" href="css/site.css"/>
 <script src="data/meta.js"></script>
 <script src="js/app.js"></script>
+<link rel="stylesheet" href="css/learning.css"/>
+<script src="data/learning.js"></script>
+<script defer src="js/learning.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#mainContent">跳到主要内容</a>
 <header class="topbar">
   <a class="brand" href="index.html">CS329A <span>自学站</span></a>
   <nav class="nav">
@@ -24,7 +28,7 @@
   </nav>
   <button class="iconbtn" id="themeToggle" title="深色模式">◐</button>
 </header>
-<main class="viz-index">
+<main class="viz-index" id="mainContent">
   <h1>可视化已并入各讲次</h1>
   <p>顶栏不再单独放「可视化」。关键参数、指标、推理过程与算法 demo 已作为<strong>交互卡片</strong>嵌在对应讲次正文中（随滚动懒加载）。旧链接保留本页作为索引。</p>
   <div class="viz-card"><a href="lectures/L01.html">L01</a> · 缩放定律 / 算力分配 / 四层计算地图</div>

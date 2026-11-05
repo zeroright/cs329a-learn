@@ -143,7 +143,7 @@
     siteRoot(){const s=document.querySelector('script[src*="js/app.js"]');if(!s)return'';const src=s.getAttribute('src')||'';const i=src.lastIndexOf('js/app.js');return i>=0?src.slice(0,i):'';},
     progressKey:'cs329a_progress_v1',
     loadProgress(){try{return JSON.parse(localStorage.getItem(this.progressKey)||'{}');}catch(e){return {};}},
-    saveProgress(p){localStorage.setItem(this.progressKey,JSON.stringify(p));},
+    saveProgress(p){localStorage.setItem(this.progressKey,JSON.stringify(p));document.dispatchEvent(new Event('cs329a:progress'));},
     markLectureDone(id){const p=this.loadProgress();p.lectures=p.lectures||{};p.lectures[id]=p.lectures[id]||{};p.lectures[id].done=true;p.lectures[id].doneAt=Date.now();this.saveProgress(p);},
     saveQuiz(id,score,total){const p=this.loadProgress();p.quizzes=p.quizzes||{};p.quizzes[id]={score,total,at:Date.now()};this.saveProgress(p);},
     saveFlash(id,known){const p=this.loadProgress();p.flash=p.flash||{};p.flash[id]=known;this.saveProgress(p);},
