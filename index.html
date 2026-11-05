@@ -23,8 +23,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(window.mermaid) mermaid.initialize({startOnLoad:false, theme: document.documentElement.getAttribute('data-theme')==='dark'?'dark':'default'});
 });
 </script>
+<link rel="stylesheet" href="css/learning.css"/>
+<script src="data/learning.js"></script>
+<script defer src="js/learning.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#mainContent">跳到主要内容</a>
 <header class="topbar">
   <button class="iconbtn mobile-toggle" id="sidebarToggle" title="菜单">☰</button>
   <a class="brand" href="index.html">CS329A <span>自学站</span></a>
@@ -45,20 +49,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 <div class="layout">
 <aside class="sidebar" id="sidebar"><h3>课表讲次（L01–L20）</h3><a class="side-link" href="lectures/L01.html"><span class="ico">📚</span><span><div><b>L01</b> · 课程概览：什么是自我改进型 AI Agent</div><div class="side-meta">Sep 22 · 缩放 · 后训练 · 推理时缩放</div></span></a><a class="side-link" href="lectures/L02.html"><span class="ico">⚡</span><span><div><b>L02</b> · 测试时算力缩放</div><div class="side-meta">Sep 26 · TTC · 采样 · Archon</div></span></a><a class="side-link" href="lectures/L03.html"><span class="ico">✅</span><span><div><b>L03</b> · 稳健验证</div><div class="side-meta">Sep 29 · ORM · PRM · Verifier</div></span></a><a class="side-link" href="lectures/L04.html"><span class="ico">🛠️</span><span><div><b>L04</b> · 工具与代码反馈学习</div><div class="side-meta">Oct 3 · ReAct · RLEF · 工具</div></span></a><a class="side-link" href="lectures/L05.html"><span class="ico">🗺️</span><span><div><b>L05</b> · 多步规划与推理</div><div class="side-meta">Oct 6 · LATS · MCTS · 并行</div></span></a><a class="side-link" href="lectures/L06.html"><span class="ico">🏋️</span><span><div><b>L06</b> · 训练时计算与强化学习缩放</div><div class="side-meta">Oct 10 · STaR · GRPO · DAPO</div></span></a><a class="side-link" href="lectures/L07.html"><span class="ico">🧬</span><span><div><b>L07</b> · 开放式进化与自我改进智能体设计</div><div class="side-meta">Oct 13 · ADAS · AI Scientist · AlphaEvolve</div></span></a><a class="side-link" href="lectures/L08.html"><span class="ico">🔍</span><span><div><b>L08</b> · 搜索改进、AlphaCode 与深度研究</div><div class="side-meta">Oct 17 · AlphaCode · Search-o1 · DeepResearch</div></span></a><a class="side-link" href="lectures/L09.html"><span class="ico">✨</span><span><div><b>L09</b> · 嘉宾·Gemini 后训练</div><div class="side-meta">Oct 20 · Gemini · 后训练 · SFT</div></span></a><a class="side-link" href="lectures/L10.html"><span class="ico">🎤</span><span><div><b>L10</b> · 期中项目展示（一）</div><div class="side-meta">Oct 24 · 期中展示</div></span></a><a class="side-link" href="lectures/L11.html"><span class="ico">🎤</span><span><div><b>L11</b> · 期中项目展示（二）</div><div class="side-meta">Oct 27 · 期中展示</div></span></a><a class="side-link" href="lectures/L12.html"><span class="ico">🎤</span><span><div><b>L12</b> · 期中项目展示（三）</div><div class="side-meta">Oct 31 · 期中展示</div></span></a><a class="side-link" href="lectures/L13.html"><span class="ico">💻</span><span><div><b>L13</b> · 软件工程智能体框架</div><div class="side-meta">Nov 3 · SWE · CodeMonkeys · KernelBench</div></span></a><a class="side-link" href="lectures/L14.html"><span class="ico">🧠</span><span><div><b>L14</b> · 用记忆增强智能体</div><div class="side-meta">Nov 7 · MemGPT · Cartridges · CacheBlend</div></span></a><a class="side-link" href="lectures/L15.html"><span class="ico">🧩</span><span><div><b>L15</b> · 嘉宾·LLM 推理</div><div class="side-meta">Nov 10 · CoT · LtM · Self-Consistency</div></span></a><a class="side-link" href="lectures/L16.html"><span class="ico">📐</span><span><div><b>L16</b> · 嘉宾·AlphaProof、AlphaGeometr…</div><div class="side-meta">Nov 14 · AlphaGeometry · AlphaProof · IMO</div></span></a><a class="side-link" href="lectures/L17.html"><span class="ico">📊</span><span><div><b>L17</b> · 智能体评估与长周期任务</div><div class="side-meta">Nov 17 · METR · GDPval · 长时评测</div></span></a><a class="side-link" href="lectures/L18.html"><span class="ico">🎮</span><span><div><b>L18</b> · 嘉宾·序列模型中的强化学习</div><div class="side-meta">Nov 21 · Decision Transformer · Algorithm Distillation</div></span></a><a class="side-link" href="lectures/L19.html"><span class="ico">🤖</span><span><div><b>L19</b> · 嘉宾·具身多模态与视觉-语言-动作</div><div class="side-meta">Dec 1 · PaLM-E · RT-2 · VLA</div></span></a><a class="side-link" href="lectures/L20.html"><span class="ico">🚀</span><span><div><b>L20</b> · 未来研究方向与课程收尾</div><div class="side-meta">Dec 5 · 开放问题 · 未来方向</div></span></a></aside>
-<main class="main">
+<main class="main" id="mainContent">
   <section class="hero">
     <div class="badge bili">B站录音</div> <div class="badge read">官方阅读</div> <div class="badge official">官方作业</div> <div class="badge self">自编练习</div>
-    <h1>Stanford CS329A · 自我改进型 AI Agent 自学站</h1>
-    <p>完整教案交互学习：20 讲全文、论文精读、作业与实战、自测、闪卡、Pyodide 代码游乐场与进度追踪。官方材料与自编练习严格区分。公开录像 9 集，对应 L01–L06、L08、L17、L20。</p>
-    <div class="toolbar" style="margin-top:14px">
-      <a class="btn" href="learning-path.html">详细学习路径</a>
-      <a class="btn secondary" href="lectures/L01.html">从 L01 开始</a>
-      <a class="btn secondary" href="homework.html">作业复现</a>
-      <a class="btn secondary" href="assignments.html">作业与 Capstone</a>
-      <a class="btn secondary" href="playground.html?ex=pass_at_k.py">运行 pass@k 示例</a>
-    </div>
+    <span class="eyebrow">STANFORD CS329A / AUTUMN 2025</span><h1>理解自我改进，<br>构建可验证的 AI Agent。</h1>
+    <p>从理解机制，到做出可验证的 Agent。选一条适合自己的路线，用视频与论文建立理解，用代码、实验和项目检验结果。</p>
+    <div class="toolbar"><a class="btn" href="learning-path.html">选择学习路线 →</a><a class="btn secondary" href="learning-lab.html">先做一个机制实验</a></div>
   </section>
 
+  <section id="learningHome" class="learning-home" aria-label="学习路线与继续学习"></section>
+  <details class="section reference-section" id="course-reference"><summary>课程资料与来源 · 讲师 / 课表 / 全部讲次</summary><div class="body">
   <h2 id="staff">讲师、嘉宾与评分</h2>
   <div class="grid" id="staffGrid"></div>
   <div class="card" id="gradingCard" style="margin-top:14px"></div>
@@ -67,20 +67,23 @@ document.addEventListener('DOMContentLoaded',()=>{
   <p class="muted">YouTube 与 B 站按集对应。教案来源里的 YouTube 播放列表 ID 疑似被截断，此处不放未核验的列表链接。B 站合集：<a href="https://www.bilibili.com/video/BV1tEu467ErN" target="_blank" rel="noopener">BV1tEu467ErN</a>。官方课表：<a href="https://cs329a.stanford.edu/" target="_blank" rel="noopener">cs329a.stanford.edu</a>。</p>
   <div class="table-scroll"><table class="table" id="videoTable"></table></div>
 
+  <details class="section"><summary>按原课表查看知识地图</summary><div class="body">
   <h2>学习路线图</h2>
   <div class="card"><div id="roadmapMd" class="content"></div></div>
 
   <h2>交互知识地图 <span class="muted">（点击节点进入讲次）</span></h2>
   <svg class="graph" id="kg"></svg>
 
+  </div></details>
   <h2>课程概览</h2>
   <div class="grid" id="overviewCards"></div>
 
-  <details class="section" open>
+  <details class="section">
     <summary>索引全文（Notion/Canvas）</summary>
     <div class="body content" id="indexFull"></div>
   </details>
-<p style="opacity:.7;font-size:.85rem">站点版本 v5-2026-11-05 · 讲次 L01–L20 · 讲次正文按篇加载</p></main>
+</div></details>
+<p style="opacity:.7;font-size:.85rem">站点版本 learning-2026-11-05 · 讲次 L01–L20 · 讲次正文按篇加载</p></main>
 </div>
 <script src="data/index_md.js"></script>
 <script>
