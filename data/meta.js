@@ -1203,48 +1203,56 @@ window.SITE_META = {
   ],
   "papers": [
     {
-      "title": "How Do Large Language Monkeys Get Their Power (Laws)",
+      "title": "How Do Large Language Monkeys Get Their Power (Laws)?",
       "lecture": "L02",
       "topics": [
         "官方指定",
-        "无精读"
+        "精读"
       ],
-      "url": "https://cs329a.stanford.edu/",
-      "arxiv": "课表",
-      "note": "官方指定阅读；教案无独立精读"
+      "url": "https://arxiv.org/abs/2502.17578",
+      "arxiv": "2502.17578",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40f9384c52318110acb6ffa616e41537",
+      "anchor": "close-laws"
     },
     {
-      "title": "Scaling LLM Test-Time Compute Optimally (Snell 2024)",
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
       "lecture": "L02",
       "topics": [
         "官方指定",
-        "无精读"
+        "精读"
       ],
-      "url": "https://cs329a.stanford.edu/",
-      "arxiv": "课表",
-      "note": "官方指定阅读；教案无独立精读"
+      "url": "https://arxiv.org/abs/2408.03314",
+      "arxiv": "2408.03314",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40f9384c523181f0abdcfc2a12f99dc0",
+      "anchor": "close-snell"
     },
     {
-      "title": "ADaPT (Prasad 2024)",
+      "title": "ADaPT: As-Needed Decomposition and Planning with Language Models",
       "lecture": "L05",
       "topics": [
         "官方指定",
-        "无精读"
+        "精读"
       ],
-      "url": "https://cs329a.stanford.edu/",
-      "arxiv": "课表",
-      "note": "官方指定阅读；教案无独立精读"
+      "url": "https://arxiv.org/abs/2311.05772",
+      "arxiv": "2311.05772",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40f9384c5231810f8818d53a12783ded",
+      "anchor": "close-adapt"
     },
     {
-      "title": "Wider or Deeper? Adaptive Branching Tree Search",
+      "title": "Wider or Deeper? Scaling LLM Inference-Time Compute with Adaptive Branching Tree Search",
       "lecture": "L05",
       "topics": [
         "官方指定",
-        "无精读"
+        "精读"
       ],
-      "url": "https://cs329a.stanford.edu/",
-      "arxiv": "课表",
-      "note": "官方指定阅读；教案无独立精读"
+      "url": "https://arxiv.org/abs/2503.04412",
+      "arxiv": "2503.04412",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40f9384c5231819b8f19e651ee71d1af",
+      "anchor": "close-abmcts"
     },
     {
       "title": "ADAS (arXiv:2408.08435)",
