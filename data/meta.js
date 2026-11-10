@@ -568,12 +568,12 @@ window.SITE_META = {
       "id": "L10",
       "code": "L10",
       "lecture": "L10",
-      "title": "期中项目展示（一）",
+      "title": "期中项目展示总览（L10–L12）",
       "date": "Oct 24",
       "icon": "🎤",
       "source": "paper",
       "source_label": "期中展示",
-      "notion": null,
+      "notion": "https://app.notion.com/p/40d9384c52318179a7d8dc0916664afa",
       "page": "lectures/L10.html",
       "old_ids": []
     },
@@ -581,12 +581,12 @@ window.SITE_META = {
       "id": "L11",
       "code": "L11",
       "lecture": "L11",
-      "title": "期中项目展示（二）",
+      "title": "期中项目展示（二）（导引）",
       "date": "Oct 27",
       "icon": "🎤",
       "source": "paper",
       "source_label": "期中展示",
-      "notion": null,
+      "notion": "https://app.notion.com/p/40d9384c523181be8933caa0a7d9012a",
       "page": "lectures/L11.html",
       "old_ids": []
     },
@@ -594,12 +594,12 @@ window.SITE_META = {
       "id": "L12",
       "code": "L12",
       "lecture": "L12",
-      "title": "期中项目展示（三）",
+      "title": "期中项目展示（三）（导引）",
       "date": "Oct 31",
       "icon": "🎤",
       "source": "paper",
       "source_label": "期中展示",
-      "notion": null,
+      "notion": "https://app.notion.com/p/40d9384c523181209cf6c505e177209b",
       "page": "lectures/L12.html",
       "old_ids": []
     },
@@ -1307,6 +1307,45 @@ window.SITE_META = {
       "anchor": "close-weaver"
     },
     {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "lecture": "L04",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2210.03629",
+      "arxiv": "2210.03629",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181619cbbdd5871aa1c68?pvs=204",
+      "anchor": "close-react"
+    },
+    {
+      "title": "RLEF: Grounding Code LLMs in Execution Feedback with Reinforcement Learning",
+      "lecture": "L04",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2410.02089",
+      "arxiv": "2410.02089",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181e59c1ae92f01959d42?pvs=204",
+      "anchor": "close-rlef"
+    },
+    {
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "lecture": "L04",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2212.08073",
+      "arxiv": "2212.08073",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181e883a6ee35f3b77d68?pvs=204",
+      "anchor": "close-constitutional-ai"
+    },
+    {
       "title": "ADaPT: As-Needed Decomposition and Planning with Language Models",
       "lecture": "L05",
       "topics": [
@@ -1333,188 +1372,515 @@ window.SITE_META = {
       "anchor": "close-abmcts"
     },
     {
+      "title": "Synthetic Data Generation & Multi-Step RL for Reasoning & Tool Use",
+      "lecture": "L05",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2504.04736",
+      "arxiv": "2504.04736",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c5231815fa585fe67024bee5b?pvs=204",
+      "anchor": "close-swir"
+    },
+    {
+      "title": "Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models",
+      "lecture": "L05",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2310.04406",
+      "arxiv": "2310.04406",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181e3bc9de50f648d0575?pvs=204",
+      "anchor": "close-lats"
+    },
+    {
+      "title": "SPRINT: Enabling Interleaved Planning and Parallelized Execution in Reasoning Models",
+      "lecture": "L05",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2506.05745",
+      "arxiv": "2506.05745",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c52318140ac9ad08b1a286650?pvs=204",
+      "anchor": "close-sprint"
+    },
+    {
+      "title": "STaR: Bootstrapping Reasoning With Reasoning",
+      "lecture": "L06",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2203.14465",
+      "arxiv": "2203.14465",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c5231811a8da7c14bc03e7f25?pvs=204",
+      "anchor": "close-star"
+    },
+    {
+      "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "lecture": "L06",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2402.03300",
+      "arxiv": "2402.03300",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c52318173b61eeded32d34f1b?pvs=204",
+      "anchor": "close-deepseekmath"
+    },
+    {
+      "title": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+      "lecture": "L06",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2503.14476",
+      "arxiv": "2503.14476",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c5231816bb198fdfb7f304f95?pvs=204",
+      "anchor": "close-dapo"
+    },
+    {
       "title": "ADAS (arXiv:2408.08435)",
       "lecture": "L07",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2408.08435",
       "arxiv": "2408.08435",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c523181038839dac187af4a79",
+      "anchor": "close-adas"
     },
     {
       "title": "AI Scientist (arXiv:2408.06292)",
       "lecture": "L07",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2408.06292",
       "arxiv": "2408.06292",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c52318138b97bc8897d6c961d",
+      "anchor": "close-ai-scientist"
     },
     {
       "title": "AlphaEvolve 白皮书 (arXiv:2506.13131)",
       "lecture": "L07",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2506.13131",
       "arxiv": "2506.13131",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c5231814caf8eff316463a263",
+      "anchor": "close-alphaevolve"
     },
     {
-      "title": "Constitutional AI",
-      "lecture": "L09",
-      "topics": [],
-      "url": "https://arxiv.org/abs/2212.08073",
-      "arxiv": "2212.08073",
-      "note": "讲次或教案中的链接"
+      "title": "Competition-Level Code Generation with AlphaCode",
+      "lecture": "L08",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2203.07814",
+      "arxiv": "2203.07814",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c52318198aa91f3bddedcd126",
+      "anchor": "close-alphacode"
     },
     {
-      "title": "DeepSeek-R1",
+      "title": "AlphaCode 2 Technical Report",
+      "lecture": "L08",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://storage.googleapis.com/deepmind-media/AlphaCode2/AlphaCode2_Tech_Report.pdf",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181ef81f0d6c6fc86ef75",
+      "anchor": "close-alphacode2"
+    },
+    {
+      "title": "Search-o1: Agentic Search-Enhanced Large Reasoning Models",
+      "lecture": "L08",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2501.05366",
+      "arxiv": "2501.05366",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c52318160a8abc98ce4ae3c18",
+      "anchor": "close-search-o1"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
       "lecture": "L09",
-      "topics": [],
+      "topics": [
+        "嘉宾讲"
+      ],
       "url": "https://arxiv.org/abs/2501.12948",
       "arxiv": "2501.12948",
-      "note": "讲次或教案中的链接"
+      "note": "讲次提及（精读见 L06 脉络）"
     },
     {
-      "title": "Gemini 1.0 技术报告",
+      "title": "Gemini: A Family of Highly Capable Multimodal Models",
       "lecture": "L09",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2312.11805",
       "arxiv": "2312.11805",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读（§6 后训练）",
+      "notion": "https://app.notion.com/p/40a9384c52318187ad26e73c3f2df9e5?pvs=204",
+      "anchor": "close-gemini1"
     },
     {
-      "title": "Gemini 2.5 技术报告",
+      "title": "Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities",
       "lecture": "L09",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2507.06261",
       "arxiv": "2507.06261",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读（§2.4–2.5）",
+      "notion": "https://app.notion.com/p/40a9384c52318187ad26e73c3f2df9e5?pvs=204",
+      "anchor": "close-gemini25"
     },
     {
-      "title": "InstructGPT",
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
       "lecture": "L09",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2203.02155",
       "arxiv": "2203.02155",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c52318187ad26e73c3f2df9e5?pvs=204",
+      "anchor": "close-instructgpt"
     },
     {
-      "title": "WebRL",
+      "title": "WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning",
       "lecture": "L09",
-      "topics": [],
+      "topics": [
+        "嘉宾讲"
+      ],
       "url": "https://arxiv.org/abs/2411.02337",
       "arxiv": "2411.02337",
-      "note": "讲次或教案中的链接"
+      "note": "讲次提及"
     },
     {
       "title": "CodeMonkeys",
       "lecture": "L13",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2501.14723",
       "arxiv": "2501.14723",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c523181a8b231ce431f99f24c",
+      "anchor": "close-codemonkeys"
     },
     {
       "title": "KernelBench",
       "lecture": "L13",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2502.10517",
       "arxiv": "2502.10517",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c523181139976e0aa6fe1c32e",
+      "anchor": "close-kernelbench"
     },
     {
       "title": "LLM Optimizers via ASI",
       "lecture": "L13",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2410.15625",
       "arxiv": "2410.15625",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c52318116a6f3ec4a474cec35",
+      "anchor": "close-asi"
     },
     {
       "title": "CacheBlend",
       "lecture": "L14",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2405.16444",
       "arxiv": "2405.16444",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c523181f59cc1c5e85898efee",
+      "anchor": "close-cacheblend"
     },
     {
       "title": "Cartridges",
       "lecture": "L14",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2506.06266",
       "arxiv": "2506.06266",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c523181a0a63fef81d9f1bfd8",
+      "anchor": "close-cartridges"
     },
     {
       "title": "MemGPT",
       "lecture": "L14",
-      "topics": [],
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2310.08560",
       "arxiv": "2310.08560",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40d9384c523181ef81fbeff1da4766d6",
+      "anchor": "close-memgpt"
     },
     {
       "title": "CoT",
       "lecture": "L15",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2201.11903",
       "arxiv": "2201.11903",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181988f59f46ba4b48c94",
+      "anchor": "close-cot"
     },
     {
       "title": "Least-to-Most",
       "lecture": "L15",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2205.10625",
       "arxiv": "2205.10625",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181988f59f46ba4b48c94",
+      "anchor": "close-least-to-most"
     },
     {
       "title": "Self-Consistency",
       "lecture": "L15",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2203.11171",
       "arxiv": "2203.11171",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181988f59f46ba4b48c94",
+      "anchor": "close-self-consistency"
     },
     {
-      "title": "AG2",
+      "title": "Solving Olympiad Geometry Without Human Demonstrations",
       "lecture": "L16",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
+      "url": "https://doi.org/10.1038/s41586-023-06747-5",
+      "note": "中文精读（Nature 2024；无 arXiv 版）",
+      "notion": "https://app.notion.com/p/40a9384c5231815585eaf812a1faf096",
+      "anchor": "close-alphageometry"
+    },
+    {
+      "title": "Gold-Medalist Performance in Solving Olympiad Geometry with AlphaGeometry2",
+      "lecture": "L16",
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2502.03544",
       "arxiv": "2502.03544",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c5231815585eaf812a1faf096",
+      "anchor": "close-alphageometry2"
     },
     {
-      "title": "Algorithm Distillation",
-      "lecture": "L18",
-      "topics": [],
-      "url": "https://arxiv.org/abs/2210.14215",
-      "arxiv": "2210.14215",
-      "note": "讲次或教案中的链接"
+      "title": "Olympiad-Level Formal Mathematical Reasoning with Reinforcement Learning",
+      "lecture": "L16",
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
+      "url": "https://doi.org/10.1038/s41586-025-09833-y",
+      "note": "中文精读（Nature 2025；成绩细节见 DeepMind 博文）",
+      "notion": "https://app.notion.com/p/40a9384c5231815585eaf812a1faf096",
+      "anchor": "close-alphaproof"
     },
     {
-      "title": "Decision Transformer",
+      "title": "Measuring AI Ability to Complete Long Software Tasks",
+      "lecture": "L17",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2503.14499",
+      "arxiv": "2503.14499",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c5231817a9b0ce7ef1e755e3f",
+      "anchor": "close-metr"
+    },
+    {
+      "title": "GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks",
+      "lecture": "L17",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2510.04374",
+      "arxiv": "2510.04374",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181b8bbb2d073c5b438b9",
+      "anchor": "close-gdpval"
+    },
+    {
+      "title": "DeepScholar-Bench: A Live Benchmark and Automated Evaluation for Generative Research Synthesis",
+      "lecture": "L17",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2508.20033",
+      "arxiv": "2508.20033",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181c2a2f0fa4fb1dda7af",
+      "anchor": "close-deepscholar"
+    },
+    {
+      "title": "Decision Transformer: Reinforcement Learning via Sequence Modeling",
       "lecture": "L18",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2106.01345",
       "arxiv": "2106.01345",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181d58b28f9bdfdd766b8",
+      "anchor": "close-dt"
     },
     {
-      "title": "PaLM-E",
+      "title": "In-context Reinforcement Learning with Algorithm Distillation",
+      "lecture": "L18",
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2210.14215",
+      "arxiv": "2210.14215",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181d58b28f9bdfdd766b8",
+      "anchor": "close-ad"
+    },
+    {
+      "title": "PaLM-E: An Embodied Multimodal Language Model",
       "lecture": "L19",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2303.03378",
       "arxiv": "2303.03378",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181a686b8ea998000168f",
+      "anchor": "close-palme"
     },
     {
-      "title": "RT-2",
+      "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
       "lecture": "L19",
-      "topics": [],
+      "topics": [
+        "嘉宾讲",
+        "精读"
+      ],
       "url": "https://arxiv.org/abs/2307.15818",
       "arxiv": "2307.15818",
-      "note": "讲次或教案中的链接"
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/40a9384c523181a686b8ea998000168f",
+      "anchor": "close-rt2"
+    },
+    {
+      "title": "Multiagent Finetuning (Subramaniam et al. 2025)",
+      "lecture": "L20",
+      "topics": [
+        "课堂讨论",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2501.05707",
+      "arxiv": "2501.05707",
+      "note": "ICLR 2025；非官网指定阅读",
+      "notion": "https://app.notion.com/p/40a9384c523181c5bc51ffc99e71ce1a",
+      "anchor": "close-multiagent-ft"
+    },
+    {
+      "title": "DeepSeekMath-V2 (Shao et al. 2025)",
+      "lecture": "L20",
+      "topics": [
+        "课堂讨论",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2511.22570",
+      "arxiv": "2511.22570",
+      "note": "非官网指定阅读",
+      "notion": "https://app.notion.com/p/40a9384c523181c5bc51ffc99e71ce1a",
+      "anchor": "close-deepseekmath-v2"
+    },
+    {
+      "title": "Absolute Zero (Zhao et al. 2025)",
+      "lecture": "L20",
+      "topics": [
+        "课堂讨论",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2505.03335",
+      "arxiv": "2505.03335",
+      "note": "非官网指定阅读",
+      "notion": "https://app.notion.com/p/40a9384c523181c5bc51ffc99e71ce1a",
+      "anchor": "close-absolute-zero"
+    },
+    {
+      "title": "Intelligence Per Watt (Saad-Falcon & Narayan et al. 2025)",
+      "lecture": "L20",
+      "topics": [
+        "课堂讨论",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2511.07885",
+      "arxiv": "2511.07885",
+      "note": "非官网指定阅读",
+      "notion": "https://app.notion.com/p/40a9384c523181c5bc51ffc99e71ce1a",
+      "anchor": "close-ipw"
     }
   ]
 }
