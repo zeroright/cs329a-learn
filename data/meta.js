@@ -1229,6 +1229,84 @@ window.SITE_META = {
       "anchor": "close-snell"
     },
     {
+      "title": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+      "lecture": "L02",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2407.21787",
+      "arxiv": "2407.21787",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181beaa47d4f8dd53e7b4?pvs=204",
+      "anchor": "close-monkeys"
+    },
+    {
+      "title": "Archon: An Architecture Search Framework for Inference-Time Techniques",
+      "lecture": "L02",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2409.15254",
+      "arxiv": "2409.15254",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181979e02db73e9c839bc?pvs=204",
+      "anchor": "close-archon"
+    },
+    {
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "lecture": "L03",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2110.14168",
+      "arxiv": "2110.14168",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c5231816392c2f23fd97cf5cd?pvs=204",
+      "anchor": "close-cobbe"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "lecture": "L03",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2305.20050",
+      "arxiv": "2305.20050",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181e1bdfcfd4c120a3916?pvs=204",
+      "anchor": "close-lightman"
+    },
+    {
+      "title": "Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations",
+      "lecture": "L03",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2312.08935",
+      "arxiv": "2312.08935",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181a1810be18805b8d2fe?pvs=204",
+      "anchor": "close-math-shepherd"
+    },
+    {
+      "title": "Shrinking the Generation-Verification Gap with Weak Verifiers",
+      "lecture": "L03",
+      "topics": [
+        "官方指定",
+        "精读"
+      ],
+      "url": "https://arxiv.org/abs/2506.18203",
+      "arxiv": "2506.18203",
+      "note": "中文精读",
+      "notion": "https://app.notion.com/p/4149384c523181d39872fcbb328f0530?pvs=204",
+      "anchor": "close-weaver"
+    },
+    {
       "title": "ADaPT: As-Needed Decomposition and Planning with Language Models",
       "lecture": "L05",
       "topics": [
