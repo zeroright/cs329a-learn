@@ -1,5 +1,5 @@
 /*! CS329A inline lecture visualizations (v9b). Vanilla JS + Canvas/SVG. Lazy-init on scroll. */
-(function(){window._vizStart=true;console.log('viz-widgets.js started');
+(function(){
   'use strict';
   const NS='http://www.w3.org/2000/svg';
 
@@ -1605,7 +1605,7 @@
     const sections=findSections(host);
     const used=new Set();
     const mounted=[];
-    plan.forEach(item=>{window._ivPlanCount=(window._ivPlanCount||0)+1;
+    plan.forEach(item=>{
       const key=item.widget+(item.opts?JSON.stringify(item.opts):'');
       // allow same widget type twice if different sections; block exact duplicate mount keys per section
       let target=null;
@@ -1649,7 +1649,7 @@
       if(!fn){console.warn('missing widget',item.widget);return;}
       const card=fn(holder, item.opts||{});
       card.setAttribute('data-iv-widget', item.widget);
-      mounted.push(card);window._ivMounted=(window._ivMounted||[]).concat([item.widget+"::"+(d.isCloseRead?"closeRead":(d.querySelector("summary")?.textContent||"").slice(0,30))]);
+      mounted.push(card);
     });
     lazyWatch(mounted);
     // theme redraw
@@ -1682,11 +1682,7 @@
     nodes.forEach(n=>io.observe(n));
   }
 
-  window._vizLoadOk=true;console.log('viz-widgets.js loaded');window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
+  window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
 })();
-
-
-
-
 
 
