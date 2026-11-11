@@ -1682,8 +1682,9 @@
     nodes.forEach(n=>io.observe(n));
   }
 
-  window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
+  console.log('about to assign CS329A_VIZ');window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};console.log('CS329A_VIZ assigned');
 })();
+
 
 
 
