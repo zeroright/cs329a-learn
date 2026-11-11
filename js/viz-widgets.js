@@ -1598,7 +1598,7 @@
     return (sec.querySelector('summary')?.textContent||'').trim();
   }
 
-  function inject(lectureId, host){
+  function inject(lectureId, host){window._injectCount=(window._injectCount||0)+1;console.log('inject called, count=' + window._injectCount);
     if(!host) return;
     const plan=PLAN[lectureId]||[];
     if(!plan.length) return;
@@ -1684,6 +1684,7 @@
 
   window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
 })();
+
 
 
 
