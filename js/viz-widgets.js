@@ -1501,6 +1501,8 @@
       {match:/测试时算力与采样|学习路径|导言/, widget:'passAtK'},
       {match:/测试时算力与采样/, widget:'majorityVote'},
       {match:/搜索验证与编排/, widget:'bonVerifier'},
+      {match:/Snell|测试时算力最优缩放/, widget:'bonVerifier'},
+      {match:/Laws|幂律/, widget:'passAtK'},
     ],
     L03:[
       {match:/为何需要稳健验证|学习路径|导言/, widget:'bonVerifier'},
@@ -1516,6 +1518,8 @@
       {match:/多步规划|搜索树|学习路径|导言/, widget:'mctsTree'},
       {match:/并行反思|落地/, widget:'beamSearch'},
       {match:/SWiRL|SPRINT/, widget:'toolCompound'},
+      {match:/ADaPT/, widget:'beamSearch'},
+      {match:/AB-MCTS|Wider or Deeper/, widget:'mctsTree'},
     ],
     L06:[
       {match:/STaR|学习路径|导言/, widget:'starLoop'},
@@ -1581,10 +1585,17 @@
   };
 
   function findSections(host){
-    return [...host.querySelectorAll('details.section')];
+    const details=[...host.querySelectorAll('details.section')];
+    const closeReads=[...host.querySelectorAll('h2')].filter(h=>/论文精读|close-read/i.test(h.textContent)).map(h=>({isCloseRead:true,summary:h.textContent.trim(),body:h}));
+    return [...details,...closeReads];
   }
-  function sectionBody(details){
-    return details.querySelector('.body') || details;
+  function sectionBody(sec){
+    if(sec.isCloseRead) return sec.body;
+    return sec.querySelector('.body') || sec;
+  }
+  function sectionTitle(sec){
+    if(sec.isCloseRead) return sec.summary;
+    return (sec.querySelector('summary')?.textContent||'').trim();
   }
 
   function inject(lectureId, host){
@@ -1599,7 +1610,7 @@
       // allow same widget type twice if different sections; block exact duplicate mount keys per section
       let target=null;
       for(const d of sections){
-        const title=(d.querySelector('summary')?.textContent||'').trim();
+        const title=sectionTitle(d);
         if(item.match.test(title)){
           const idMark=title+'::'+item.widget;
           if(used.has(idMark) && !item.onceExtra) continue;
@@ -1613,25 +1624,26 @@
         if(sections[0]) target=sectionBody(sections[0]);
       }
       if(!target) return;
+      const isCloseRead=target.isCloseRead||target.tagName==='H2';
       // avoid duplicate identical widget already in this body
-      if(target.querySelector(`[data-iv-widget="${item.widget}"]`) && !item.onceExtra){
-        // for L06 duplicate grpo — skip if present
-        if(item.widget==='grpoAdvantage' && item.onceExtra){
-          // mount DAPO-labelled? skip duplicate
-          return;
-        }
+      if(!isCloseRead && target.querySelector(`[data-iv-widget="${item.widget}"]`) && !item.onceExtra){
+        if(item.widget==='grpoAdvantage' && item.onceExtra) return;
         return;
       }
       const holder=el('div',{'data-iv-widget':item.widget});
-      // place after first figure if any, else append
-      const fig=target.querySelector('.authored-figure, .figure-row, figure');
-      if(fig && fig.parentNode===target){
-        fig.insertAdjacentElement('afterend', holder);
+      if(isCloseRead){
+        target.insertAdjacentElement('afterend', holder);
       } else {
-        // after first paragraph
-        const p=target.querySelector('p');
-        if(p) p.insertAdjacentElement('afterend', holder);
-        else target.appendChild(holder);
+        // place after first figure if any, else append
+        const fig=target.querySelector('.authored-figure, .figure-row, figure');
+        if(fig && fig.parentNode===target){
+          fig.insertAdjacentElement('afterend', holder);
+        } else {
+          // after first paragraph
+          const p=target.querySelector('p');
+          if(p) p.insertAdjacentElement('afterend', holder);
+          else target.appendChild(holder);
+        }
       }
       const fn=W[item.widget];
       if(!fn){console.warn('missing widget',item.widget);return;}
@@ -1672,3 +1684,5 @@
 
   window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
 })();
+
+
