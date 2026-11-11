@@ -5,17 +5,83 @@
 <script src="data/meta.js"></script>
 <script src="data/learning.js"></script>
 <script defer src="js/learning.js"></script>
+<style>
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.compare-pane{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.compare-pane-hd{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:13px;font-weight:500}
+.compare-pane-hd .tag{font-size:11px;color:var(--muted);font-weight:400}
+.compare-pane pre,.compare-pane textarea{margin:0;padding:12px 14px;font-size:12px;line-height:1.55;font-family:ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-all}
+.compare-pane pre{background:var(--code-bg);color:var(--code-fg);max-height:420px;overflow:auto}
+.compare-pane textarea{width:100%;min-height:420px;background:var(--bg);color:var(--text);border:0;resize:vertical}
+.compare-pane textarea:focus{outline:2px solid var(--brand);outline-offset:-2px}
+.diff-summary{display:flex;align-items:center;gap:12px;padding:10px 14px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);background:var(--bg2)}
+.diff-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:500}
+.diff-badge.same{background:#d1fae5;color:#065f46}
+.diff-badge.diff{background:#fef3c7;color:#92400e}
+.diff-line-add{background:rgba(34,197,94,.15);border-left:3px solid #22c55e}
+.diff-line-del{background:rgba(239,68,68,.12);border-left:3px solid #ef4444}
+.diff-line-mod{background:rgba(245,158,11,.12);border-left:3px solid #f59e0b}
+.run-bar{display:flex;align-items:center;gap:10px;margin:12px 0;padding:10px 14px;background:var(--bg2);border-radius:8px;border:1px solid var(--border)}
+.run-bar .btn{padding:6px 14px;font-size:13px}
+.run-status{font-size:12px;color:var(--muted)}
+.compare-out{grid-column:1/-1}
+.compare-out pre{min-height:120px;max-height:300px;overflow:auto;font-size:12px}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">跳到主要内容</a>
 <header class="topbar"></header>
-<main class="main" id="mainContent"><section class="hero"><span class="eyebrow">实践中心 / 源码对照</span><h1>把任务要求与示例实现放在一起</h1><p>选择一个自编示例，查看它对应的官方任务。示例代码与代码运行页使用同一份数据。</p></section><div class="example-picker"><label for="sourceExample">选择示例</label><select id="sourceExample"></select></div><div class="code-cmp source-workspace"><section class="source-reference"><h2>官方任务参照</h2><div id="sourceReference"></div></section><section><div class="section-heading"><h2>自编实现</h2><a id="runSource" class="btn" href="playground.html">运行此示例 →</a></div><pre class="codebox" id="sourceCode"></pre></section></div></main>
-<script src="data/codes.js"></script><script>
+<main class="main" id="mainContent">
+<section class="hero"><span class="eyebrow">实践中心 / 源码对照</span><h1>参考代码 vs 你的实现</h1><p>左边是本站自编参考实现，右边是你的编辑区。改完点「对比差异」看行级变化，或直接运行验证逻辑。</p></section>
+<div class="example-picker"><label for="sourceExample">选择示例</label><select id="sourceExample"></select></div>
+<div class="compare-grid">
+  <div class="compare-pane"><div class="compare-pane-hd"><span>参考实现</span><span class="tag">只读</span></div><pre id="refCode"></pre></div>
+  <div class="compare-pane"><div class="compare-pane-hd"><span>你的编辑</span><span class="tag">可修改</span></div><textarea id="editCode" spellcheck="false"></textarea><div class="diff-summary" id="diffSummary">修改后点「对比差异」查看行级变化</div></div>
+</div>
+<div class="run-bar"><button class="btn" id="runBtn">运行你的代码</button><button class="btn secondary" id="resetBtn">重置为参考</button><button class="btn secondary" id="diffBtn">对比差异</button><span class="run-status" id="pyStatus">未加载 Pyodide</span></div>
+<div class="compare-pane compare-out"><div class="compare-pane-hd"><span>运行输出</span></div><pre id="runOut">(点「运行你的代码」执行)</pre></div>
+</main>
+<script src="data/codes.js"></script>
+<script src="js/playground.js"></script>
+<script>
 document.addEventListener('DOMContentLoaded',()=>{
- const select=document.getElementById('sourceExample');(SITE_META.examples||Object.keys(EXAMPLE_CODES).map(file=>({file,title:file}))).forEach(ex=>{const option=document.createElement('option');option.value=ex.file;option.textContent=ex.title;select.appendChild(option);});
- const requested=new URLSearchParams(location.search).get('ex');if([...select.options].some(o=>o.value===requested))select.value=requested;
- function update(){const file=select.value;document.getElementById('sourceCode').textContent=EXAMPLE_CODES[file]||'';document.getElementById('runSource').href='playground.html?ex='+encodeURIComponent(file);const taskMap={'pass_at_k.py':'hw2','majority_best_of_n.py':'hw1','react_loop.py':'hw3'};const hw=taskMap[file];const source=SITE_META.official.find(h=>h.id===hw);document.getElementById('sourceReference').innerHTML=source?`<h3>${source.title}</h3><p>${source.topics}</p><p>右侧为本站自编机制示例，不等于官方答案或完整作业实现。</p><a href="${source.url}" target="_blank" rel="noopener">查看官方仓库 →</a><p><a href="homework.html#${hw}">环境、步骤与复现要求 →</a></p>`:'<h3>课程延伸练习</h3><p>此示例没有独立对应的官方作业题。用于理解算法或工作流，不代表官方答案。</p><a href="assignments.html">查看自编综合项目与验收要求 →</a>';}
+ const select=document.getElementById('sourceExample');
+ const examples=(SITE_META.examples&&SITE_META.examples.length)?SITE_META.examples:Object.keys(EXAMPLE_CODES||{}).map(file=>({file,title:file.replace(/\.py$/,'').replace(/_/g,' ')}));
+ examples.forEach(ex=>{const o=document.createElement('option');o.value=ex.file;o.textContent=ex.title+' ('+ex.file+')';select.appendChild(o);});
+ const params=new URLSearchParams(location.search); const initial=params.get('ex')||'pass_at_k.py';
+ if([...select.options].some(o=>o.value===initial))select.value=initial;
 
- select.onchange=()=>{const u=new URL(location.href);u.searchParams.set('ex',select.value);history.replaceState(null,'',u);update();};update();
+ const refEl=document.getElementById('refCode'),editEl=document.getElementById('editCode'),diffEl=document.getElementById('diffSummary'),outEl=document.getElementById('runOut'),statusEl=document.getElementById('pyStatus');
+
+ function loadRef(){const code=EXAMPLE_CODES[select.value]||'';refEl.textContent=code;editEl.value=code;diffEl.innerHTML='已与参考同步 · 修改后点「对比差异」';}
+ select.onchange=()=>{const u=new URL(location.href);u.searchParams.set('ex',select.value);history.replaceState(null,'',u);loadRef();};
+ loadRef();
+ document.getElementById('resetBtn').onclick=loadRef;
+
+ function diffLines(ref,edit){
+   const r=ref.split('\n'),e=edit.split('\n');
+   const m=r.length,n=e.length;
+   if(m===n&&r.every((l,i)=>l===e[i]))return{same:true};
+   // simple LCS-based diff
+   const dp=Array.from({length:m+1},()=>new Uint16Array(n+1));
+   for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)dp[i][j]=r[i]===e[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+   const ops=[];let i=0,j=0;
+   while(i<m&&j<n){if(r[i]===e[j]){ops.push([' ',r[i]]);i++;j++;}else if(dp[i+1][j]>=dp[i][j+1]){ops.push(['-',r[i]]);i++;}else{ops.push(['+',e[j]]);j++;}}
+   while(i<m)ops.push(['-',r[i++]]);
+   while(j<n)ops.push(['+',e[j++]]);
+   const add=ops.filter(o=>o[0]==='+').length,del=ops.filter(o=>o[0]==='-').length;
+   return{same:false,add,del,ops};
+ }
+ document.getElementById('diffBtn').onclick=()=>{
+   const ref=refEl.textContent,edit=editEl.value;
+   const d=diffLines(ref,edit);
+   if(d.same){diffEl.innerHTML='<span class="diff-badge same">✓ 与参考一致</span> 没有改动';}
+   else{diffEl.innerHTML=`<span class="diff-badge diff">✎ ${d.del} 行删除 · ${d.add} 行新增</span> 共 ${d.del+d.add} 行差异`;}
+ };
+ document.getElementById('runBtn').onclick=async()=>{
+   outEl.textContent='运行中…';
+   try{await Playground.runPython(editEl.value,outEl,statusEl);}catch(e){outEl.textContent='加载失败：'+e.message;statusEl.textContent='Pyodide 不可用';}
+ };
 });
 </script></body></html>
