@@ -1,5 +1,5 @@
 /*! CS329A inline lecture visualizations (v9b). Vanilla JS + Canvas/SVG. Lazy-init on scroll. */
-(function(){console.log('viz-widgets.js executing');
+(function(){console.log('viz-widgets.js executing, document.createElement=' + typeof document.createElement);
   'use strict';
   const NS='http://www.w3.org/2000/svg';
 
@@ -1684,6 +1684,7 @@
 
   console.log('about to assign CS329A_VIZ');window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};console.log('CS329A_VIZ assigned');
 })();
+
 
 
 
