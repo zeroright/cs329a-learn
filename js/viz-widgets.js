@@ -1682,8 +1682,9 @@
     nodes.forEach(n=>io.observe(n));
   }
 
-  window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
+  window._vizLoadOk=true;window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
 })();
+
 
 
 
