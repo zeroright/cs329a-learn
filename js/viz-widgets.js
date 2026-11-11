@@ -1605,7 +1605,7 @@
     const sections=findSections(host);
     const used=new Set();
     const mounted=[];
-    plan.forEach(item=>{
+    plan.forEach(item=>{window._ivPlanCount=(window._ivPlanCount||0)+1;
       const key=item.widget+(item.opts?JSON.stringify(item.opts):'');
       // allow same widget type twice if different sections; block exact duplicate mount keys per section
       let target=null;
@@ -1649,7 +1649,7 @@
       if(!fn){console.warn('missing widget',item.widget);return;}
       const card=fn(holder, item.opts||{});
       card.setAttribute('data-iv-widget', item.widget);
-      mounted.push(card);
+      mounted.push(card);window._ivMounted=(window._ivMounted||[]).concat([item.widget+"::"+(d.isCloseRead?"closeRead":(d.querySelector("summary")?.textContent||"").slice(0,30))]);
     });
     lazyWatch(mounted);
     // theme redraw
@@ -1684,5 +1684,6 @@
 
   window.CS329A_VIZ={widgets:W, plan:PLAN, inject, colors};
 })();
+
 
 
